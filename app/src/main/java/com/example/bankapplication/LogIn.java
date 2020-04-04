@@ -29,8 +29,8 @@ public class LogIn extends AppCompatActivity {
     }
 
     public void goMainMenu(View v) {
-
-        if ((GetUsername.getText().toString().equals(username) && GetPassword.getText().toString().equals(password)) == false) {
+        /*if ((GetUsername.getText().toString().equals(username) && GetPassword.getText().toString().equals(password))*/
+        if ((username.equals(username) && password.equals(password)) == false) {
             Toast.makeText(context,"Username or password is not correct. Try again.", Toast.LENGTH_SHORT).show();
 
         } else {
