@@ -1,0 +1,16 @@
+4.4.2020 Taru Haimi
+	Github-repository created.
+	LogIn-activity created with all functionalities apart from sign up.
+	Added "Sign out" -button to MainActivity.
+3.4.2020 Taru Haimi
+	Tried to create LogIn-activity.
+	AddCard-activity created with some functionalities.
+	AddAccount-activity created with some functionalities.
+	ChooseCard-activity created.
+	ChooseAccount-activity created.
+	AccountsAndCards-activity created with all functionalities.
+	EditInfo-activity created with functionalities apart from reseting password.
+	MainActivity-activity created with functionalities apart from sign out.
+	Project created.
+	
+	
