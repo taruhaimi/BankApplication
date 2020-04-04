@@ -9,7 +9,7 @@
 	ChooseCard-activity created.
 	ChooseAccount-activity created.
 	AccountsAndCards-activity created with all functionalities.
-	EditInfo-activity created with functionalities apart from reseting password.
+	EditInfo-activity created with all functionalities. 'New password' is working, but it doesn't change the real log in -password. 
 	MainActivity-activity created with functionalities apart from sign out.
 	Project created.
 	
