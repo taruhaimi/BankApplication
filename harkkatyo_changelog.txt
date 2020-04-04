@@ -1,0 +1,16 @@
+4.4.2020 Taru Haimi
+	Github-repository created.
+	LogIn-activity created with all functionalities (Textfields and buttons created, "Sign up" doesn't do anything).
+	Added "Sign out" -button to MainActivity.
+3.4.2020 Taru Haimi
+	Tried to create LogIn-activity.
+	AddCard-activity created with some functionalities (Textfileds, switchers and button created, but they don't do anything).
+	AddAccount-activity created with some functionalities (Textfields, switcher and button created, but they don't do anything.).
+	ChooseCard-activity created, no methods yet.
+	ChooseAccount-activity created, no methods yet.
+	AccountsAndCards-activity created with all functionalities (Choose account/card, Add account/card).
+	EditInfo-activity created with all functionalities (Changing and saving personal information. Changing the password -method is also working, but it doesn't change the real log in -password yet). 
+	MainActivity-activity created with functionalities "Edit Information" and "Accounts and Cards".
+	Project created.
+	
+	
