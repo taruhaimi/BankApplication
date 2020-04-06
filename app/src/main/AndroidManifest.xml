@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AccountInfo"></activity>
+        <activity android:name=".SelfPayment"></activity>
+        <activity android:name=".NewPayment" />
+        <activity android:name=".AddMoney" />
+        <activity android:name=".AccountInfo" />
         <activity android:name=".LogIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

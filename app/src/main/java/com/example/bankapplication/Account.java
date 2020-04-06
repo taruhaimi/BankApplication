@@ -3,10 +3,12 @@ package com.example.bankapplication;
 
 import androidx.annotation.NonNull;
 
+import java.util.ArrayList;
+
 public abstract class Account {
-    abstract void getMoney();
-    abstract int depositMoney(int add);
-    abstract int withdrawMoney(int remove);
+    abstract double getMoney();
+    abstract double depositMoney(double add);
+    abstract double withdrawMoney(double remove);
     abstract String getInformation();
     abstract String getID();
     abstract String getType();
@@ -15,24 +17,24 @@ public abstract class Account {
 }
 
 class currentAccount extends Account	{
-    int money;
+    double money;
     String name;
     String accountID;
     String type = "Current";
+    ArrayList<Card> cardArrayList = new ArrayList<Card>();
     @Override
-
-    void getMoney() {
-        System.out.println("Account number: "+name+" Amount of money: "+money);
+    double getMoney() {
+        return money;
     }
 
     @Override
-    int depositMoney(int add) {
+    double depositMoney(double add) {
         money = money+add;
         return money;
     }
 
     @Override
-    int withdrawMoney(int remove) {
+    double withdrawMoney(double remove) {
         money = money-remove;
         return money;
     }
@@ -57,10 +59,12 @@ class currentAccount extends Account	{
         return 0;
     }
 
-    void createAccount(String n, String i, int m) {
+    void createAccount(String n, String i, double m) {
         accountID = i;
         name = n;
         money = m;
+    }
+    void createCard(String n, String t, String c)   {
     }
 
     @NonNull
@@ -74,19 +78,20 @@ class currentAccount extends Account	{
 
 
 class savingAccount extends Account	{
-    int money;
+    double money;
     String name;
-    double interest = 0.02;
+    double interest = 1.02;
     String accountID;
     String type = "Saving";
 
 
     @Override
-    void getMoney() {
+    double getMoney() {
+    return money;
     }
 
     @Override
-    int depositMoney(int add) {
+    double depositMoney(double add) {
         money = money+add;
         return money;
     }
@@ -108,15 +113,15 @@ class savingAccount extends Account	{
     }
 
     public double getInterest() {
-        return 0.02;
+        return interest;
     }
 
-    int withdrawMoney(int remove) {
+    double withdrawMoney(double remove) {
         money = money-remove;
         return money;
     }
 
-    void createAccount(String n, String i, int m ) {
+    void createAccount(String n, String i, double m ) {
         name = n;
         money = m;
         accountID = i;

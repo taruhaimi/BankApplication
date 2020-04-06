@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import org.w3c.dom.Text;
 public class AccountInfo extends AppCompatActivity {
     TextView accountName;
     TextView accountNumber;
+    TextView accountMoney;
     TextView accountType;
     TextView accountInterest;
     int listIndex;
@@ -24,6 +26,7 @@ public class AccountInfo extends AppCompatActivity {
         accountNumber = (TextView) findViewById(R.id.accountNumber);
         accountType = (TextView) findViewById(R.id.accountType);
         accountInterest =(TextView) findViewById(R.id.accountInterest);
+        accountMoney = (TextView) findViewById(R.id.accountMoney);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             listIndex = extras.getInt("key");
@@ -31,9 +34,10 @@ public class AccountInfo extends AppCompatActivity {
             accountName.setText("Name: "+MainActivity.accountArrayList.get(listIndex).getInformation());
             accountNumber.setText("Account number: "+MainActivity.accountArrayList.get(listIndex).getID());
             accountType.setText("Account type: "+MainActivity.accountArrayList.get(listIndex).getType());
-            /*if (MainActivity.accountArrayList.get(listIndex).getType().equals("Saving")) {
-            accountInterest.setText((int) MainActivity.accountArrayList.get(listIndex).getInterest());
-        }*/
+            accountMoney.setText("Account type: "+MainActivity.accountArrayList.get(listIndex).getMoney());
+            if (MainActivity.accountArrayList.get(listIndex).getType().equals("Saving")) {
+            accountInterest.setText(Double.toString(MainActivity.accountArrayList.get(listIndex).getInterest()));
+        }
         }
     }
 
@@ -57,5 +61,25 @@ public class AccountInfo extends AppCompatActivity {
         });
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    public void addMoney(View v)    {
+        Intent i = new Intent(AccountInfo.this,AddMoney.class);
+        i.putExtra("key", listIndex);
+        startActivity(i);
+    }
+
+    public void newPayment(View v)  {
+        Intent i = new Intent(AccountInfo.this,NewPayment.class);
+        i.putExtra("key", listIndex);
+        startActivity(i);
+    }
+
+    protected void onResume()    {
+        super.onResume();
+        accountName.setText("Name: "+MainActivity.accountArrayList.get(listIndex).getInformation());
+        accountNumber.setText("Account number: "+MainActivity.accountArrayList.get(listIndex).getID());
+        accountType.setText("Account type: "+MainActivity.accountArrayList.get(listIndex).getType());
+        accountMoney.setText("Account type: "+MainActivity.accountArrayList.get(listIndex).getMoney());
     }
 }
