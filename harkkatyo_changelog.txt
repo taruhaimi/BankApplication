@@ -1,3 +1,11 @@
+4.4.2020 Leevi Kämäräinen
+	Created Account class with 2 subclasses CurrentAccount and SavingAccount.
+	Added functionalities to AddAccount-activity and ChooseAccount (Create account, choose an account and delet an account).
+	AccountInfo-activity created with functionality to see info about it and to delete an existing Account.
+	Created Arraylist to store Account-classes.
+	Changed LogIn activity to be more user-friendly while testing the project.
+	
+
 4.4.2020 Taru Haimi
 	Github-repository created.
 	LogIn-activity created with all functionalities (Textfields and buttons created, "Sign up" doesn't do anything).
