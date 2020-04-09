@@ -1,5 +1,7 @@
 package com.example.bankapplication;
 
+import androidx.annotation.NonNull;
+
 import java.util.Random;
 
 public class Card {
@@ -48,4 +50,9 @@ public class Card {
         ContactlessPay = c;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return "Card Name: "+name+"\n Card id: "+id+"\nCard type: "+type+"\nHas Contactless Payment: "+ContactlessPay;
+    }
 }

@@ -26,7 +26,7 @@ public class AddAccount extends AppCompatActivity {
     }
 
     public void chooseType(View v) {
-        Boolean switchstate = accType.isChecked();
+        boolean switchstate = accType.isChecked();
         if (!switchstate)  {
             createCurrentAccount(v);
         }

@@ -34,9 +34,9 @@ public class AccountInfo extends AppCompatActivity {
             accountName.setText("Name: "+MainActivity.accountArrayList.get(listIndex).getInformation());
             accountNumber.setText("Account number: "+MainActivity.accountArrayList.get(listIndex).getID());
             accountType.setText("Account type: "+MainActivity.accountArrayList.get(listIndex).getType());
-            accountMoney.setText("Account type: "+MainActivity.accountArrayList.get(listIndex).getMoney());
+            accountMoney.setText("Account money: "+MainActivity.accountArrayList.get(listIndex).getMoney());
             if (MainActivity.accountArrayList.get(listIndex).getType().equals("Saving")) {
-            accountInterest.setText(Double.toString(MainActivity.accountArrayList.get(listIndex).getInterest()));
+            accountInterest.setText("Interest: "+Double.toString(MainActivity.accountArrayList.get(listIndex).getInterest()));
         }
         }
     }
@@ -74,7 +74,11 @@ public class AccountInfo extends AppCompatActivity {
         i.putExtra("key", listIndex);
         startActivity(i);
     }
-
+    public void showCards(View v)   {
+        Intent i = new Intent(AccountInfo.this,ChooseCard.class);
+        i.putExtra("key", listIndex);
+        startActivity(i);
+    }
     protected void onResume()    {
         super.onResume();
         accountName.setText("Name: "+MainActivity.accountArrayList.get(listIndex).getInformation());

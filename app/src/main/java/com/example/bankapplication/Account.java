@@ -5,23 +5,32 @@ import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
+
 public abstract class Account {
     abstract double getMoney();
+
     abstract double depositMoney(double add);
+
     abstract double withdrawMoney(double remove);
+
     abstract String getInformation();
+
     abstract String getID();
+
     abstract String getType();
+
     abstract double getInterest();
 
-}
+    abstract void createCard(String n, String i, String c);
 
+    ArrayList<Card> cardArrayList = new ArrayList<Card>();
+}
 class currentAccount extends Account	{
     double money;
     String name;
     String accountID;
     String type = "Current";
-    ArrayList<Card> cardArrayList = new ArrayList<Card>();
+
     @Override
     double getMoney() {
         return money;
@@ -65,6 +74,9 @@ class currentAccount extends Account	{
         money = m;
     }
     void createCard(String n, String t, String c)   {
+        Card card = new Card();
+        card.createCard(n, t, c);
+        cardArrayList.add(card);
     }
 
     @NonNull
@@ -83,7 +95,6 @@ class savingAccount extends Account	{
     double interest = 1.02;
     String accountID;
     String type = "Saving";
-
 
     @Override
     double getMoney() {
@@ -116,12 +127,20 @@ class savingAccount extends Account	{
         return interest;
     }
 
+    @Override
+    void createCard(String n, String t, String c)   {
+            Card card = new Card();
+            card.createCard(n, t, c);
+            cardArrayList.add(card);
+    }
+
+
     double withdrawMoney(double remove) {
         money = money-remove;
         return money;
     }
 
-    void createAccount(String n, String i, double m ) {
+    void createAccount(String n, String i, double m) {
         name = n;
         money = m;
         accountID = i;
