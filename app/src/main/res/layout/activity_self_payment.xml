@@ -48,8 +48,8 @@
 
     <ListView
         android:id="@+id/accountList"
-        android:layout_width="375dp"
-        android:layout_height="304dp"
+        android:layout_width="376dp"
+        android:layout_height="227dp"
         android:choiceMode="singleChoice"
         android:listSelector="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="parent"

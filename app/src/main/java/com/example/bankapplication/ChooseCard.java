@@ -22,7 +22,7 @@ public class ChooseCard extends AppCompatActivity {
         if (extras != null) {
             listIndex = extras.getInt("key");
         }
-        final ArrayAdapter<Card> arrayAdapter = new ArrayAdapter<Card>(this,android.R.layout.simple_list_item_1,MainActivity.accountArrayList.get(listIndex).cardArrayList);
+        ArrayAdapter<Card> arrayAdapter = new ArrayAdapter<Card>(this,android.R.layout.simple_list_item_1,MainActivity.accountArrayList.get(listIndex).cardArrayList);
         cards.setAdapter(arrayAdapter);
         cards.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

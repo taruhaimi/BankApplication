@@ -39,11 +39,11 @@ public class AddAccount extends AppCompatActivity {
         Random rand = new Random();
         accountname = accName.getText().toString();
         id = (rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100);
-        currentAccount account = new currentAccount();
+        Account account = new Account();
         int flag = 0;
         for (int i=0; i<MainActivity.accountArrayList.size(); i++)  {
             if (MainActivity.accountArrayList.get(i).getInformation().equals(accountname))   {
-                Toast.makeText(this, "Acconut name: "+accountname+" is already taken.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Account name: "+accountname+" is already taken.", Toast.LENGTH_SHORT).show();
                 flag = 1;
             }
             if (MainActivity.accountArrayList.get(i).getID().equals(id))   {
@@ -52,15 +52,17 @@ public class AddAccount extends AppCompatActivity {
             }
         }
         if (flag == 0)  {
-        account.createAccount(accountname, id, 0);
+        account.createAccount(accountname, id, 0, "Current", 1.00);
         MainActivity.accountArrayList.add(account);
+        Toast.makeText(this, "Created account: "+accountname+"\nId: "+id, Toast.LENGTH_SHORT).show();
+
         }
     }
     public void createSavingsAccount (View v)    {
         Random rand = new Random();
         accountname = accName.getText().toString();
         id = (rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100);
-        savingAccount account = new savingAccount();
+        Account account = new Account();
         int flag = 0;
         for (int i=0; i<MainActivity.accountArrayList.size(); i++)  {
             if (MainActivity.accountArrayList.get(i).getInformation().equals(accountname))   {
@@ -73,8 +75,9 @@ public class AddAccount extends AppCompatActivity {
             }
         }
         if (flag == 0)  {
-            account.createAccount(accountname, id, 0);
+            account.createAccount(accountname, id, 0, "Savings", 1.02);
             MainActivity.accountArrayList.add(account);
+            Toast.makeText(this, "Created account: "+accountname+"\nId: "+id, Toast.LENGTH_SHORT).show();
         }
     }
 }

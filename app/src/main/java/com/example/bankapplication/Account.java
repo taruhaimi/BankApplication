@@ -6,77 +6,74 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 
 
-public abstract class Account {
-    abstract double getMoney();
-
-    abstract double depositMoney(double add);
-
-    abstract double withdrawMoney(double remove);
-
-    abstract String getInformation();
-
-    abstract String getID();
-
-    abstract String getType();
-
-    abstract double getInterest();
-
-    abstract void createCard(String n, String i, String c);
-
-    ArrayList<Card> cardArrayList = new ArrayList<Card>();
-}
-class currentAccount extends Account	{
+public class Account {
     double money;
     String name;
     String accountID;
-    String type = "Current";
 
-    @Override
+
+
+    String type;
+
+
+
+    double interest;
+    ArrayList<Card> cardArrayList = new ArrayList<Card>();
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setInterest(double interest) {
+        this.interest = interest;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     double getMoney() {
         return money;
     }
 
-    @Override
     double depositMoney(double add) {
         money = money+add;
         return money;
     }
 
-    @Override
     double withdrawMoney(double remove) {
         money = money-remove;
         return money;
     }
 
-    @Override
     String getInformation() {
         return name;
     }
 
-    @Override
     String getID() {
         return accountID;
     }
 
-    @Override
     String getType() {
         return type;
     }
 
-    @Override
     double getInterest() {
-        return 0;
+        return interest;
     }
 
-    void createAccount(String n, String i, double m) {
+    void createAccount(String n, String i, double m, String t, double k) {
         accountID = i;
         name = n;
         money = m;
+        type = t;
+        interest = k;
     }
     void createCard(String n, String t, String c)   {
         Card card = new Card();
         card.createCard(n, t, c);
         cardArrayList.add(card);
+        System.out.println("JEE!");
     }
 
     @NonNull
@@ -88,7 +85,7 @@ class currentAccount extends Account	{
     }
 }
 
-
+/*
 class savingAccount extends Account	{
     double money;
     String name;
@@ -153,4 +150,4 @@ class savingAccount extends Account	{
         info = "Account name: "+name+"\nAccount-ID: " + accountID+"\nMoney: "+money+"\nType: "+type;
         return info;
     }
-}
+}*/

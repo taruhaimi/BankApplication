@@ -7,9 +7,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class AccountInfo extends AppCompatActivity {
     TextView accountName;
@@ -17,6 +17,8 @@ public class AccountInfo extends AppCompatActivity {
     TextView accountMoney;
     TextView accountType;
     TextView accountInterest;
+    EditText accountNameEdit;
+    Switch Type;
     int listIndex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,20 +29,39 @@ public class AccountInfo extends AppCompatActivity {
         accountType = (TextView) findViewById(R.id.accountType);
         accountInterest =(TextView) findViewById(R.id.accountInterest);
         accountMoney = (TextView) findViewById(R.id.accountMoney);
+        accountNameEdit = (EditText) findViewById(R.id.editName);
+        Type = (Switch) findViewById(R.id.typeSwitch);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             listIndex = extras.getInt("key");
             System.out.println(listIndex);
-            accountName.setText("Name: "+MainActivity.accountArrayList.get(listIndex).getInformation());
+            accountNameEdit.setText(MainActivity.accountArrayList.get(listIndex).getInformation());
             accountNumber.setText("Account number: "+MainActivity.accountArrayList.get(listIndex).getID());
             accountType.setText("Account type: "+MainActivity.accountArrayList.get(listIndex).getType());
             accountMoney.setText("Account money: "+MainActivity.accountArrayList.get(listIndex).getMoney());
-            if (MainActivity.accountArrayList.get(listIndex).getType().equals("Saving")) {
             accountInterest.setText("Interest: "+Double.toString(MainActivity.accountArrayList.get(listIndex).getInterest()));
-        }
+            if (MainActivity.accountArrayList.get(listIndex).getType().equals("Savings")) {
+            Type.setChecked(true);
+            }
         }
     }
+    public void updateAccount(View v)   {
+        MainActivity.accountArrayList.get(listIndex).setName(accountNameEdit.getText().toString());
+        boolean state = Type.isChecked();
+        if (!state) {
+            MainActivity.accountArrayList.get(listIndex).setInterest(1);
+            MainActivity.accountArrayList.get(listIndex).setType("Current");
+            accountInterest.setText("Interest: "+Double.toString(MainActivity.accountArrayList.get(listIndex).getInterest()));
+            accountType.setText("Account type: "+MainActivity.accountArrayList.get(listIndex).getType());
+        }
+        else {
+            MainActivity.accountArrayList.get(listIndex).setInterest(1.02);
+            MainActivity.accountArrayList.get(listIndex).setType("Savings");
+            accountType.setText("Account type: "+MainActivity.accountArrayList.get(listIndex).getType());
+            accountInterest.setText("Interest: "+Double.toString(MainActivity.accountArrayList.get(listIndex).getInterest()));
+        }
 
+    }
     public void deleteAccount(View v)   {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
@@ -81,7 +102,7 @@ public class AccountInfo extends AppCompatActivity {
     }
     protected void onResume()    {
         super.onResume();
-        accountName.setText("Name: "+MainActivity.accountArrayList.get(listIndex).getInformation());
+        accountName.setText("Name: ");
         accountNumber.setText("Account number: "+MainActivity.accountArrayList.get(listIndex).getID());
         accountType.setText("Account type: "+MainActivity.accountArrayList.get(listIndex).getType());
         accountMoney.setText("Account type: "+MainActivity.accountArrayList.get(listIndex).getMoney());

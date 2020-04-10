@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.Toast;
 
 public class AddCard extends AppCompatActivity {
     EditText cardName;
@@ -33,6 +34,7 @@ public class AddCard extends AppCompatActivity {
 
 
 public void createCard(View v)  {
+        int position;
         try {
             Name = cardName.getText().toString();
             boolean switchContact = contactlessSwitch.isChecked();
@@ -49,17 +51,9 @@ public void createCard(View v)  {
             else if (switchType)    {
                 Type = "Credit";
             }
-            accountList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                 MainActivity.accountArrayList.get(position).createCard(Name, Type, contactless);
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
+            position = accountList.getSelectedItemPosition();
+            MainActivity.accountArrayList.get(position).createCard(Name, Type, contactless);
+            Toast.makeText(this, "Created card: "+Name, Toast.LENGTH_SHORT).show();
         } finally {
         }
         }

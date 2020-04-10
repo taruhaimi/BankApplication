@@ -44,7 +44,7 @@ public class Card {
 
     public void createCard(String n, String t, String c) {
         Random rand = new Random();
-        id = (rand.nextInt(9900)+100)+" "+(rand.nextInt(9900)+100)+" "+(rand.nextInt(9900)+100)+" "+(rand.nextInt(9900)+100);
+        id = (rand.nextInt(8900)+1000)+" "+(rand.nextInt(8900)+1000)+" "+(rand.nextInt(8900)+1000)+" "+(rand.nextInt(8900)+1000);
         name = n;
         type = t;
         ContactlessPay = c;
@@ -53,6 +53,6 @@ public class Card {
     @NonNull
     @Override
     public String toString() {
-        return "Card Name: "+name+"\n Card id: "+id+"\nCard type: "+type+"\nHas Contactless Payment: "+ContactlessPay;
+        return "Card Name: "+name+"\nCard id: "+id+"\nCard type: "+type+"\nContactless Payment: "+ContactlessPay;
     }
 }

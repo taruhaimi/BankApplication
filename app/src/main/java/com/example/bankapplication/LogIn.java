@@ -35,6 +35,7 @@ public class LogIn extends AppCompatActivity {
 
         } else {
             startActivity(new Intent(LogIn.this, MainActivity.class));
+            finish();
         }
     }
 }
