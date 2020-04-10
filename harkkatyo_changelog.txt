@@ -1,3 +1,9 @@
+9.4 Leevi Kämäräinen
+	Added functionality to save Arraylists to Shared Preferences (Accounts & Card objects).
+	Updated UI-elements and toast-messages.
+	Added error-handling to adding money to the accounts activity.
+	Changed Account-class to handle different types of accounts with parameters instead of two different types of class which 		extends from an abstract class.
+	
 6.4.2020 Leevi Kämäräinen
 	Added functionality to transfer money between own accounts.
 	Added functionality to add money to an account (no admin access yet).
