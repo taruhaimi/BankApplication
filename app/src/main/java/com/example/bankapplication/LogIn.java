@@ -38,4 +38,8 @@ public class LogIn extends AppCompatActivity {
             finish();
         }
     }
+
+    public void goSignUp(View v) {
+        startActivity(new Intent(LogIn.this, SignUp.class));
+    }
 }

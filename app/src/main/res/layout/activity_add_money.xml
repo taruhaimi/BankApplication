@@ -7,59 +7,59 @@
     tools:context=".AddMoney">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="157dp"
-        android:layout_height="51dp"
-        android:text="Add Money"
+        android:id="@+id/addMoneyView"
+        android:layout_width="284dp"
+        android:layout_height="82dp"
+        android:text="ADD MONEY TO YOUR ACCOUNT"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textSize="30sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintVertical_bias="0.154" />
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="309dp"
+        android:id="@+id/moneyAmountView"
+        android:layout_width="302dp"
         android:layout_height="47dp"
-        android:text="Amount of money"
-        android:textAlignment="viewStart"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        android:text="Amount of money:"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.331" />
+        app:layout_constraintVertical_bias="0.435" />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="316dp"
+        android:id="@+id/getMoney"
+        android:layout_width="302dp"
         android:layout_height="49dp"
         android:ems="10"
         android:hint="e.g. 50.00"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.428" />
+        app:layout_constraintVertical_bias="0.517" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="207dp"
+        android:layout_width="302dp"
         android:layout_height="71dp"
         android:onClick="addMoney"
         android:text="Add the money"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545" />
+        app:layout_constraintVertical_bias="0.663" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

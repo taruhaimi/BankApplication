@@ -42,9 +42,7 @@ public class EditInfo extends AppCompatActivity {
 
         loadInformation();
         showInformation();
-
     }
-
 
     public void saveInformation(View v) {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
@@ -56,7 +54,6 @@ public class EditInfo extends AppCompatActivity {
         editor.putString(EMAIL, Email.getText().toString());
 
 
-
         if (Password1.getText().toString().equals(Password2.getText().toString()) == false) {
             Toast.makeText(context,"Passwords do not match, try again.", Toast.LENGTH_SHORT).show();
         } else {
@@ -65,9 +62,7 @@ public class EditInfo extends AppCompatActivity {
 
             Toast.makeText(context,"Your personal information is now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
         }
-
         editor.apply();
-
     }
 
     public void loadInformation() {
@@ -86,7 +81,5 @@ public class EditInfo extends AppCompatActivity {
         Address.setText(newAdress);
         Number.setText(newNumber);
         Email.setText(newEmail);
-
-
     }
 }

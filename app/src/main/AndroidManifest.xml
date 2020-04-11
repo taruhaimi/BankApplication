@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SelfPayment"></activity>
+        <activity android:name=".SignUp"></activity>
+        <activity android:name=".CardPayment" />
+        <activity android:name=".TransferPayment" />
+        <activity android:name=".Credits" />
+        <activity android:name=".SelfPayment" />
         <activity android:name=".NewPayment" />
         <activity android:name=".AddMoney" />
         <activity android:name=".AccountInfo" />

@@ -16,13 +16,14 @@ public class SelfPayment extends AppCompatActivity {
     double moneyAmount;
     ListView accountview;
     EditText withdrawAmount;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_payment);
         accountview = (ListView) findViewById(R.id.accountList);
-        withdrawAmount = (EditText) findViewById(R.id.editText2);
-        withdrawAmount.setText("0");
+        withdrawAmount = (EditText) findViewById(R.id.moneyAmount);
+        withdrawAmount.setText("0.00");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             listIndex = extras.getInt("key");
@@ -38,16 +39,22 @@ public class SelfPayment extends AppCompatActivity {
     }
 
     public void AccountPay(View v)  {
-        moneyAmount = Double.parseDouble(withdrawAmount.getText().toString());
-        if (MainActivity.accountArrayList.get(listIndex).getMoney()<moneyAmount)    {
-            Toast.makeText(this, "Not enough money!", Toast.LENGTH_SHORT).show();
+        try {
+            moneyAmount = Double.parseDouble(withdrawAmount.getText().toString());
+            if (MainActivity.accountArrayList.get(listIndex).getMoney() < moneyAmount) {
+                Toast.makeText(this, "Not enough money!", Toast.LENGTH_SHORT).show();
+            } else {
+                MainActivity.accountArrayList.get(listIndex).withdrawMoney(moneyAmount);
+                MainActivity.accountArrayList.get(listposition).depositMoney(moneyAmount);
+                Toast.makeText(this, "Transferred " + moneyAmount + "€ from account " + MainActivity.accountArrayList.get(listIndex).getInformation() + " to account " + MainActivity.accountArrayList.get(listposition).getInformation() + " successfully.", Toast.LENGTH_LONG).show();
+                accountview.invalidateViews();
+                accountview.refreshDrawableState();
+            }
+        } catch (NumberFormatException nfe) {
+            Toast.makeText(this, "Invalid input, try again!", Toast.LENGTH_SHORT).show();
         }
-        else    {
-            MainActivity.accountArrayList.get(listIndex).withdrawMoney(moneyAmount);
-            MainActivity.accountArrayList.get(listposition).depositMoney(moneyAmount);
-            Toast.makeText(this, "Transferred "+moneyAmount+"e from account: "+MainActivity.accountArrayList.get(listIndex).getInformation()+" to account: "+ MainActivity.accountArrayList.get(listposition).getInformation(), Toast.LENGTH_SHORT).show();
-            accountview.invalidateViews();
-            accountview.refreshDrawableState();
+        catch (NullPointerException e)  {
+            Toast.makeText(this, "Invalid input, try again!", Toast.LENGTH_SHORT).show();
         }
     }
 }

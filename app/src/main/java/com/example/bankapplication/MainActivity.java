@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             accountArrayList = new ArrayList<Account>();
         }
     }
+
     public void goEditInfo(View v) {
         startActivity(new Intent(MainActivity.this,EditInfo.class));
     }
@@ -61,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
     public void goLogIn(View v) {
         startActivity(new Intent(MainActivity.this, LogIn.class));
         finish();
+    }
+
+    public void goCardPaymentSimulation(View v) {
+        startActivity(new Intent(MainActivity.this, CardPayment.class));
+    }
+
+    public void goCredits(View v) {
+        startActivity(new Intent(MainActivity.this, Credits.class));
     }
 
 

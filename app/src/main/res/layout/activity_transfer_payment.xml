@@ -4,28 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelfPayment">
+    tools:context=".TransferPayment">
 
-    <TextView
-        android:id="@+id/transferView"
-        android:layout_width="329dp"
-        android:layout_height="83dp"
-        android:text="TRANSFER TO YOUR OWN ACCOUNT"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="30sp"
+    <EditText
+        android:id="@+id/moneyAmount"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="e.g 50 or 50.00"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.158" />
+        app:layout_constraintVertical_bias="0.642" />
 
     <TextView
-        android:id="@+id/chooseAcc"
+        android:id="@+id/moneyAmountView"
         android:layout_width="302dp"
-        android:layout_height="61dp"
-        android:text="Choose your account:"
+        android:layout_height="wrap_content"
+        android:text="Amount of money:"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -34,59 +33,62 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.314" />
+        app:layout_constraintVertical_bias="0.572" />
 
     <TextView
-        android:id="@+id/moneyAmountView"
-        android:layout_width="149dp"
-        android:layout_height="39dp"
-        android:text="Amount of money:"
+        android:id="@+id/accountNumberView"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:text="Account number:"
+        android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.199"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781" />
-
-    <ListView
-        android:id="@+id/accountList"
-        android:layout_width="302dp"
-        android:layout_height="227dp"
-        android:choiceMode="singleChoice"
-        android:listSelector="@android:color/darker_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
-
-    <EditText
-        android:id="@+id/moneyAmount"
-        android:layout_width="134dp"
-        android:layout_height="55dp"
-        android:ems="10"
-        android:hint="e.g. 50.00 or 50"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.851"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.774" />
-
-    <Button
-        android:id="@+id/payBtn"
-        android:layout_width="302dp"
-        android:layout_height="56dp"
-        android:onClick="AccountPay"
-        android:text="Pay"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.897" />
+        app:layout_constraintVertical_bias="0.389" />
+
+    <TextView
+        android:id="@+id/transferView"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:text="TRANSFER TO SOMEONE ELSE'S ACCOUNT"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.162" />
+
+    <EditText
+        android:id="@+id/accNumber"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Account ID"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.472" />
+
+    <Button
+        android:id="@+id/payBtn"
+        android:layout_width="302dp"
+        android:layout_height="55dp"
+        android:onClick="pay"
+        android:text="PAY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.758" />
 </androidx.constraintlayout.widget.ConstraintLayout>

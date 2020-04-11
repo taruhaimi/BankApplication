@@ -10,13 +10,7 @@ public class Account {
     double money;
     String name;
     String accountID;
-
-
-
     String type;
-
-
-
     double interest;
     ArrayList<Card> cardArrayList = new ArrayList<Card>();
 

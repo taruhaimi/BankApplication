@@ -17,6 +17,7 @@ public class AddAccount extends AppCompatActivity {
     String id;
     EditText accName;
     Switch accType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,17 +48,19 @@ public class AddAccount extends AppCompatActivity {
                 flag = 1;
             }
             if (MainActivity.accountArrayList.get(i).getID().equals(id))   {
-                Toast.makeText(this, "Try again", Toast.LENGTH_SHORT).show();
-                flag = 1; // MUUTA!!!!!!!
+                Toast.makeText(this, "Something went wrong, try again", Toast.LENGTH_SHORT).show();
+                flag = 1;
             }
         }
+
         if (flag == 0)  {
-        account.createAccount(accountname, id, 0, "Current", 1.00);
+        account.createAccount(accountname, id, 0, "Current", 0);
         MainActivity.accountArrayList.add(account);
         Toast.makeText(this, "Created account: "+accountname+"\nId: "+id, Toast.LENGTH_SHORT).show();
 
         }
     }
+
     public void createSavingsAccount (View v)    {
         Random rand = new Random();
         accountname = accName.getText().toString();
@@ -70,12 +73,12 @@ public class AddAccount extends AppCompatActivity {
                 flag = 1;
             }
             if (MainActivity.accountArrayList.get(i).getID().equals(id))   {
-                Toast.makeText(this, "Try again", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Your account number is already taken, try again", Toast.LENGTH_SHORT).show();
                 flag = 1;
             }
         }
         if (flag == 0)  {
-            account.createAccount(accountname, id, 0, "Savings", 1.02);
+            account.createAccount(accountname, id, 0, "Savings", 0.2);
             MainActivity.accountArrayList.add(account);
             Toast.makeText(this, "Created account: "+accountname+"\nId: "+id, Toast.LENGTH_SHORT).show();
         }

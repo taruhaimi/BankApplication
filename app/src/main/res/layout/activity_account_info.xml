@@ -7,168 +7,162 @@
     tools:context=".AccountInfo">
 
     <TextView
-        android:id="@+id/accountName"
-        android:layout_width="166dp"
-        android:layout_height="52dp"
-        android:text="Name:"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
-    <TextView
         android:id="@+id/accountNumber"
-        android:layout_width="340dp"
-        android:layout_height="60dp"
-        android:textSize="25sp"
+        android:layout_width="302dp"
+        android:layout_height="55dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.101" />
+        app:layout_constraintVertical_bias="0.144" />
 
     <TextView
         android:id="@+id/accountMoney"
-        android:layout_width="340dp"
-        android:layout_height="60dp"
-        android:textSize="25sp"
+        android:layout_width="302dp"
+        android:layout_height="55dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19" />
+        app:layout_constraintVertical_bias="0.226" />
 
     <TextView
         android:id="@+id/accountType"
-        android:layout_width="120dp"
-        android:layout_height="63dp"
+        android:layout_width="153dp"
+        android:layout_height="58dp"
+        android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintVertical_bias="0.309" />
 
     <TextView
         android:id="@+id/accountInterest"
-        android:layout_width="142dp"
-        android:layout_height="57dp"
+        android:layout_width="302dp"
+        android:layout_height="46dp"
+        android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.823"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.353" />
+        app:layout_constraintVertical_bias="0.39" />
 
     <Button
         android:id="@+id/accountPayment"
         android:layout_width="302dp"
-        android:layout_height="62dp"
+        android:layout_height="55dp"
         android:onClick="newPayment"
         android:text="New payment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.638" />
+        app:layout_constraintVertical_bias="0.68" />
 
     <Button
         android:id="@+id/accountPayment2"
         android:layout_width="302dp"
-        android:layout_height="62dp"
+        android:layout_height="55dp"
         android:onClick="showCards"
         android:text="Show Cards"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.535" />
+        app:layout_constraintVertical_bias="0.575" />
 
     <Button
         android:id="@+id/accountAddMoney"
         android:layout_width="302dp"
-        android:layout_height="62dp"
+        android:layout_height="55dp"
         android:onClick="addMoney"
         android:text="Add money (Requires admin access)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748" />
+        app:layout_constraintVertical_bias="0.779" />
 
     <Button
         android:id="@+id/accountTransactions"
         android:layout_width="302dp"
-        android:layout_height="62dp"
+        android:layout_height="55dp"
         android:text="Transactions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintVertical_bias="0.881" />
 
     <Button
         android:id="@+id/accountDelete"
         android:layout_width="302dp"
-        android:layout_height="62dp"
+        android:layout_height="55dp"
         android:onClick="deleteAccount"
         android:text="Delete account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
     <EditText
         android:id="@+id/editName"
-        android:layout_width="181dp"
+        android:layout_width="302dp"
         android:layout_height="53dp"
         android:ems="10"
+        android:hint="Account Name"
         android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.856"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintVertical_bias="0.066" />
 
     <Button
-        android:id="@+id/button8"
-        android:layout_width="342dp"
-        android:layout_height="39dp"
+        android:id="@+id/updateInfo"
+        android:layout_width="302dp"
+        android:layout_height="55dp"
         android:onClick="updateAccount"
-        android:text="Update Account"
+        android:text="Update Account Information"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.443" />
+        app:layout_constraintVertical_bias="0.474" />
 
     <Switch
         android:id="@+id/typeSwitch"
-        android:layout_width="137dp"
-        android:layout_height="39dp"
+        android:layout_width="135dp"
+        android:layout_height="48dp"
         android:showText="true"
         android:textOff="Current"
         android:textOn="Savings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintHorizontal_bias="0.808"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
+        app:layout_constraintVertical_bias="0.307" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -19,14 +18,15 @@ public class AddCard extends AppCompatActivity {
     String Name;
     String contactless;
     String Type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_card);
         cardName = (EditText) findViewById(R.id.giveCardName);
-        contactlessSwitch = (Switch) findViewById(R.id.switch3);
-        typeSwitch = (Switch) findViewById(R.id.switch1);
-        accountList = (Spinner) findViewById(R.id.spinner);
+        contactlessSwitch = (Switch) findViewById(R.id.choosePayment);
+        typeSwitch = (Switch) findViewById(R.id.chooseType);
+        accountList = (Spinner) findViewById(R.id.accountSpinner);
         ArrayAdapter<Account> adapter = new ArrayAdapter<Account>(this, android.R.layout.simple_spinner_item, MainActivity.accountArrayList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accountList.setAdapter(adapter);

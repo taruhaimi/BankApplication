@@ -14,13 +14,13 @@ import android.widget.ScrollView;
 public class ChooseAccount extends AppCompatActivity {
     Context context = null;
     ListView accountview;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         context = ChooseAccount.this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_account);
         accountview = (ListView) findViewById(R.id.accountList);
-
 
         final ArrayAdapter<Account> arrayAdapter = new ArrayAdapter<Account>(context,android.R.layout.simple_list_item_1,MainActivity.accountArrayList);
         accountview.setAdapter(arrayAdapter);
@@ -33,6 +33,7 @@ public class ChooseAccount extends AppCompatActivity {
             }
         });
     }
+
     protected void onResume()   {
         super.onResume();
         accountview.invalidateViews();

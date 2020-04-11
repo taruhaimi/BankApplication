@@ -13,6 +13,7 @@ import android.widget.ListView;
 public class ChooseCard extends AppCompatActivity {
     int listIndex;
     ListView cards;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,14 +23,13 @@ public class ChooseCard extends AppCompatActivity {
         if (extras != null) {
             listIndex = extras.getInt("key");
         }
+
         ArrayAdapter<Card> arrayAdapter = new ArrayAdapter<Card>(this,android.R.layout.simple_list_item_1,MainActivity.accountArrayList.get(listIndex).cardArrayList);
         cards.setAdapter(arrayAdapter);
         cards.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
             }
         });
-
     }
 }

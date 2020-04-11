@@ -7,19 +7,18 @@
     tools:context=".AddCard">
 
     <Switch
-        android:id="@+id/switch3"
-        android:layout_width="261dp"
-        android:layout_height="31dp"
+        android:id="@+id/choosePayment"
+        android:layout_width="252dp"
+        android:layout_height="35dp"
         android:showText="true"
         android:text="Contactless payment:"
         android:textOff="No"
         android:textOn="Yes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.561" />
+        app:layout_constraintVertical_bias="0.665" />
 
     <TextView
         android:id="@+id/addCard"
@@ -32,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.173" />
+        app:layout_constraintVertical_bias="0.156" />
 
     <TextView
         android:id="@+id/newCardName"
@@ -43,10 +42,10 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintHorizontal_bias="0.182"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.302" />
+        app:layout_constraintVertical_bias="0.37" />
 
     <EditText
         android:id="@+id/giveCardName"
@@ -57,15 +56,15 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
-        app:layout_constraintStart_toEndOf="@+id/newCardName"
+        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.292" />
+        app:layout_constraintVertical_bias="0.365" />
 
     <Switch
-        android:id="@+id/switch1"
-        android:layout_width="261dp"
-        android:layout_height="42dp"
+        android:id="@+id/chooseType"
+        android:layout_width="252dp"
+        android:layout_height="46dp"
         android:showText="true"
         android:text="Choose type:"
         android:textOff="Debit"
@@ -75,20 +74,20 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintVertical_bias="0.457" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/linkAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Link to account:"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484" />
+        app:layout_constraintVertical_bias="0.57" />
 
     <Button
         android:id="@+id/saveButton"
@@ -98,22 +97,21 @@
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.721" />
+        app:layout_constraintVertical_bias="0.771" />
 
     <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="242dp"
-        android:layout_height="43dp"
+        android:id="@+id/accountSpinner"
+        android:layout_width="165dp"
+        android:layout_height="68dp"
         android:dropDownWidth="500dp"
         android:minWidth="500dp"
         android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintHorizontal_bias="0.743"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.481" />
+        app:layout_constraintVertical_bias="0.57" />
 </androidx.constraintlayout.widget.ConstraintLayout>

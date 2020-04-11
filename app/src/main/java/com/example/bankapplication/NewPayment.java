@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 public class NewPayment extends AppCompatActivity {
     int listIndex;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,12 @@ public class NewPayment extends AppCompatActivity {
 
     public void selfPay(View v) {
         Intent i = new Intent(NewPayment.this,SelfPayment.class);
+        i.putExtra("key", listIndex);
+        startActivity(i);
+    }
+
+    public void transferPay(View v) {
+        Intent i = new Intent(NewPayment.this, TransferPayment.class);
         i.putExtra("key", listIndex);
         startActivity(i);
     }
