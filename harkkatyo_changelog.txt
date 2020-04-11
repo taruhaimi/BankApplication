@@ -1,4 +1,17 @@
-9.4 Leevi Kämäräinen
+11.4.2020 Taru Haimi
+	Notices to fix: Cannot change the name of already created account, money does not stay at the account, cannot remove account permanently, propably have to create a new list for cards (for card payment simulation), have to create some way to connect username and accounts to each others.
+	Started to add these changelogs also to the commit message.
+	Created SignUp-activity with all components but no functionalities (except one toast).
+	Created CardPaymentSimulation-activity with all components but none of the functionalities.
+	Created Credits-activity to show who made this app.
+	Changed Interest-rate to show real interest, not the "mathematic interest".
+	Added some more "finish();"
+	Created TransferPayment-activity with all functionalities.
+	Created many toasts to different activities.
+	Cleaned code to more userfriendly to read.
+	Major visual updates all over the app.
+
+9.4.2020 Leevi Kämäräinen
 	Added functionality to save Arraylists to Shared Preferences (Accounts & Card objects).
 	Updated UI-elements and toast-messages.
 	Added error-handling to adding money to the accounts activity.
@@ -12,16 +25,16 @@
 
 4.4.2020 Leevi Kämäräinen
 	Created Account class with 2 subclasses CurrentAccount and SavingAccount.
-	Added functionalities to AddAccount-activity and ChooseAccount (Create account, choose an account and delet an account).
+	Added functionalities to AddAccount-activity and ChooseAccount (Create account, choose an account and delete an account).
 	AccountInfo-activity created with functionality to see info about it and to delete an existing Account.
 	Created Arraylist to store Account-classes.
 	Changed LogIn activity to be more user-friendly while testing the project.
-	
 
 4.4.2020 Taru Haimi
 	Github-repository created.
 	LogIn-activity created with all functionalities (Textfields and buttons created, "Sign up" doesn't do anything).
 	Added "Sign out" -button to MainActivity.
+	
 3.4.2020 Taru Haimi
 	Tried to create LogIn-activity.
 	AddCard-activity created with some functionalities (Textfileds, switchers and button created, but they don't do anything).
@@ -32,5 +45,3 @@
 	EditInfo-activity created with all functionalities (Changing and saving personal information. Changing the password -method is also working, but it doesn't change the real log in -password yet). 
 	MainActivity-activity created with functionalities "Edit Information" and "Accounts and Cards".
 	Project created.
-	
-	
