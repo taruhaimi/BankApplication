@@ -1,3 +1,11 @@
+2.5.2020 Taru Haimi
+	Fixed problems at CardInfo-activity.
+	Created WithDrawMoney-activity (with no functionalities but with all widgets).
+	Created pin code to the card-object.
+	Major changes to SignUp-activity, and made it compulsory to sing up with good password at SignUp-activity.
+	Created keycode to the LogIn-activity.
+	Some visual changes.
+
 1.5.2020 Joona Ylijoki
 	Created CardInfo-activity and -class.
 	Created visual appearance to CardInfo-activity.
@@ -16,7 +24,6 @@
 	Fixed some visual hints/texts with money amount input fields.
 	
 11.4.2020 Taru Haimi
-	Notices to fix: Cannot change the name of already created account, money does not stay at the account, cannot remove account permanently, propably have to create a new list for cards (for card payment simulation), have to create some way to connect username and accounts to each others.
 	Started to add these changelogs also to the commit message.
 	Created SignUp-activity with all components but no functionalities (except one toast).
 	Created CardPaymentSimulation-activity with all components but none of the functionalities.
