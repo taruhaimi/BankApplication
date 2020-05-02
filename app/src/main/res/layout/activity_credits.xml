@@ -21,18 +21,19 @@
 
     <TextView
         android:id="@+id/creditsNames"
-        android:layout_width="238dp"
-        android:layout_height="167dp"
+        android:layout_width="232dp"
+        android:layout_height="249dp"
         android:fontFamily="cursive"
         android:text="Taru Haimi\n\nLeevi Kämäräinen\n\nJoona Ylijoki"
-        android:textAlignment="viewEnd"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#D6346B"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.457" />
+        app:layout_constraintVertical_bias="0.576" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,6 +22,7 @@ public class CardPayment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_payment);
         moneyAmount = (EditText) findViewById(R.id.moneyAmount);
+        // TODO: kaikki ominaisuudet korttimaksuun
         /*
         Bundle extras = getIntent().getExtras();
         cards = (ListView) findViewById(R.id.cardList);

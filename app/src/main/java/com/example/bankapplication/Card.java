@@ -9,6 +9,7 @@ public class Card {
     private String id;
     private String ContactlessPay;
     private String name;
+    private String pincode;
 
     public String getType() {
         return type;
@@ -42,12 +43,21 @@ public class Card {
         this.name = name;
     }
 
-    public void createCard(String n, String t, String c) {
+    public String getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(String pincode) {
+        this.pincode = pincode;
+    }
+
+    public void createCard(String n, String t, String c, String pc) {
         Random rand = new Random();
         id = (rand.nextInt(8900)+1000)+" "+(rand.nextInt(8900)+1000)+" "+(rand.nextInt(8900)+1000)+" "+(rand.nextInt(8900)+1000);
         name = n;
         type = t;
         ContactlessPay = c;
+        pincode = pc;
     }
 
     @NonNull
