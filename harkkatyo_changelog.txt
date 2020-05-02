@@ -1,3 +1,20 @@
+1.5.2020 Joona Ylijoki
+	Created CardInfo-activity and -class.
+	Created visual appearance to CardInfo-activity.
+	Added functionality to CardInfo-class.
+	Created EditCardSettings-activity ja -class.
+	Added functionality to EditCardSettings-class.
+	Added saving option to EditCardSettings-class.
+	Created visual appearance to EditCardSettings-activity.
+	Updated functionality to CardInfo-class.
+	
+30.4.2020 Joona Ylijoki
+	Created TransActions-activity and -class.
+	Created visual appearance to TrancActions-activity.
+	Added functionality to TransActions-class.
+	Fixed card's contactless payment info on 'Choose card'-activity.
+	Fixed some visual hints/texts with money amount input fields.
+	
 11.4.2020 Taru Haimi
 	Notices to fix: Cannot change the name of already created account, money does not stay at the account, cannot remove account permanently, propably have to create a new list for cards (for card payment simulation), have to create some way to connect username and accounts to each others.
 	Started to add these changelogs also to the commit message.
