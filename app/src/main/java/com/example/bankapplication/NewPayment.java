@@ -19,7 +19,12 @@ public class NewPayment extends AppCompatActivity {
             listIndex = extras.getInt("key");
         }
     }
-
+    @Override
+    protected  void onPause() {
+        // Saves data to sharedpreferences using Gson-library
+        super.onPause();
+        SaveData.save(this);
+    }
     public void selfPay(View v) {
         Intent i = new Intent(NewPayment.this,SelfPayment.class);
         i.putExtra("key", listIndex);

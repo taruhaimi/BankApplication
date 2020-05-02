@@ -53,6 +53,12 @@ public class EditCardSettings extends AppCompatActivity {
         showSettings();
     }
 
+    @Override
+    protected  void onPause() {
+        // Saves data to sharedpreferences using Gson-library
+        super.onPause();
+        SaveData.save(this);
+    }
     public void saveSettings(View v) {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor2 = sharedPreferences.edit();

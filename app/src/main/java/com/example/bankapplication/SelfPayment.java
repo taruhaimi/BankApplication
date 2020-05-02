@@ -28,7 +28,7 @@ public class SelfPayment extends AppCompatActivity {
         if (extras != null) {
             listIndex = extras.getInt("key");
         }
-        final ArrayAdapter<Account> arrayAdapter = new ArrayAdapter<Account>(this,android.R.layout.simple_list_item_1,MainActivity.accountArrayList);
+        final ArrayAdapter<Account> arrayAdapter = new ArrayAdapter<Account>(this,android.R.layout.simple_list_item_1,MainActivity.accountArrayList());
         accountview.setAdapter(arrayAdapter);
         accountview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -37,17 +37,22 @@ public class SelfPayment extends AppCompatActivity {
             }
         });
     }
-
+    @Override
+    protected  void onPause() {
+        // Saves data to sharedpreferences using Gson-library
+        super.onPause();
+        SaveData.save(this);
+    }
     public void AccountPay(View v)  {
         TransActions trans = new TransActions();
         try {
             moneyAmount = Double.parseDouble(withdrawAmount.getText().toString());
-            if (MainActivity.accountArrayList.get(listIndex).getMoney() < moneyAmount) {
+            if (MainActivity.accountArrayList().get(listIndex).getMoney() < moneyAmount) {
                 Toast.makeText(this, "Not enough money!", Toast.LENGTH_SHORT).show();
             } else {
-                MainActivity.accountArrayList.get(listIndex).withdrawMoney(moneyAmount);
-                MainActivity.accountArrayList.get(listposition).depositMoney(moneyAmount);
-                Toast.makeText(this, "Transferred " + moneyAmount + "€ from account " + MainActivity.accountArrayList.get(listIndex).getInformation() + " to account " + MainActivity.accountArrayList.get(listposition).getInformation() + " successfully.", Toast.LENGTH_LONG).show();
+                MainActivity.accountArrayList().get(listIndex).withdrawMoney(moneyAmount);
+                MainActivity.accountArrayList().get(listposition).depositMoney(moneyAmount);
+                Toast.makeText(this, "Transferred " + moneyAmount + "€ from account " + MainActivity.accountArrayList().get(listIndex).getInformation() + " to account " + MainActivity.accountArrayList().get(listposition).getInformation() + " successfully.", Toast.LENGTH_LONG).show();
                 accountview.invalidateViews();
                 accountview.refreshDrawableState();
                 trans.writeCsv(v, 2, "Me", moneyAmount);//TODO: Kutsu?

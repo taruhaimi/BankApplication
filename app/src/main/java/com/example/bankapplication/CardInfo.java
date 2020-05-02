@@ -51,15 +51,20 @@ public class CardInfo extends AppCompatActivity {
             System.out.println(listIndex);
             Card card = new Card();
             cardName.setText(card.getName()); //TODO: kortin nimi
-            connectedAccount.setText("Connected to account: "+MainActivity.accountArrayList.get(listIndex).getID());
-            cardType.setText("" + MainActivity.accountArrayList.get(listIndex).cardArrayList); // TODO: kortin tyyppi
+            connectedAccount.setText("Connected to account: "+MainActivity.accountArrayList().get(listIndex).getID());
+            cardType.setText("" + MainActivity.accountArrayList().get(listIndex).cardArrayList); // TODO: kortin tyyppi
 
             cardExpirationDate.setText("Expiration date: " + android.text.format.DateFormat.format("MM/yy", new java.util.Date()));
             //contactlessPay.setText("Contactless pay option: "+Card.getContactlessPay());
 
         }
 }
-
+    @Override
+    protected  void onPause() {
+        // Saves data to sharedpreferences using Gson-library
+        super.onPause();
+        SaveData.save(this);
+    }
     public void cardSettings(View v) {startActivity(new Intent(CardInfo.this,EditCardSettings.class)); }
 
 

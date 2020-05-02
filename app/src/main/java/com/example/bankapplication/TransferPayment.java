@@ -29,17 +29,22 @@ public class TransferPayment extends AppCompatActivity {
         if (extras != null) {
             listIndex = extras.getInt("key");
         }
-        final ArrayAdapter<Account> arrayAdapter = new ArrayAdapter<Account>(this,android.R.layout.simple_list_item_1,MainActivity.accountArrayList);
+        final ArrayAdapter<Account> arrayAdapter = new ArrayAdapter<Account>(this,android.R.layout.simple_list_item_1,MainActivity.accountArrayList());
     }
-
+    @Override
+    protected  void onPause() {
+        // Saves data to sharedpreferences using Gson-library
+        super.onPause();
+        SaveData.save(this);
+    }
     public void pay(View v) {
         try {
             money = Double.parseDouble(moneyAmount.getText().toString());
-            if (MainActivity.accountArrayList.get(listIndex).getMoney() < money) {
+            if (MainActivity.accountArrayList().get(listIndex).getMoney() < money) {
                 Toast.makeText(this, "Not enough money!", Toast.LENGTH_SHORT).show();
             } else {
-                MainActivity.accountArrayList.get(listIndex).withdrawMoney(money);
-                Toast.makeText(this, "Transferred " + money + "€ from account " + MainActivity.accountArrayList.get(listIndex).getInformation() + " to account " + accountID.getText().toString() + " successfully.", Toast.LENGTH_LONG).show();
+                MainActivity.accountArrayList().get(listIndex).withdrawMoney(money);
+                Toast.makeText(this, "Transferred " + money + "€ from account " + MainActivity.accountArrayList().get(listIndex).getInformation() + " to account " + accountID.getText().toString() + " successfully.", Toast.LENGTH_LONG).show();
             }
         } catch (NumberFormatException nfe) {
             Toast.makeText(this, "Invalid input, try again!", Toast.LENGTH_SHORT).show();

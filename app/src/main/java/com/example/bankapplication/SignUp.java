@@ -22,9 +22,9 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         context = SignUp.this;
-        userName = (EditText) findViewById(R.id.getUsername);
-        password = (EditText) findViewById(R.id.getPassWord);
-        register = (Button) findViewById(R.id.register);
+        userName = (EditText) findViewById(R.id.getUsername2);
+        password = (EditText) findViewById(R.id.getPassWord2);
+        register = (Button) findViewById(R.id.registerBtn);
     }
 
     public void Register(View v) {

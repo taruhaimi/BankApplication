@@ -24,11 +24,17 @@ public class AddMoney extends AppCompatActivity {
         //moneyText.setText("0");
     }
 
+    @Override
+    protected  void onPause() {
+        // Saves data to sharedpreferences using Gson-library
+        super.onPause();
+        SaveData.save(this);
+    }
     public void addMoney(View v) {
         try {
             money = Double.parseDouble(moneyText.getText().toString());
-            MainActivity.accountArrayList.get(listIndex).depositMoney(money);
-            Toast.makeText(this, "Added " + money + "€ to account " + MainActivity.accountArrayList.get(listIndex).getInformation(), Toast.LENGTH_SHORT).show();
+            MainActivity.accountArrayList().get(listIndex).depositMoney(money);
+            Toast.makeText(this, "Added " + money + "€ to account " + MainActivity.accountArrayList().get(listIndex).getInformation(), Toast.LENGTH_SHORT).show();
         } catch (NumberFormatException nfe) {
             Toast.makeText(this, "Invalid input, try again!", Toast.LENGTH_SHORT).show();
         }

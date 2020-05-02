@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class User {
     private String userName;
     private String name, address, number, email, password, password2;
-    public ArrayList<Account> accountArrayList;
+    public ArrayList<Account> accountArrayList = new ArrayList<>();
     public String getName() {
         return name;
     }

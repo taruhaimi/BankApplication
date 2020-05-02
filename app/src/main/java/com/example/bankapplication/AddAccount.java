@@ -26,6 +26,13 @@ public class AddAccount extends AppCompatActivity {
         accType = (Switch) findViewById(R.id.accTypeChooser);
     }
 
+    @Override
+    protected  void onPause() {
+        // Saves data to sharedpreferences using Gson-library
+        super.onPause();
+        SaveData.save(this);
+    }
+
     public void chooseType(View v) {
         boolean switchstate = accType.isChecked();
         if (!switchstate)  {
@@ -42,12 +49,12 @@ public class AddAccount extends AppCompatActivity {
         id = (rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100);
         Account account = new Account();
         int flag = 0;
-        for (int i=0; i<MainActivity.accountArrayList.size(); i++)  {
-            if (MainActivity.accountArrayList.get(i).getInformation().equals(accountname))   {
+        for (int i=0; i<MainActivity.accountArrayList().size(); i++)  {
+            if (MainActivity.accountArrayList().get(i).getInformation().equals(accountname))   {
                 Toast.makeText(this, "Account name: "+accountname+" is already taken.", Toast.LENGTH_SHORT).show();
                 flag = 1;
             }
-            if (MainActivity.accountArrayList.get(i).getID().equals(id))   {
+            if (MainActivity.accountArrayList().get(i).getID().equals(id))   {
                 Toast.makeText(this, "Something went wrong, try again", Toast.LENGTH_SHORT).show();
                 flag = 1;
             }
@@ -55,7 +62,7 @@ public class AddAccount extends AppCompatActivity {
 
         if (flag == 0)  {
         account.createAccount(accountname, id, 0, "Current", 0);
-        MainActivity.accountArrayList.add(account);
+        MainActivity.accountArrayList().add(account);
         Toast.makeText(this, "Created account: "+accountname+"\nId: "+id, Toast.LENGTH_SHORT).show();
 
         }
@@ -67,19 +74,19 @@ public class AddAccount extends AppCompatActivity {
         id = (rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100);
         Account account = new Account();
         int flag = 0;
-        for (int i=0; i<MainActivity.accountArrayList.size(); i++)  {
-            if (MainActivity.accountArrayList.get(i).getInformation().equals(accountname))   {
+        for (int i=0; i<MainActivity.accountArrayList().size(); i++)  {
+            if (MainActivity.accountArrayList().get(i).getInformation().equals(accountname))   {
                 Toast.makeText(this, "Account name: "+accountname+"is already taken.", Toast.LENGTH_SHORT).show();
                 flag = 1;
             }
-            if (MainActivity.accountArrayList.get(i).getID().equals(id))   {
+            if (MainActivity.accountArrayList().get(i).getID().equals(id))   {
                 Toast.makeText(this, "Your account number is already taken, try again", Toast.LENGTH_SHORT).show();
                 flag = 1;
             }
         }
         if (flag == 0)  {
             account.createAccount(accountname, id, 0, "Savings", 0.2);
-            MainActivity.accountArrayList.add(account);
+            MainActivity.accountArrayList().add(account);
             Toast.makeText(this, "Created account: "+accountname+"\nId: "+id, Toast.LENGTH_SHORT).show();
         }
     }

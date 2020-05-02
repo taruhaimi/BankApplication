@@ -22,7 +22,7 @@ public class ChooseAccount extends AppCompatActivity {
         setContentView(R.layout.activity_choose_account);
         accountview = (ListView) findViewById(R.id.accountList);
 
-        final ArrayAdapter<Account> arrayAdapter = new ArrayAdapter<Account>(context,android.R.layout.simple_list_item_1,MainActivity.accountArrayList);
+        final ArrayAdapter<Account> arrayAdapter = new ArrayAdapter<Account>(context,android.R.layout.simple_list_item_1,MainActivity.accountArrayList());
         accountview.setAdapter(arrayAdapter);
         accountview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
