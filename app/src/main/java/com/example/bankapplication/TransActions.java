@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,12 +19,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
+//import com.opencsv.CSVReader;
+//import com.opencsv.CSVWriter;
 
 
 public class TransActions extends AppCompatActivity {
-
     int listIndex;
     Context context = null;
     String[] transactions = { };
@@ -32,7 +32,7 @@ public class TransActions extends AppCompatActivity {
     String writing = "";
     String who = "you";
     double amount = 0.0;
-
+    Button write;
     /*public static void writeCsv(int i, int type, String subject, double moneyAmount) {
         int style = type;
         String who = subject;
@@ -48,7 +48,7 @@ public class TransActions extends AppCompatActivity {
         if (extras != null) {
             listIndex = extras.getInt("key");
         }
-
+        write = (Button) findViewById(R.id.Write);
         text = (TextView) findViewById(R.id.textView);
 
     }
@@ -112,7 +112,7 @@ public class TransActions extends AppCompatActivity {
         }
     }
 
-    public void writeCsv(int style, String who, double amount) {
+    public void writeCsv(View v, int style, String who, double amount) {
         try {
             OutputStreamWriter osw = new OutputStreamWriter(context.openFileOutput(filename, Context.MODE_PRIVATE));
             if (style == 1) { //Payed money

@@ -16,11 +16,17 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public static ArrayList<Account> accountArrayList;
+    public static ArrayList<User> userArrayList = new ArrayList<User>();
+    private int current = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadData();
+        //User user = new User();
+        //user.createUser("Admin", "Admin");
+        //userArrayList.add(user);
+       // accountArrayList = userArrayList.get(current).accountArrayList;
     }
 
     @Override

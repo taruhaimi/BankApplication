@@ -7,7 +7,7 @@
     tools:context=".SignUp">
 
     <EditText
-        android:id="@+id/getPassWord2"
+        android:id="@+id/getPassWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <EditText
-        android:id="@+id/getUsername2"
+        android:id="@+id/getUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -77,14 +77,16 @@
         app:layout_constraintVertical_bias="0.159" />
 
     <Button
-        android:id="@+id/registerBtn"
-        android:layout_width="219dp"
-        android:layout_height="57dp"
+        android:id="@+id/register"
+        android:layout_width="174dp"
+        android:layout_height="70dp"
         android:onClick="Register"
-        android:text="REGISTER"
+        android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.676" />
+        app:layout_constraintVertical_bias="0.695" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

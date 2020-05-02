@@ -39,6 +39,7 @@ public class SelfPayment extends AppCompatActivity {
     }
 
     public void AccountPay(View v)  {
+        TransActions trans = new TransActions();
         try {
             moneyAmount = Double.parseDouble(withdrawAmount.getText().toString());
             if (MainActivity.accountArrayList.get(listIndex).getMoney() < moneyAmount) {
@@ -49,7 +50,7 @@ public class SelfPayment extends AppCompatActivity {
                 Toast.makeText(this, "Transferred " + moneyAmount + "€ from account " + MainActivity.accountArrayList.get(listIndex).getInformation() + " to account " + MainActivity.accountArrayList.get(listposition).getInformation() + " successfully.", Toast.LENGTH_LONG).show();
                 accountview.invalidateViews();
                 accountview.refreshDrawableState();
-                //TransActions.writeCsv( 2, "Me", moneyAmount);//TODO: Kutsu?
+                trans.writeCsv(v, 2, "Me", moneyAmount);//TODO: Kutsu?
             }
         } catch (NumberFormatException nfe) {
             Toast.makeText(this, "Invalid input, try again!", Toast.LENGTH_SHORT).show();
