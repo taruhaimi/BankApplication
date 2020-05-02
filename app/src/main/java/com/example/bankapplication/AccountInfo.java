@@ -106,6 +106,12 @@ public class AccountInfo extends AppCompatActivity {
         i.putExtra("key", listIndex);
         startActivity(i);
     }
+    public void accountTransactions(View w) {
+        Intent i = new Intent(AccountInfo.this,TransActions.class);
+        i.putExtra("key", listIndex);
+        startActivity(i);
+    }
+
     protected void onResume()    {
         super.onResume();
         accountNameEdit.setText(MainActivity.accountArrayList.get(listIndex).getInformation());

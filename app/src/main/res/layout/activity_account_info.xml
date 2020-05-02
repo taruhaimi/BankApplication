@@ -101,6 +101,7 @@
         android:id="@+id/accountTransactions"
         android:layout_width="302dp"
         android:layout_height="55dp"
+        android:onClick="accountTransactions"
         android:text="Transactions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

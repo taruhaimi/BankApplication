@@ -16,7 +16,10 @@
         <activity android:name=".SelfPayment" />
         <activity android:name=".NewPayment" />
         <activity android:name=".AddMoney" />
+        <activity android:name=".TransActions" />
         <activity android:name=".AccountInfo" />
+        <activity android:name=".CardInfo" />
+        <activity android:name=".EditCardSettings" />
         <activity android:name=".LogIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

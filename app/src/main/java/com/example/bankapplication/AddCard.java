@@ -39,10 +39,10 @@ public void createCard(View v)  {
             Name = cardName.getText().toString();
             boolean switchContact = contactlessSwitch.isChecked();
             if (!switchContact)  {
-                contactless = "Yes";
+                contactless = "No";
             }
             else if (switchContact)    {
-                contactless = "No";
+                contactless = "Yes";
             }
             boolean switchType = typeSwitch.isChecked();
             if (!switchType)  {

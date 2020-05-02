@@ -21,7 +21,7 @@ public class AddMoney extends AppCompatActivity {
         if (extras != null) {
             listIndex = extras.getInt("key");
         }
-        moneyText.setText("0");
+        //moneyText.setText("0");
     }
 
     public void addMoney(View v) {

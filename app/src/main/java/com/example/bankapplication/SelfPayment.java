@@ -23,7 +23,7 @@ public class SelfPayment extends AppCompatActivity {
         setContentView(R.layout.activity_self_payment);
         accountview = (ListView) findViewById(R.id.accountList);
         withdrawAmount = (EditText) findViewById(R.id.moneyAmount);
-        withdrawAmount.setText("0.00");
+        //withdrawAmount.setText("0.00");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             listIndex = extras.getInt("key");
@@ -49,6 +49,7 @@ public class SelfPayment extends AppCompatActivity {
                 Toast.makeText(this, "Transferred " + moneyAmount + "€ from account " + MainActivity.accountArrayList.get(listIndex).getInformation() + " to account " + MainActivity.accountArrayList.get(listposition).getInformation() + " successfully.", Toast.LENGTH_LONG).show();
                 accountview.invalidateViews();
                 accountview.refreshDrawableState();
+                //TransActions.writeCsv( 2, "Me", moneyAmount);//TODO: Kutsu?
             }
         } catch (NumberFormatException nfe) {
             Toast.makeText(this, "Invalid input, try again!", Toast.LENGTH_SHORT).show();
