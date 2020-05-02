@@ -81,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, CardPayment.class));
     }
 
+    public void goWithDrawSimulation(View v) {
+        startActivity(new Intent(MainActivity.this, WithDrawMoney.class));
+    }
+
     public void goCredits(View v) {
         startActivity(new Intent(MainActivity.this, Credits.class));
     }

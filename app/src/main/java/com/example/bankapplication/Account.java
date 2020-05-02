@@ -63,11 +63,10 @@ public class Account {
         type = t;
         interest = k;
     }
-    void createCard(String n, String t, String c)   {
+    void createCard(String n, String t, String c, String pc)   {
         Card card = new Card();
-        card.createCard(n, t, c);
+        card.createCard(n, t, c, pc);
         cardArrayList.add(card);
-        System.out.println("JEE!");
     }
 
     @NonNull

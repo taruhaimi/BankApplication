@@ -31,6 +31,7 @@ public class ChooseCard extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(ChooseCard.this,CardInfo.class);
                 i.putExtra("key", listIndex);
+                i.putExtra("key2", position);
                 startActivity(i);
             }
         });
