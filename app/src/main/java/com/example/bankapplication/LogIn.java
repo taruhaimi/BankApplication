@@ -7,14 +7,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import java.util.Random;
 
 public class LogIn extends AppCompatActivity {
 
-    EditText GetUsername, GetPassword;
-
-    private String username = "Admin", password = "Admin";
+    EditText GetUsername, GetPassword, CheckNumbers;
+    TextView randNumbers;
+    private String username = "Admin", password = "Admin", numbers;
     Context context = null;
+    Random rand = null;
 
 
     @Override
@@ -24,14 +30,27 @@ public class LogIn extends AppCompatActivity {
 
         GetUsername = (EditText) findViewById(R.id.getUsername);
         GetPassword = (EditText) findViewById(R.id.getPassWord);
+        randNumbers = (TextView) findViewById(R.id.securityCheckView);
+        CheckNumbers = (EditText) findViewById(R.id.getNumbers);
         context = LogIn.this;
+
+        rand = new Random();
+        numbers = ("") + (rand.nextInt(899999)+100000);
+        randNumbers.setText(numbers);
 
     }
 
     public void goMainMenu(View v) {
-        /*if ((GetUsername.getText().toString().equals(username) && GetPassword.getText().toString().equals(password))*/
+        /*if ((GetUsername.getText().toString().equals(username) && GetPassword.getText().toString().equals(password)) {
+        */ if ((CheckNumbers.getText().toString().equals(numbers)) == false) {
+            Toast.makeText(context, "Invalid captcha code. Try again.", Toast.LENGTH_SHORT).show();
+            numbers = "" + (rand.nextInt(899999)+100000);
+            randNumbers.setText(numbers);
+
+            }
+
         if ((username.equals(username) && password.equals(password)) == false) {
-            Toast.makeText(context,"Username or password is not correct. Try again.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Username or password is not correct. Try again.", Toast.LENGTH_SHORT).show();
 
         } else {
             startActivity(new Intent(LogIn.this, MainActivity.class));
