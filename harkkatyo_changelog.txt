@@ -1,3 +1,8 @@
+4.5.2020 Taru Haimi
+	Created card payment simulation to work almost entirely (without region limit).
+	Added password-rules to work every activity needed.
+	Added that card must have pincode.
+
 2.5.2020 Leevi Kämäräinen
 	Created new User-class. You can create new user-objects now with sign-up activity and save them. (Can't edit user info yet)
 	Changed Gson-librarys saving function to save User-classes which contains accounts->cards.
