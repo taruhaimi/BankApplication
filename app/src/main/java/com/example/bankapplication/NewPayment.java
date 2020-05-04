@@ -25,6 +25,7 @@ public class NewPayment extends AppCompatActivity {
         super.onPause();
         SaveData.save(this);
     }
+
     public void selfPay(View v) {
         Intent i = new Intent(NewPayment.this,SelfPayment.class);
         i.putExtra("key", listIndex);
