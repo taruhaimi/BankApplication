@@ -10,21 +10,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 public class EditInfo extends AppCompatActivity {
 
-    EditText Name, Address, Number, Email, Password1, Password2;
-
-    private String name, address, number, email, password1, password2;
+    EditText Name, Address, Number, Email;
+    TextInputLayout passWord1, passWord2;
     Context context = null;
-
-    public static final String SHARED_PREFS  ="sharedPrefs";
-    public static final String NAME = "User";
-    public static final String ADDRESS = "Address";
-    public static final String NUMBER = "1234567890";
-    public static final String EMAIL = "user.email@gmail.com";
-    public static final String PASSWORD1 = "password";
-    public static final String PASSWORD2 = "password";
-
     private String newName, newAddress, newNumber, newEmail, newPassword1, newPassword2;
 
     @Override
@@ -36,60 +28,56 @@ public class EditInfo extends AppCompatActivity {
         Address = (EditText) findViewById(R.id.giveAddress);
         Number = (EditText) findViewById(R.id.givePhoneNumber);
         Email = (EditText) findViewById(R.id.giveEmail);
-        Password1 = (EditText) findViewById(R.id.givePassword1);
-        Password2 = (EditText) findViewById(R.id.givePassword2);
+        passWord1 = (TextInputLayout) findViewById(R.id.getPassword1);
+        passWord2 = (TextInputLayout) findViewById(R.id.getPassword2);
         context = EditInfo.this;
         showInformation();
     }
 
     public void saveInformation(View v) {
-        /*SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();*/
         newName = Name.getText().toString();
         newAddress = Address.getText().toString();
         newNumber = Number.getText().toString();
         newEmail = Email.getText().toString();
-        newPassword1 = Password1.getText().toString();
-        newPassword2 = Password2.getText().toString();
+        newPassword1 = passWord1.getEditText().getText().toString();
+        newPassword2 = passWord2.getEditText().getText().toString();
         MainActivity.userArrayList.get(MainActivity.currentIndex).setName(newName);
         MainActivity.userArrayList.get(MainActivity.currentIndex).setAddress(newAddress);
         MainActivity.userArrayList.get(MainActivity.currentIndex).setNumber(newNumber);
         MainActivity.userArrayList.get(MainActivity.currentIndex).setEmail(newEmail);
 
 
-        /*editor.putString(NAME, Name.getText().toString());
-        editor.putString(ADDRESS, Address.getText().toString());
-        editor.putString(NUMBER, Number.getText().toString());
-        editor.putString(EMAIL, Email.getText().toString());*/
 
-
-        if (Password1.getText().toString().equals(Password2.getText().toString()) == false) {
-            Toast.makeText(context,"Passwords do not match, try again.", Toast.LENGTH_SHORT).show();
+        if (validatePassword() && (!passWord1.getEditText().getText().toString().equals(passWord2.getEditText().getText().toString()))) {
+                passWord2.setError("Passwords do not match, try again.");
         } else {
             MainActivity.userArrayList.get(MainActivity.currentIndex).setPassword(newPassword1);
-           /* editor.putString(PASSWORD1, Password1.getText().toString());
-            editor.putString(PASSWORD2, Password2.getText().toString());*/
+
 
             Toast.makeText(context,"Your personal information is now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
         }
-      //  editor.apply();
     }
 
-    /*public void loadInformation() {
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        newName = sharedPreferences.getString(NAME, "");
-        newAddress = sharedPreferences.getString(ADDRESS, "");
-        newNumber = sharedPreferences.getString(NUMBER, "");
-        newEmail = sharedPreferences.getString(EMAIL, "");
-        newPassword1 = sharedPreferences.getString(PASSWORD1, "");
-        newPassword2 = sharedPreferences.getString(PASSWORD2, "");
-
-    }*/
 
     public void showInformation() {
         Name.setText(MainActivity.userArrayList.get(MainActivity.currentIndex).getName());
         Address.setText(MainActivity.userArrayList.get(MainActivity.currentIndex).getAddress());
         Number.setText(MainActivity.userArrayList.get(MainActivity.currentIndex).getNumber());
         Email.setText(MainActivity.userArrayList.get(MainActivity.currentIndex).getEmail());
+    }
+
+    private boolean validatePassword() {
+        String psword = passWord1.getEditText().getText().toString().trim();
+
+        if (psword.isEmpty()) {
+            passWord1.setError("Field can't be empty.");
+            return false;
+        } else if (!SignUp.PASSWORD_PATTERN.matcher(psword).matches()) {
+            passWord1.setError("Password is too weak. Your password must contain at least one number, special character, lower- and uppercase letter and is at least 12 characters long");
+            return false;
+        } else {
+            passWord1.setError(null);
+            return true;
+        }
     }
 }

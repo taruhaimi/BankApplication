@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 
 public class SignUp extends AppCompatActivity {
 
-    private static final Pattern PASSWORD_PATTERN =
+    public static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +
                     //"(?=.*[0-9])" +         //at least 1 digit
                     //"(?=.*[a-z])" +         //at least 1 lower case letter

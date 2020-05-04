@@ -10,8 +10,11 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 public class AddCard extends AppCompatActivity {
-    EditText cardName, pinCode;
+    EditText cardName;
+    TextInputLayout pinCode;
     Switch contactlessSwitch;
     Switch typeSwitch;
     Spinner accountList;
@@ -22,7 +25,7 @@ public class AddCard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_card);
         cardName = (EditText) findViewById(R.id.giveCardName);
-        pinCode = (EditText) findViewById(R.id.getPinCode);
+        pinCode = (TextInputLayout) findViewById(R.id.getPincode);
         contactlessSwitch = (Switch) findViewById(R.id.choosePayment);
         typeSwitch = (Switch) findViewById(R.id.chooseType);
         accountList = (Spinner) findViewById(R.id.accountSpinner);
@@ -32,24 +35,41 @@ public class AddCard extends AppCompatActivity {
     }
 
 
-public void createCard(View v) {
-        int position;
-        Name = cardName.getText().toString();
-        code = pinCode.getText().toString();
-        boolean switchContact = contactlessSwitch.isChecked();
-        if (!switchContact) {
-            contactless = "No";
-        } else if (switchContact) {
-            contactless = "Yes";
+    public void createCard(View v) {
+        if (validatePinCode()) {
+            int position;
+            Name = cardName.getText().toString();
+            code = pinCode.getEditText().getText().toString();
+            boolean switchContact = contactlessSwitch.isChecked();
+            if (!switchContact) {
+                contactless = "No";
+            } else if (switchContact) {
+                contactless = "Yes";
+            }
+            boolean switchType = typeSwitch.isChecked();
+            if (!switchType) {
+                Type = "Debit";
+            } else if (switchType) {
+                Type = "Credit";
+            }
+            position = accountList.getSelectedItemPosition();
+            MainActivity.accountArrayList().get(position).createCard(Name, Type, contactless, code);
+            Toast.makeText(this, "Created card: " + Name, Toast.LENGTH_SHORT).show();
         }
-        boolean switchType = typeSwitch.isChecked();
-        if (!switchType) {
-            Type = "Debit";
-        } else if (switchType) {
-            Type = "Credit";
+    }
+
+    private boolean validatePinCode() {
+        String psword = pinCode.getEditText().getText().toString().trim();
+
+        if (psword.isEmpty()) {
+            pinCode.setError("Field can't be empty.");
+            return false;
+        } else if (psword.length() != 4) {
+            pinCode.setError("Pin code must be exactly four digits long.");
+            return false;
+        } else {
+            pinCode.setError(null);
+            return true;
         }
-        position = accountList.getSelectedItemPosition();
-        MainActivity.accountArrayList().get(position).createCard(Name, Type, contactless, code);
-        Toast.makeText(this, "Created card: " + Name, Toast.LENGTH_SHORT).show();
     }
 }

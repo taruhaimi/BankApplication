@@ -110,9 +110,11 @@
         app:layout_constraintVertical_bias="0.071" />
 
     <ListView
-        android:id="@+id/cardSpinner"
+        android:id="@+id/cardView"
         android:layout_width="297dp"
         android:layout_height="158dp"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
@@ -138,6 +140,7 @@
         android:id="@+id/payBtn"
         android:layout_width="302dp"
         android:layout_height="wrap_content"
+        android:onClick="cardPay"
         android:text="PAY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

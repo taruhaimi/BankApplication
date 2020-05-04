@@ -5,11 +5,15 @@ import androidx.annotation.NonNull;
 import java.util.Random;
 
 public class Card {
+
     private String type;
     private String id;
     private String ContactlessPay;
     private String name;
     private String pincode;
+
+
+    private String region;
 
     public String getType() {
         return type;
@@ -51,6 +55,7 @@ public class Card {
         this.pincode = pincode;
     }
 
+
     public void createCard(String n, String t, String c, String pc) {
         Random rand = new Random();
         id = (rand.nextInt(8900)+1000)+" "+(rand.nextInt(8900)+1000)+" "+(rand.nextInt(8900)+1000)+" "+(rand.nextInt(8900)+1000);
@@ -65,4 +70,5 @@ public class Card {
     public String toString() {
         return "Card Name: "+name+"\nCard id: "+id+"\nCard type: "+type+"\nContactless Payment: "+ContactlessPay;
     }
+
 }
