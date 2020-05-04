@@ -1,3 +1,9 @@
+2.5.2020 Leevi Kämäräinen
+	Created new User-class. You can create new user-objects now with sign-up activity and save them. (Can't edit user info yet)
+	Changed Gson-librarys saving function to save User-classes which contains accounts->cards.
+	Created SaveData class.
+	Added SaveData.save functions to different activities so that data wont get lost while closing the app / during crash (work in 		progress).
+
 2.5.2020 Taru Haimi
 	Fixed problems at CardInfo-activity.
 	Created WithDrawMoney-activity (with no functionalities but with all widgets).
