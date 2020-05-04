@@ -1,3 +1,8 @@
+5.5.2020 Leevi Kämäräinen
+	Fixed program in github to work on everyone, some data was not saved last time using push.
+	Remade EditInfo to only save data directly to account objects (deleted the method of saving variables directly to 			sharedpreferences)
+	Created functionality to TransferPayment to actually for it to actually be able to transfer money between user-made accounts. 		You can now transfer money between two different users (some errors may still occur).
+	
 4.5.2020 Taru Haimi
 	Created card payment simulation to work almost entirely (without region limit).
 	Added password-rules to work every activity needed.
