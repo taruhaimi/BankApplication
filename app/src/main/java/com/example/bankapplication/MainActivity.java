@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public static ArrayList<User> userArrayList = new ArrayList<User>();
-    private static int currentIndex;
+    public static int currentIndex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

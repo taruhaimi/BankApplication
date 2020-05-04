@@ -25,7 +25,7 @@ public class EditInfo extends AppCompatActivity {
     public static final String PASSWORD1 = "password";
     public static final String PASSWORD2 = "password";
 
-    private String newName, newAdress, newNumber, newEmail, newPassword1, newPassword2;
+    private String newName, newAddress, newNumber, newEmail, newPassword1, newPassword2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,47 +39,57 @@ public class EditInfo extends AppCompatActivity {
         Password1 = (EditText) findViewById(R.id.givePassword1);
         Password2 = (EditText) findViewById(R.id.givePassword2);
         context = EditInfo.this;
-
-        loadInformation();
         showInformation();
     }
 
     public void saveInformation(View v) {
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        /*SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();*/
+        newName = Name.getText().toString();
+        newAddress = Address.getText().toString();
+        newNumber = Number.getText().toString();
+        newEmail = Email.getText().toString();
+        newPassword1 = Password1.getText().toString();
+        newPassword2 = Password2.getText().toString();
+        MainActivity.userArrayList.get(MainActivity.currentIndex).setName(newName);
+        MainActivity.userArrayList.get(MainActivity.currentIndex).setAddress(newAddress);
+        MainActivity.userArrayList.get(MainActivity.currentIndex).setNumber(newNumber);
+        MainActivity.userArrayList.get(MainActivity.currentIndex).setEmail(newEmail);
 
-        editor.putString(NAME, Name.getText().toString());
+
+        /*editor.putString(NAME, Name.getText().toString());
         editor.putString(ADDRESS, Address.getText().toString());
         editor.putString(NUMBER, Number.getText().toString());
-        editor.putString(EMAIL, Email.getText().toString());
+        editor.putString(EMAIL, Email.getText().toString());*/
 
 
         if (Password1.getText().toString().equals(Password2.getText().toString()) == false) {
             Toast.makeText(context,"Passwords do not match, try again.", Toast.LENGTH_SHORT).show();
         } else {
-            editor.putString(PASSWORD1, Password1.getText().toString());
-            editor.putString(PASSWORD2, Password2.getText().toString());
+            MainActivity.userArrayList.get(MainActivity.currentIndex).setPassword(newPassword1);
+           /* editor.putString(PASSWORD1, Password1.getText().toString());
+            editor.putString(PASSWORD2, Password2.getText().toString());*/
 
             Toast.makeText(context,"Your personal information is now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
         }
-        editor.apply();
+      //  editor.apply();
     }
 
-    public void loadInformation() {
+    /*public void loadInformation() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         newName = sharedPreferences.getString(NAME, "");
-        newAdress = sharedPreferences.getString(ADDRESS, "");
+        newAddress = sharedPreferences.getString(ADDRESS, "");
         newNumber = sharedPreferences.getString(NUMBER, "");
         newEmail = sharedPreferences.getString(EMAIL, "");
         newPassword1 = sharedPreferences.getString(PASSWORD1, "");
         newPassword2 = sharedPreferences.getString(PASSWORD2, "");
 
-    }
+    }*/
 
     public void showInformation() {
-        Name.setText(newName);
-        Address.setText(newAdress);
-        Number.setText(newNumber);
-        Email.setText(newEmail);
+        Name.setText(MainActivity.userArrayList.get(MainActivity.currentIndex).getName());
+        Address.setText(MainActivity.userArrayList.get(MainActivity.currentIndex).getAddress());
+        Number.setText(MainActivity.userArrayList.get(MainActivity.currentIndex).getNumber());
+        Email.setText(MainActivity.userArrayList.get(MainActivity.currentIndex).getEmail());
     }
 }
