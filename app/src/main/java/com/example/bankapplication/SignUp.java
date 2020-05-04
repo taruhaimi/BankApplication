@@ -81,7 +81,7 @@ public class SignUp extends AppCompatActivity {
                 passWord.setError("Field can't be empty.");
                 return false;
             } else if (!PASSWORD_PATTERN.matcher(psword).matches()) {
-                passWord.setError("Password too weak");
+                passWord.setError("Password is too weak. Your password must contain at least one number, special character, lower- and uppercase letter and is at least 12 characters long");
                 return false;
             } else {
                 passWord.setError(null);

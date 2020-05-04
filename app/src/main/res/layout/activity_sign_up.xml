@@ -34,15 +34,15 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password"
-        android:layout_width="213dp"
-        android:layout_height="82dp"
+        android:layout_width="221dp"
+        android:layout_height="167dp"
         app:errorEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.519"
+        app:layout_constraintVertical_bias="0.585"
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText

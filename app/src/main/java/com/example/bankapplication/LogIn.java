@@ -71,7 +71,7 @@ public class LogIn extends AppCompatActivity {
             }
 
         } else {
-            Toast.makeText(context, "Username or password is not correct. Try again.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Username or password is not correct.\nTry again.", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -26,7 +26,7 @@ public class AddCard extends AppCompatActivity {
         contactlessSwitch = (Switch) findViewById(R.id.choosePayment);
         typeSwitch = (Switch) findViewById(R.id.chooseType);
         accountList = (Spinner) findViewById(R.id.accountSpinner);
-        ArrayAdapter<Account> adapter = new ArrayAdapter<Account>(this, android.R.layout.simple_spinner_item, MainActivity.accountArrayList);
+        ArrayAdapter<Account> adapter = new ArrayAdapter<Account>(this, android.R.layout.simple_spinner_item, MainActivity.accountArrayList());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accountList.setAdapter(adapter);
     }
@@ -49,7 +49,7 @@ public void createCard(View v) {
             Type = "Credit";
         }
         position = accountList.getSelectedItemPosition();
-        MainActivity.accountArrayList.get(position).createCard(Name, Type, contactless, code);
+        MainActivity.accountArrayList().get(position).createCard(Name, Type, contactless, code);
         Toast.makeText(this, "Created card: " + Name, Toast.LENGTH_SHORT).show();
     }
 }
