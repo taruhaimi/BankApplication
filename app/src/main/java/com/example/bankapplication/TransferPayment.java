@@ -48,8 +48,7 @@ public class TransferPayment extends AppCompatActivity {
             }
         } catch (NumberFormatException nfe) {
             Toast.makeText(this, "Invalid input, try again!", Toast.LENGTH_SHORT).show();
-        }
-        catch (NullPointerException e)  {
+        } catch (NullPointerException e)  {
             Toast.makeText(this, "Invalid input, try again!", Toast.LENGTH_SHORT).show();
         }
     }

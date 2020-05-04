@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public static ArrayList<Account> accountArrayList()    {
         // This is a static method so we can call a specific users' accounts in all classes.
-        // It returns arraylist of accounts which belongs to the user you have logged into
+        // It returns arraylist of accounts which belongs to the user you have logged into.
         return userArrayList.get(currentIndex).accountArrayList;
     }
 

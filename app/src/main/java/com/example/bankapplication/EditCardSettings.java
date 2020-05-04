@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class EditCardSettings extends AppCompatActivity {
@@ -30,6 +31,8 @@ public class EditCardSettings extends AppCompatActivity {
 
     private String newWithdrawLimit, newPaymentLimit, newCreditLimit, newRegion;
 
+    public static List<String> categories = new ArrayList<String>(Arrays.asList("Finland","Nordic countries", "Europe", "World")){};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +43,7 @@ public class EditCardSettings extends AppCompatActivity {
         regionsList = (Spinner) findViewById(R.id.regionsList);
         context = EditCardSettings.this;
         //regionsList.setOnItemSelectedListener(this);
-        List<String> categories = new ArrayList<String>();
-        categories.add("Finland");
-        categories.add("Nordic countries");
-        categories.add("Europe");
-        categories.add("World");
+
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         regionsList.setAdapter(dataAdapter);

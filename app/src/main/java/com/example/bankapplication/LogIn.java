@@ -84,6 +84,8 @@ public class LogIn extends AppCompatActivity {
         for (int i = 0; i < MainActivity.userArrayList.size(); i++) {
             if (MainActivity.userArrayList.get(i).getName().equals("Admin")) {
                 adminExists = 1;
+                MainActivity.userArrayList.get(i).setName("Admin"); // TODO poista ennen palautusta
+                MainActivity.userArrayList.get(i).setPassword("Admin");
             }
         }
             if (adminExists==0) {
