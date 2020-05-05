@@ -39,12 +39,17 @@ public class TransferPayment extends AppCompatActivity {
         super.onPause();
         SaveData.save(this);
     }
+
     public void pay(View v) {
         String id;
         int paymentIndexUser = 0; // index of the user from userlist which the account is going to be chosen from
         int paymentIndexAcc = 0; //index of the account from accountlist which the payment is going to be paid
         id = accountID.getText().toString();
-        money = Double.parseDouble(moneyAmount.getText().toString());
+        try {
+            money = Double.parseDouble(moneyAmount.getText().toString());
+        } catch (NullPointerException | NumberFormatException e)  {
+            Toast.makeText(context, "Invalid input, try again!", Toast.LENGTH_SHORT).show();
+        }
         int flag = 0;
         try {
             for (int i=0;i<MainActivity.userArrayList.size();i++) {
@@ -68,7 +73,8 @@ public class TransferPayment extends AppCompatActivity {
                 }
             }
             else {
-                Toast.makeText(this, "The account you entered doesn't exist yet, try again.", Toast.LENGTH_SHORT).show();
+                MainActivity.userArrayList.get(paymentIndexUser).accountArrayList.get(paymentIndexAcc).depositMoney(money);
+                Toast.makeText(this, "Transferred " + money + "€ from account " + MainActivity.accountArrayList().get(listIndex).getID() + " to account " + accountID.getText().toString() + " successfully.", Toast.LENGTH_LONG).show();
             }
         } catch (NumberFormatException nfe) {
             Toast.makeText(this, "Invalid input, try again!", Toast.LENGTH_SHORT).show();
