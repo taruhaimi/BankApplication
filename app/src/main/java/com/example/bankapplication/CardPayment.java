@@ -19,7 +19,7 @@ public class CardPayment extends AppCompatActivity {
     ListView cards;
     EditText moneyAmount, pinCode;
     double money;
-    String pin = "";
+    String pin = "", regionLoc, cardRegion;
     Spinner regions;
     int index;
 
@@ -58,13 +58,17 @@ public class CardPayment extends AppCompatActivity {
             String country = regions.getSelectedItem().toString();
             money = Double.parseDouble(moneyAmount.getText().toString().trim());
             pin = pinCode.getText().toString().trim();
+            regionLoc = Integer.toString(regions.getSelectedItemPosition());
 
             for (int i = 0; i < MainActivity.accountArrayList().size(); i++) {
 
                 if (MainActivity.accountArrayList().get(i).cardArrayList.contains(allCards.get(index))) {
+                    cardRegion = allCards.get(index).getRegionLimitPayment();
 
                     if (allCards.get(index).getContactlessPay().equals("No") && pin.equals("")) {
                         Toast.makeText(this, "Your card does not have contactless payment. Please give pin code.", Toast.LENGTH_SHORT).show();
+                    } else if (!(allCards.get(index).getRegionLimitPayment().equals(regionLoc))) {
+                        Toast.makeText(this, "You can not pay with this card at this region. Please change region.", Toast.LENGTH_SHORT).show();
                     } else if (MainActivity.accountArrayList().get(i).getMoney() < money) {
                         Toast.makeText(this, "Not enough money!", Toast.LENGTH_SHORT).show();
                     } else if (pin.equals("") && money <= 50) {
