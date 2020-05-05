@@ -17,14 +17,14 @@ public class Account {
     Date interestdate;
     String interestdate2;
     ArrayList<Card> cardArrayList = new ArrayList<Card>();
-    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    //SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     public void setName(String name) {
         this.name = name;
     }
 
     public void setInterest(double interest) {
         this.interest = interest;
-        interestdate2 = formatter.format(interestdate);
+       // interestdate2 = formatter.format(interestdate);
     }
 
     public void setType(String type) {

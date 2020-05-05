@@ -36,6 +36,8 @@ public class ChooseCard extends AppCompatActivity {
             }
         });
     }
+
+    @Override
     protected void onResume()   {
         super.onResume();
         cards.invalidateViews();

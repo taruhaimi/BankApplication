@@ -48,7 +48,7 @@ public class EditCardSettings extends AppCompatActivity {
         regionsList.setAdapter(dataAdapter);
         regionsList2.setAdapter(dataAdapter);
 
-        //showSettings();
+        showSettings();
     }
 
     @Override
@@ -75,7 +75,7 @@ public class EditCardSettings extends AppCompatActivity {
 
         Toast.makeText(context,"Your card settings are now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
     }
-/*
+
     public void showSettings() {
 
         withdrawLimit.setText(MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getWithdrawLimit());
@@ -89,6 +89,6 @@ public class EditCardSettings extends AppCompatActivity {
 
     }
 
- */
+
 
 }
