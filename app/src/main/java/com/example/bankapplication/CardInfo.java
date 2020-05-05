@@ -21,7 +21,7 @@ import java.util.Date;
 public class CardInfo extends AppCompatActivity {
 
     EditText cardName;
-    TextView cardNumber, connectedAccount, cardType, cardExpirationDate, contactlessPay, pinCode;
+    TextView cardNumber, connectedAccount, cardType, contactlessPay, pinCode;
     ListView cards;
     int listIndex;
     int position;
@@ -35,7 +35,6 @@ public class CardInfo extends AppCompatActivity {
         cardNumber = (TextView) findViewById(R.id.cardNumber);
         connectedAccount = (TextView) findViewById(R.id.connectedAccount);
         cardType =(TextView) findViewById(R.id.cardType);
-        cardExpirationDate = (TextView) findViewById(R.id.cardExpirationDate);
         contactlessPay = (TextView) findViewById(R.id.contactlessPay);
         pinCode = (TextView) findViewById(R.id.pincode);
         cardName = (EditText) findViewById(R.id.cardName);
@@ -52,9 +51,6 @@ public class CardInfo extends AppCompatActivity {
             connectedAccount.setText("Connected to account: "+MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getId());
             pinCode.setText("Pin code: " + MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getPincode());
             cardType.setText("Card type: " + MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getType());
-
-            cardExpirationDate.setText("Expiration date: " + android.text.format.DateFormat.format("MM/yy", new java.util.Date()));
-            //contactlessPay.setText("Contactless pay option: "+Card.getContactlessPay());
             contactlessPay.setText("Contactless payment: " + MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getContactlessPay());
 
         }

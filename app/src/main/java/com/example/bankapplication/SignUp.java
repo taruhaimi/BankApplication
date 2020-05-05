@@ -49,7 +49,7 @@ public class SignUp extends AppCompatActivity {
             String psword = passWord.getEditText().getText().toString().trim();
             for (int i = 0; i < MainActivity.userArrayList.size(); i++) {
                 if (MainActivity.userArrayList.get(i).getName().equals(usName)) {
-                    Toast.makeText(this, "User name: " + usName + " is already taken.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Username: " + usName + " is already taken.", Toast.LENGTH_SHORT).show();
                     flag = 1;
                 }
             }
