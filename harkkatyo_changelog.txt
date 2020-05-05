@@ -1,8 +1,9 @@
 5.5.2020 Taru Haimi
-	 
+	Added withdraw- and payment limits to simulations.
+	Changed createAdmin-method from onCreate to be optional (button-click)
 	Added userfriendly feature: delete all users.
 	Updated credit: User can't add credit to debit-card.
-	Locked Admin-user: Admin-user can't change username or password, and other users can't take Admin's username.
+	Locked Admin-user: Admin-user can't change username or password, and other users can't take Admin's username.	
 	Deleted card expiration date (no function).
 	Updated region limits to work all over the app, also card payment and withdraw simulations are now ready.
 	Updated card settings activity to work entirely, all data is now saved.
