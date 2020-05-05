@@ -12,122 +12,111 @@
 
         <TextView
             android:id="@+id/contactlessPay"
-            android:layout_width="340dp"
+            android:layout_width="310dp"
             android:layout_height="47dp"
             android:textColor="#000000"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.44" />
+            app:layout_constraintVertical_bias="0.54" />
 
         <EditText
             android:id="@+id/cardName"
-            android:layout_width="340dp"
+            android:layout_width="wrap_content"
             android:layout_height="49dp"
             android:autoText="false"
             android:ems="10"
             android:inputType="textPersonName"
             android:textAlignment="center"
             android:textColor="#000000"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.054" />
+            app:layout_constraintVertical_bias="0.142" />
 
         <TextView
             android:id="@+id/cardNumber"
-            android:layout_width="340dp"
+            android:layout_width="310dp"
             android:layout_height="49dp"
             android:textColor="#000000"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.136" />
+            app:layout_constraintVertical_bias="0.234" />
 
         <TextView
             android:id="@+id/connectedAccount"
-            android:layout_width="340dp"
+            android:layout_width="310dp"
             android:layout_height="60dp"
             android:textColor="#000000"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.235" />
+            app:layout_constraintVertical_bias="0.327" />
 
         <TextView
             android:id="@+id/cardType"
-            android:layout_width="340dp"
+            android:layout_width="310dp"
             android:layout_height="63dp"
             android:textColor="#000000"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.535"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.341" />
-
-        <TextView
-            android:id="@+id/cardExpirationDate"
-            android:layout_width="340dp"
-            android:layout_height="46dp"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.535"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.532" />
+            app:layout_constraintVertical_bias="0.44" />
 
         <TextView
             android:id="@+id/pincode"
-            android:layout_width="340dp"
+            android:layout_width="310dp"
             android:layout_height="46dp"
             android:textColor="#000000"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.535"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.617" />
+            app:layout_constraintVertical_bias="0.624" />
 
         <Button
             android:id="@+id/deleteCard"
-            android:layout_width="337dp"
+            android:layout_width="310dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginTop="20dp"
             android:onClick="deleteCard"
             android:text="DELETE CARD"
             android:textColor="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardSettings" />
 
         <Button
             android:id="@+id/cardSettings"
-            android:layout_width="340dp"
+            android:layout_width="310dp"
             android:layout_height="51dp"
+            android:layout_marginTop="72dp"
             android:onClick="cardSettings"
             android:text="SETTINGS"
             android:textColor="#000000"
-            app:layout_constraintBottom_toTopOf="@+id/deleteCard"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.535"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/contactlessPay"
-            app:layout_constraintVertical_bias="0.895" />
+            app:layout_constraintVertical_bias="0.052" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
