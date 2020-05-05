@@ -11,9 +11,12 @@ public class Card {
     private String ContactlessPay;
     private String name;
     private String pincode;
+    private String withdrawLimit;
+    private String paymentLimit;
+    private String creditLimit;
+    private String regionLimitWithDraw;
+    private String regionLimitPayment;
 
-
-    private String region;
 
     public String getType() {
         return type;
@@ -55,6 +58,45 @@ public class Card {
         this.pincode = pincode;
     }
 
+    public String getWithdrawLimit() {
+        return withdrawLimit;
+    }
+
+    public void setWithdrawLimit(String withdrawLimit) {
+        this.withdrawLimit = withdrawLimit;
+    }
+
+    public String getPaymentLimit() {
+        return paymentLimit;
+    }
+
+    public void setPaymentLimit(String paymentLimit) {
+        this.paymentLimit = paymentLimit;
+    }
+
+    public String getCreditLimit() {
+        return creditLimit;
+    }
+
+    public void setCreditLimit(String creditLimit) {
+        this.creditLimit = creditLimit;
+    }
+
+    public String getRegionLimitWithDraw() {
+        return regionLimitWithDraw;
+    }
+
+    public void setRegionLimitWithDraw(String regionLimitWithDraw) {
+        this.regionLimitWithDraw = regionLimitWithDraw;
+    }
+
+    public String getRegionLimitPayment() {
+        return regionLimitPayment;
+    }
+
+    public void setRegionLimitPayment(String regionLimitPayment) {
+        this.regionLimitPayment = regionLimitPayment;
+    }
 
     public void createCard(String n, String t, String c, String pc) {
         Random rand = new Random();
@@ -63,6 +105,11 @@ public class Card {
         type = t;
         ContactlessPay = c;
         pincode = pc;
+        withdrawLimit = "0";
+        paymentLimit = "0";
+        creditLimit = "0";
+        regionLimitPayment = "0";
+        regionLimitWithDraw = "0";
     }
 
     @NonNull
