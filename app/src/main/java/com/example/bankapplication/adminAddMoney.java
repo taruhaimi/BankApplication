@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -22,6 +23,7 @@ public class adminAddMoney extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_money);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         accounts = (ListView) findViewById(R.id.allAccounts);
         moneyText = (EditText) findViewById(R.id.getMoney2);
         for (int i = 0; i < MainActivity.userArrayList.size(); i++) {
@@ -43,7 +45,13 @@ public class adminAddMoney extends AppCompatActivity {
         SaveData.save(this);
     }
     public void transferMoney(View v)   {
-        moneyAmount = Double.parseDouble(moneyText.getText().toString());
+        try {
+            moneyAmount = Double.parseDouble(moneyText.getText().toString());
+        } catch (NullPointerException e)    {
+            Toast.makeText(this, "Field can't be empty.", Toast.LENGTH_SHORT).show();
+        } catch (NumberFormatException e){
+            Toast.makeText(this, "Invalid input, try again!", Toast.LENGTH_SHORT).show();
+        }
         for (int i = 0; i < MainActivity.userArrayList.size(); i++) {
             for (int k = 0; k < MainActivity.userArrayList.get(i).accountArrayList.size();k++)  {
                 if (MainActivity.userArrayList.get(i).accountArrayList.get(k).equals(allAccounts.get(index)))   {

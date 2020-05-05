@@ -45,7 +45,7 @@ public class AccountInfo extends AppCompatActivity {
             accountNameEdit.setText(MainActivity.accountArrayList().get(listIndex).getInformation());
             accountNumber.setText("Account number: "+MainActivity.accountArrayList().get(listIndex).getID());
             accountType.setText("Account type: "+MainActivity.accountArrayList().get(listIndex).getType());
-            accountInterest.setText("Interest: "+(MainActivity.accountArrayList().get(listIndex).getInterest()-1) + "%");
+            accountInterest.setText("Interest: "+String.format("%1.02f",((MainActivity.accountArrayList().get(listIndex).getInterest()-1)*100)) + "%");
             if (MainActivity.accountArrayList().get(listIndex).getType().equals("Savings")) {
                 Type.setChecked(true);
                 currentdate = java.util.Calendar.getInstance().getTime();

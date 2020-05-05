@@ -61,7 +61,7 @@ public class AddAccount extends AppCompatActivity {
         }
 
         if (flag == 0)  {
-        account.createAccount(accountname, id, 0, "Current", 0);
+        account.createAccount(accountname, id, 0, "Current", 1);
         MainActivity.accountArrayList().add(account);
         Toast.makeText(this, "Created account: "+accountname+"\nId: "+id, Toast.LENGTH_SHORT).show();
 
