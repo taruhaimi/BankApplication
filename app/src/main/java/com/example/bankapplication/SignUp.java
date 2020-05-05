@@ -41,7 +41,12 @@ public class SignUp extends AppCompatActivity {
         register = (Button) findViewById(R.id.registerBtn);
         passWord = (TextInputLayout) findViewById(R.id.password);
     }
-
+    @Override
+    protected  void onPause() {
+        // Saves data to sharedpreferences using Gson-library
+        super.onPause();
+        SaveData.save(this);
+    }
     public void Register(View v) {
         if (validateUsername() && validatePassword()) {
             int flag = 0;

@@ -13,6 +13,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
+
 public class AccountInfo extends AppCompatActivity {
     TextView accountNumber;
     TextView accountMoney;
@@ -21,6 +23,8 @@ public class AccountInfo extends AppCompatActivity {
     EditText accountNameEdit;
     Switch Type;
     int listIndex;
+    Date currentdate;
+    double interesttime;
     Context context = null;
 
     @Override
@@ -38,15 +42,21 @@ public class AccountInfo extends AppCompatActivity {
 
         if (extras != null) {
             listIndex = extras.getInt("key");
-            System.out.println(listIndex);
             accountNameEdit.setText(MainActivity.accountArrayList().get(listIndex).getInformation());
             accountNumber.setText("Account number: "+MainActivity.accountArrayList().get(listIndex).getID());
             accountType.setText("Account type: "+MainActivity.accountArrayList().get(listIndex).getType());
-            accountMoney.setText("Account money: "+MainActivity.accountArrayList().get(listIndex).getMoney() + "€");
-            accountInterest.setText("Interest: "+Double.toString(MainActivity.accountArrayList().get(listIndex).getInterest()) + "%");
+            accountInterest.setText("Interest: "+(MainActivity.accountArrayList().get(listIndex).getInterest()-1) + "%");
             if (MainActivity.accountArrayList().get(listIndex).getType().equals("Savings")) {
                 Type.setChecked(true);
+                currentdate = java.util.Calendar.getInstance().getTime();
+                interesttime = (double) ((currentdate.getTime()-MainActivity.accountArrayList().get(listIndex).getInterestdate().getTime())/1000);
+                MainActivity.accountArrayList().get(listIndex).setInterestdate(java.util.Calendar.getInstance().getTime());
+                double potenssi =  Math.pow(MainActivity.accountArrayList().get(listIndex).getInterest(),interesttime/60);
+                System.out.println(interesttime/60);
+                System.out.println(potenssi);
+               MainActivity.accountArrayList().get(listIndex).depositMoney(MainActivity.accountArrayList().get(listIndex).getMoney()*potenssi-MainActivity.accountArrayList().get(listIndex).getMoney());
             }
+            accountMoney.setText("Account money: "+MainActivity.accountArrayList().get(listIndex).getMoney() + "€");
         }
     }
     @Override
@@ -55,6 +65,7 @@ public class AccountInfo extends AppCompatActivity {
         super.onPause();
         SaveData.save(this);
     }
+
     public void updateAccount(View v)   {
         MainActivity.accountArrayList().get(listIndex).setName(accountNameEdit.getText().toString());
         boolean state = Type.isChecked();
@@ -65,7 +76,7 @@ public class AccountInfo extends AppCompatActivity {
             accountType.setText("Account type: "+MainActivity.accountArrayList().get(listIndex).getType());
         }
         else {
-            MainActivity.accountArrayList().get(listIndex).setInterest(0.2);
+            MainActivity.accountArrayList().get(listIndex).setInterest(1.02);
             MainActivity.accountArrayList().get(listIndex).setType("Savings");
             accountType.setText("Account type: "+MainActivity.accountArrayList().get(listIndex).getType());
             accountInterest.setText("Interest: "+Double.toString(MainActivity.accountArrayList().get(listIndex).getInterest()) + "%");
@@ -94,12 +105,6 @@ public class AccountInfo extends AppCompatActivity {
         });
         AlertDialog dialog = builder.create();
         dialog.show();
-    }
-
-    public void addMoney(View v)    {
-        Intent i = new Intent(AccountInfo.this,AddMoney.class);
-        i.putExtra("key", listIndex);
-        startActivity(i);
     }
 
     public void newPayment(View v)  {

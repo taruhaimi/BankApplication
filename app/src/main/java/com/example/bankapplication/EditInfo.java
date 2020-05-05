@@ -33,7 +33,12 @@ public class EditInfo extends AppCompatActivity {
         context = EditInfo.this;
         showInformation();
     }
-
+    @Override
+    protected  void onPause() {
+        // Saves data to sharedpreferences using Gson-library
+        super.onPause();
+        SaveData.save(this);
+    }
     public void saveInformation(View v) {
         newName = Name.getText().toString();
         newAddress = Address.getText().toString();

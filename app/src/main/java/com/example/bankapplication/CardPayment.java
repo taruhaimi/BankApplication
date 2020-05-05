@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -30,6 +31,7 @@ public class CardPayment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_payment);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
         moneyAmount = (EditText) findViewById(R.id.moneyAmount);
         pinCode = (EditText) findViewById(R.id.getPinCode);
         cards = (ListView) findViewById(R.id.cardView);
@@ -51,7 +53,12 @@ public class CardPayment extends AppCompatActivity {
         regions.setAdapter(dataAdapter);
 
     }
-
+    @Override
+    protected  void onPause() {
+        // Saves data to sharedpreferences using Gson-library
+        super.onPause();
+        SaveData.save(this);
+    }
     public void cardPay(View v) {
 
         try {

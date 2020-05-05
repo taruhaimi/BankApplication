@@ -7,6 +7,18 @@
     tools:context=".AccountsAndCards">
 
     <Button
+        android:id="@+id/addMoney"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:onClick="goAddMoney"
+        android:text="Add money (Requires admin access)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.735" />
+
+    <Button
         android:id="@+id/addCard"
         android:layout_width="175dp"
         android:layout_height="50dp"
@@ -55,4 +67,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.386" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
