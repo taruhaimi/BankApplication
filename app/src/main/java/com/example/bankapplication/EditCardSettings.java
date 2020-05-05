@@ -69,11 +69,19 @@ public class EditCardSettings extends AppCompatActivity {
 
         MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).setWithdrawLimit(newWithdrawLimit);
         MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).setPaymentLimit(newPaymentLimit);
-        MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).setCreditLimit(newCreditLimit);
         MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).setRegionLimitWithDraw(newRegion1);
         MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).setRegionLimitPayment(newRegion2);
 
-        Toast.makeText(context,"Your card settings are now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
+        if (MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getType().equals("Debit")) {
+            Toast.makeText(context,"You can not add credit to debit-card.", Toast.LENGTH_SHORT).show();
+        } else {
+            MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).setCreditLimit(newCreditLimit);
+            Toast.makeText(context,"Your card settings are now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
+
+        }
+
+
+
     }
 
     public void showSettings() {
