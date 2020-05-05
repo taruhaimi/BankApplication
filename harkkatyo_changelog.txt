@@ -1,6 +1,7 @@
 5.5.2020 Taru Haimi
 	Updated region limits to work all over the app, also card payment and withdraw simulations are now ready.
 	Updated card settings activity to work entirely, all data is now saved.
+	Added another region limit; one for the withdraw and differ one for the card payment.
 	Created withdraw simulation to work almost entirely (without region limit).
 
 5.5.2020 Leevi Kämäräinen
