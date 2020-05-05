@@ -77,11 +77,7 @@ public class EditCardSettings extends AppCompatActivity {
         } else {
             MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).setCreditLimit(newCreditLimit);
             Toast.makeText(context,"Your card settings are now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
-
         }
-
-
-
     }
 
     public void showSettings() {

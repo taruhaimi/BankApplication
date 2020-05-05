@@ -20,7 +20,7 @@ import java.util.Date;
 
 public class CardInfo extends AppCompatActivity {
 
-    EditText cardName;
+    TextView cardName;
     TextView cardNumber, connectedAccount, cardType, contactlessPay, pinCode;
     ListView cards;
     int listIndex;
@@ -37,7 +37,7 @@ public class CardInfo extends AppCompatActivity {
         cardType =(TextView) findViewById(R.id.cardType);
         contactlessPay = (TextView) findViewById(R.id.contactlessPay);
         pinCode = (TextView) findViewById(R.id.pincode);
-        cardName = (EditText) findViewById(R.id.cardName);
+        cardName = (TextView) findViewById(R.id.cardName);
         cards = (ListView) findViewById(R.id.cardList);
         Bundle extras = getIntent().getExtras();
         context = CardInfo.this;

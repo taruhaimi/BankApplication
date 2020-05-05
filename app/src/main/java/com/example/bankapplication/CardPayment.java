@@ -78,6 +78,8 @@ public class CardPayment extends AppCompatActivity {
                         Toast.makeText(this, "You can not pay with this card at this region. Please change region.", Toast.LENGTH_SHORT).show();
                     } else if (MainActivity.accountArrayList().get(i).getMoney() < money) {
                         Toast.makeText(this, "Not enough money!", Toast.LENGTH_SHORT).show();
+                    } else if (Integer.parseInt(allCards.get(index).getPaymentLimit()) < money) {
+                        Toast.makeText(this, "Money amount is above your payment limit, sorry.", Toast.LENGTH_SHORT).show();
                     } else if (pin.equals("") && money <= 50) {
                         MainActivity.accountArrayList().get(i).withdrawMoney(money);
                         Toast.makeText(this, "Paid " + money + "€ from account " + MainActivity.accountArrayList().get(i).getInformation() + " successfully.", Toast.LENGTH_LONG).show();

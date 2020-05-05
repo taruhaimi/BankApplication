@@ -36,8 +36,6 @@ public class Account {
     }
 
     double getMoney() {
-        String rounded = String.format("%1.2f",money);
-        money = Double.parseDouble(rounded);
         return money;
     }
 

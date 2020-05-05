@@ -56,7 +56,7 @@ public class AccountInfo extends AppCompatActivity {
                 System.out.println(potenssi);
                MainActivity.accountArrayList().get(listIndex).depositMoney(MainActivity.accountArrayList().get(listIndex).getMoney()*potenssi-MainActivity.accountArrayList().get(listIndex).getMoney());
             }
-            accountMoney.setText("Account money: "+MainActivity.accountArrayList().get(listIndex).getMoney() + "€");
+            accountMoney.setText("Account money: "+String.format("%1.2f",MainActivity.accountArrayList().get(listIndex).getMoney()) + "€");
         }
     }
     @Override
