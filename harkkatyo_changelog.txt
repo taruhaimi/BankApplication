@@ -1,3 +1,8 @@
+5.5.2020 Taru Haimi
+	Updated region limits to work all over the app, also card payment and withdraw simulations are now ready.
+	Updated card settings activity to work entirely, all data is now saved.
+	Created withdraw simulation to work almost entirely (without region limit).
+
 5.5.2020 Leevi Kämäräinen
 	Fixed program in github to work on everyone, some data was not saved last time using push.
 	Remade EditInfo to only save data directly to account objects (deleted the method of saving variables directly to 			sharedpreferences)
@@ -19,7 +24,7 @@
 	Created WithDrawMoney-activity (with no functionalities but with all widgets).
 	Created pin code to the card-object.
 	Major changes to SignUp-activity, and made it compulsory to sing up with good password at SignUp-activity.
-	Created keycode to the LogIn-activity.
+	Created keycode to verify logging in in the LogIn-activity.
 	Some visual changes.
 
 1.5.2020 Joona Ylijoki
