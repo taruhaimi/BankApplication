@@ -55,6 +55,12 @@ public class CardInfo extends AppCompatActivity {
 
         }
 }
+    @Override
+    protected  void onPause() {
+        // Saves data to sharedpreferences using Gson-library
+        super.onPause();
+        SaveData.save(this);
+    }
 
     public void cardSettings(View v) {
         Intent i = new Intent(CardInfo.this,EditCardSettings.class);

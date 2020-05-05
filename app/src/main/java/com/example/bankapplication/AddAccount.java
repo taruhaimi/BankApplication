@@ -85,9 +85,10 @@ public class AddAccount extends AppCompatActivity {
             }
         }
         if (flag == 0)  {
-            account.createAccount(accountname, id, 0, "Savings", 0.2);
+            account.createAccount(accountname, id, 0, "Savings", 1.02);
             MainActivity.accountArrayList().add(account);
             Toast.makeText(this, "Created account: "+accountname+"\nId: "+id, Toast.LENGTH_SHORT).show();
         }
     }
+
 }

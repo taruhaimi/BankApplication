@@ -17,7 +17,6 @@ public class Card {
     private String regionLimitWithDraw;
     private String regionLimitPayment;
 
-
     public String getType() {
         return type;
     }
@@ -105,8 +104,8 @@ public class Card {
         type = t;
         ContactlessPay = c;
         pincode = pc;
-        withdrawLimit = "0";
-        paymentLimit = "0";
+        withdrawLimit = "100";
+        paymentLimit = "100";
         creditLimit = "0";
         regionLimitPayment = "0";
         regionLimitWithDraw = "0";

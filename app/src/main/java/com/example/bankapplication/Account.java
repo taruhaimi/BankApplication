@@ -3,7 +3,7 @@ package com.example.bankapplication;
 
 import androidx.annotation.NonNull;
 
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,17 +14,21 @@ public class Account {
     String accountID;
     String type;
     double interest;
+
+
+
     Date interestdate;
-    String interestdate2;
     ArrayList<Card> cardArrayList = new ArrayList<Card>();
-    //SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     public void setName(String name) {
         this.name = name;
     }
 
     public void setInterest(double interest) {
         this.interest = interest;
-       // interestdate2 = formatter.format(interestdate);
+        interestdate =  java.util.Calendar.getInstance().getTime();
+    }
+    public Date getInterestdate() {
+        return interestdate;
     }
 
     public void setType(String type) {
@@ -32,6 +36,8 @@ public class Account {
     }
 
     double getMoney() {
+        String rounded = String.format("%1.2f",money);
+        money = Double.parseDouble(rounded);
         return money;
     }
 
@@ -61,12 +67,15 @@ public class Account {
         return interest;
     }
 
+
+
     void createAccount(String n, String i, double m, String t, double k) {
         accountID = i;
         name = n;
         money = m;
         type = t;
         interest = k;
+        interestdate =  java.util.Calendar.getInstance().getTime();
     }
     void createCard(String n, String t, String c, String pc)   {
         Card card = new Card();
@@ -74,6 +83,9 @@ public class Account {
         cardArrayList.add(card);
     }
 
+    public void setInterestdate(Date interestdate) {
+        this.interestdate = interestdate;
+    }
     @NonNull
     @Override
     public String toString() {

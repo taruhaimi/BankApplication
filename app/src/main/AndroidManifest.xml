@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WithDrawMoney"></activity>
+        <activity android:name=".adminAddMoney"></activity>
+        <activity android:name=".WithDrawMoney" />
         <activity android:name=".SignUp" />
         <activity android:name=".CardPayment" />
         <activity android:name=".TransferPayment" />
         <activity android:name=".Credits" />
         <activity android:name=".SelfPayment" />
         <activity android:name=".NewPayment" />
-        <activity android:name=".AddMoney" />
         <activity android:name=".TransActions" />
         <activity android:name=".AccountInfo" />
         <activity android:name=".CardInfo" />

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -28,6 +29,7 @@ public class WithDrawMoney extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_with_draw_money);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
         cards = (ListView) findViewById(R.id.cardView);
         moneyAmount = (EditText) findViewById(R.id.moneyAmount);
         pinCode = (EditText) findViewById(R.id.getPinCode);
@@ -50,7 +52,12 @@ public class WithDrawMoney extends AppCompatActivity {
         regions.setAdapter(dataAdapter);
 
     }
-
+    @Override
+    protected  void onPause() {
+        // Saves data to sharedpreferences using Gson-library
+        super.onPause();
+        SaveData.save(this);
+    }
     public void withdrawMoney(View v) {
 
         try {

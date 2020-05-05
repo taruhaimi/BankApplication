@@ -7,35 +7,6 @@
     tools:context=".AddCard">
 
     <TextView
-        android:id="@+id/newPinCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pin code:"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.182"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653" />
-
-    <Switch
-        android:id="@+id/choosePayment"
-        android:layout_width="252dp"
-        android:layout_height="35dp"
-        android:showText="true"
-        android:text="Contactless payment:"
-        android:textOff="No"
-        android:textOn="Yes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557" />
-
-    <TextView
         android:id="@+id/addCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,10 +70,27 @@
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintVertical_bias="0.415" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/getPincode"
+        android:layout_width="168dp"
+        android:layout_height="96dp"
+        android:textColorHint="#8F8C8C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.67"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.773">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="e.g. 1234" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/saveButton"
@@ -112,40 +100,50 @@
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.789" />
+        app:layout_constraintVertical_bias="0.859" />
 
-    <Spinner
-        android:id="@+id/accountSpinner"
-        android:layout_width="165dp"
-        android:layout_height="68dp"
-        android:dropDownWidth="500dp"
-        android:minWidth="500dp"
-        android:spinnerMode="dialog"
+    <TextView
+        android:id="@+id/newPinCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pin code:"
+        android:textColor="#000000"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.743"
+        app:layout_constraintHorizontal_bias="0.189"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.447" />
+        app:layout_constraintVertical_bias="0.72" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/getPincode"
-        android:layout_width="168dp"
-        android:layout_height="96dp"
-        android:textColorHint="#8F8C8C"
+    <Switch
+        android:id="@+id/choosePayment"
+        android:layout_width="252dp"
+        android:layout_height="35dp"
+        android:showText="true"
+        android:text="Contactless payment:"
+        android:textOff="No"
+        android:textOn="Yes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.655"
+        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.697">
+        app:layout_constraintVertical_bias="0.626" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="e.g. 1234" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <ListView
+        android:id="@+id/accountList"
+        android:layout_width="310dp"
+        android:layout_height="102dp"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.613"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.519" />
 </androidx.constraintlayout.widget.ConstraintLayout>
