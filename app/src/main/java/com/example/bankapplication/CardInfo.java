@@ -60,7 +60,12 @@ public class CardInfo extends AppCompatActivity {
         }
 }
 
-    public void cardSettings(View v) {startActivity(new Intent(CardInfo.this,EditCardSettings.class)); }
+    public void cardSettings(View v) {
+        Intent i = new Intent(CardInfo.this,EditCardSettings.class);
+        i.putExtra("key", listIndex);
+        i.putExtra("key2", position);
+        startActivity(i);
+    }
 
 
     public void deleteCard(View v) {

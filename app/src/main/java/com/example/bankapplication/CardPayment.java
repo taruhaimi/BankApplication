@@ -34,7 +34,6 @@ public class CardPayment extends AppCompatActivity {
         pinCode = (EditText) findViewById(R.id.getPinCode);
         cards = (ListView) findViewById(R.id.cardView);
         regions = (Spinner) findViewById(R.id.countrySpinner);
-        // TODO: kaikki ominaisuudet korttimaksuun
 
         for (int i = 0; i < MainActivity.userArrayList.get(MainActivity.currentIndex).accountArrayList.size(); i++) {
             allCards.addAll(MainActivity.userArrayList.get(MainActivity.currentIndex).accountArrayList.get(i).cardArrayList);
@@ -86,7 +85,7 @@ public class CardPayment extends AppCompatActivity {
         } catch (NumberFormatException nfe) {
             Toast.makeText(this, "Invalid input, try again!", Toast.LENGTH_SHORT).show();
         } catch (NullPointerException e)  {
-            Toast.makeText(this, "Invalid input, try again!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Field can't be empty, try again!", Toast.LENGTH_SHORT).show();
         }
 
 

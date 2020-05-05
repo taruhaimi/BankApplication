@@ -52,8 +52,6 @@ public class EditInfo extends AppCompatActivity {
                 passWord2.setError("Passwords do not match, try again.");
         } else {
             MainActivity.userArrayList.get(MainActivity.currentIndex).setPassword(newPassword1);
-
-
             Toast.makeText(context,"Your personal information is now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
         }
     }
