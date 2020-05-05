@@ -72,13 +72,7 @@ public class CardInfo extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //MainActivity.accountArrayList.remove(listIndex);
-                        //ArrayAdapter<Card> arrayAdapter = new ArrayAdapter<Card>(this,android.R.layout.simple_list_item_1,MainActivity.accountArrayList.get(listIndex).cardArrayList);
-                        //cards.setAdapter(arrayAdapter);
-                        //MainActivity.accountArrayList.remove(listIndex).cardArrayList;
-                        //position = MainActivity.accountArrayList.indexOf(listIndex);
-                        //position = accountList.getSelectedItemPosition();
-                        //MainActivity.accountArrayList.get(position).cardArrayList.remove();
+                        MainActivity.accountArrayList().get(listIndex).cardArrayList.remove(position);
                         finish();
                     }
                 });

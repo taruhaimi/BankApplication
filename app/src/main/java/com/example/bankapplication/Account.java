@@ -3,7 +3,9 @@ package com.example.bankapplication;
 
 import androidx.annotation.NonNull;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class Account {
@@ -12,14 +14,17 @@ public class Account {
     String accountID;
     String type;
     double interest;
+    Date interestdate;
+    String interestdate2;
     ArrayList<Card> cardArrayList = new ArrayList<Card>();
-
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     public void setName(String name) {
         this.name = name;
     }
 
     public void setInterest(double interest) {
         this.interest = interest;
+        interestdate2 = formatter.format(interestdate);
     }
 
     public void setType(String type) {
