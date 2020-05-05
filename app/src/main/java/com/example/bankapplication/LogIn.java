@@ -34,7 +34,7 @@ public class LogIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
         loadData();
-        createAdmin();
+        //createAdmin();
         GetUsername = (EditText) findViewById(R.id.getUsername);
         GetPassword = (EditText) findViewById(R.id.getPassWord);
         randNumbers = (TextView) findViewById(R.id.securityCheckView);
@@ -79,7 +79,7 @@ public class LogIn extends AppCompatActivity {
         startActivity(new Intent(LogIn.this, SignUp.class));
     }
 
-    public void createAdmin() {
+    public void createAdmin(View v) {
         int adminExists = 0;
         for (int i = 0; i < MainActivity.userArrayList.size(); i++) {
             if (MainActivity.userArrayList.get(i).getName().equals("Admin")) {
@@ -93,6 +93,8 @@ public class LogIn extends AppCompatActivity {
                 user.createUser("Admin", "Admin");
                 System.out.println("Created admin user:\n Username: "+user.getName()+" Password "+user.getPassword());
                 MainActivity.userArrayList.add(user);
+                Toast.makeText(context, "Admin-user created.\nUsername: Admin\nPassword: Admin", Toast.LENGTH_SHORT).show();
+
             }
         }
 
@@ -102,6 +104,12 @@ public class LogIn extends AppCompatActivity {
         String json = sharedPreferences.getString("tasklist", null);
         Type type = new TypeToken<ArrayList<User>>() {}.getType();
         MainActivity.userArrayList = gson.fromJson(json, type);
+
+    }
+
+    public void deleteAll(View v) {
+        MainActivity.userArrayList.clear();
+        Toast.makeText(context, "All users deleted.", Toast.LENGTH_SHORT).show();
 
     }
 }
