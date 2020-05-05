@@ -96,7 +96,7 @@ public class LogIn extends AppCompatActivity {
             }
         }
 
-    private void loadData() {
+    protected void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("tasklist", null);

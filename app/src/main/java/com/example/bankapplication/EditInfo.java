@@ -46,18 +46,55 @@ public class EditInfo extends AppCompatActivity {
         newEmail = Email.getText().toString();
         newPassword1 = passWord1.getEditText().getText().toString();
         newPassword2 = passWord2.getEditText().getText().toString();
-        MainActivity.userArrayList.get(MainActivity.currentIndex).setName(newName);
-        MainActivity.userArrayList.get(MainActivity.currentIndex).setAddress(newAddress);
-        MainActivity.userArrayList.get(MainActivity.currentIndex).setNumber(newNumber);
-        MainActivity.userArrayList.get(MainActivity.currentIndex).setEmail(newEmail);
 
+        if (MainActivity.userArrayList.get(MainActivity.currentIndex).getName().equals("Admin")) {
 
+            if (!Name.getText().toString().equals("Admin")) {
+                Toast.makeText(context, "You can not change Admin user's username.", Toast.LENGTH_SHORT).show();
+            } else {
 
-        if (validatePassword() && (!passWord1.getEditText().getText().toString().equals(passWord2.getEditText().getText().toString()))) {
-                passWord2.setError("Passwords do not match, try again.");
+                if (!passWord1.getEditText().getText().toString().trim().isEmpty() ) {
+                    passWord1.setError("You can not change Admin user's password.");
+                }
+
+                MainActivity.userArrayList.get(MainActivity.currentIndex).setName("Admin");
+                MainActivity.userArrayList.get(MainActivity.currentIndex).setAddress(newAddress);
+                MainActivity.userArrayList.get(MainActivity.currentIndex).setNumber(newNumber);
+                MainActivity.userArrayList.get(MainActivity.currentIndex).setEmail(newEmail);
+                MainActivity.userArrayList.get(MainActivity.currentIndex).setPassword("Admin");
+                Toast.makeText(context, "Your personal information is now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
+            }
+
         } else {
-            MainActivity.userArrayList.get(MainActivity.currentIndex).setPassword(newPassword1);
-            Toast.makeText(context,"Your personal information is now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
+            MainActivity.userArrayList.get(MainActivity.currentIndex).setAddress(newAddress);
+            MainActivity.userArrayList.get(MainActivity.currentIndex).setNumber(newNumber);
+            MainActivity.userArrayList.get(MainActivity.currentIndex).setEmail(newEmail);
+
+            if (Name.getText().toString().equals("Admin")) {
+                Toast.makeText(context, "You can not name your user Admin,\ntry again.", Toast.LENGTH_SHORT).show();
+            } else {
+                int flag = 0;
+                for (int i = 0; i < MainActivity.userArrayList.size(); i++) {
+                    if (MainActivity.userArrayList.get(i).getName().equals(newName)) {
+                        Toast.makeText(this, "Username: " + newName + " is already taken.", Toast.LENGTH_SHORT).show();
+                        flag = 1;
+                    }
+                }
+                if (flag == 0) {
+                    MainActivity.userArrayList.get(MainActivity.currentIndex).setName(newName);
+                    Toast.makeText(context, "Your personal information is now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            if (validatePassword()) {
+                if (!passWord1.getEditText().getText().toString().equals(passWord2.getEditText().getText().toString())) {
+                    passWord2.setError("Passwords do not match, try again.");
+                } else {
+                    MainActivity.userArrayList.get(MainActivity.currentIndex).setPassword(newPassword1);
+                    Toast.makeText(context, "Your personal information is now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
         }
     }
 
@@ -73,10 +110,10 @@ public class EditInfo extends AppCompatActivity {
         String psword = passWord1.getEditText().getText().toString().trim();
 
         if (psword.isEmpty()) {
-            passWord1.setError("Field can't be empty.");
+            passWord1.setError("If you want to change your password,\nfield can not be empty.");
             return false;
         } else if (!SignUp.PASSWORD_PATTERN.matcher(psword).matches()) {
-            passWord1.setError("Password is too weak. Your password must contain at least one number, special character, lower- and uppercase letter and is at least 12 characters long");
+            passWord1.setError("Password is too weak. Your password must contain at least one number, special character, lower- and uppercase letter and is at least 12 characters long.");
             return false;
         } else {
             passWord1.setError(null);
