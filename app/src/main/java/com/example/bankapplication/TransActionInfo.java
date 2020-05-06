@@ -2,20 +2,25 @@ package com.example.bankapplication;
 
 import androidx.annotation.NonNull;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class TransActionInfo {
 
     private String who;
     private double amount;
     private String from;
-    public String info;
-    public String transactiontype;
+    private String info;
+    private String transactiontype;
+    private Date currentdate;
     int type;
-
-    public void saveInfo(String f, String w, double a, String t) {
+    void saveInfo(String f, String w, double a, String t) {
         from = f;
         who = w;
         amount = a;
         transactiontype = t;
+        currentdate = new Date();
     }
 
     public String toInfoString() {
@@ -31,7 +36,7 @@ public class TransActionInfo {
     @NonNull
     @Override
     public String toString() {
-        info = "From account: " + from + "\nTo: " + who + "\nAmount: " + amount+"\nType: "+ transactiontype;
+        info = "From account: " + from + "\nTo: " + who + "\nAmount: " + amount+"\nType: "+ transactiontype+"\nDate: "+currentdate;
         return info;
     }
 }

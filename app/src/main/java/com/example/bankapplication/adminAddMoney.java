@@ -64,6 +64,7 @@ public class adminAddMoney extends AppCompatActivity {
             for (int k = 0; k < MainActivity.userArrayList.get(i).accountArrayList.size();k++)  {
                 if (MainActivity.userArrayList.get(i).accountArrayList.get(k).equals(allAccounts.get(index)))   {
                     MainActivity.userArrayList.get(i).accountArrayList.get(k).depositMoney(moneyAmount);
+                    MainActivity.userArrayList.get(i).accountArrayList.get(k).createTransaction("Bank", MainActivity.userArrayList.get(i).accountArrayList.get(k).getID(),moneyAmount, "Bank's Transfer");
                     Toast.makeText(this, "Added "+moneyAmount+"€ to account "+MainActivity.userArrayList.get(i).accountArrayList.get(k).getID(), Toast.LENGTH_SHORT).show();
                 }
             }

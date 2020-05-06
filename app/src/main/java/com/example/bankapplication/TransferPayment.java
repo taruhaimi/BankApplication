@@ -71,7 +71,7 @@ public class TransferPayment extends AppCompatActivity {
                 }
             }
             else {
-                MainActivity.userArrayList.get(paymentIndexUser).accountArrayList.get(paymentIndexAcc).depositMoney(money);
+                MainActivity.userArrayList.get(paymentIndexUser).accountArrayList.get(paymentIndexAcc).withdrawMoney(money);
                 Toast.makeText(this, "Transferred " + money + "€ from account " + MainActivity.accountArrayList().get(listIndex).getID() + " to account " + accountID.getText().toString() + " successfully.", Toast.LENGTH_LONG).show();
             }
         } catch (NumberFormatException nfe) {
