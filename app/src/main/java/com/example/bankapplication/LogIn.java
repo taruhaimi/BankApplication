@@ -84,6 +84,7 @@ public class LogIn extends AppCompatActivity {
                 adminExists = 1;
                 MainActivity.userArrayList.get(i).setName("Admin");
                 MainActivity.userArrayList.get(i).setPassword("Admin");
+                Toast.makeText(context, "Admin-user already exist", Toast.LENGTH_SHORT).show();
             }
         }
             if (adminExists==0) {

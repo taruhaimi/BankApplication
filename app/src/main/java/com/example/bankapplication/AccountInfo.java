@@ -40,7 +40,7 @@ public class AccountInfo extends AppCompatActivity {
             accountNameEdit.setText(MainActivity.accountArrayList().get(listIndex).getInformation());
             accountNumber.setText("Account number: "+MainActivity.accountArrayList().get(listIndex).getID());
             accountType.setText("Account type: "+MainActivity.accountArrayList().get(listIndex).getType());
-            accountInterest.setText("Interest: "+String.format("%1.02f",((MainActivity.accountArrayList().get(listIndex).getInterest()-1)*100)) + "%");
+            accountInterest.setText("Interest: "+MainActivity.accountArrayList().get(listIndex).getRealInterest()+ "%");
             if (MainActivity.accountArrayList().get(listIndex).getType().equals("Savings")) {
                 Type.setChecked(true);
                 currentdate = java.util.Calendar.getInstance().getTime();
@@ -65,16 +65,16 @@ public class AccountInfo extends AppCompatActivity {
         MainActivity.accountArrayList().get(listIndex).setName(accountNameEdit.getText().toString());
         boolean state = Type.isChecked();
         if (!state) {
-            MainActivity.accountArrayList().get(listIndex).setInterest(0);
+            MainActivity.accountArrayList().get(listIndex).setInterest(1);
             MainActivity.accountArrayList().get(listIndex).setType("Current");
-            accountInterest.setText("Interest: "+Double.toString(MainActivity.accountArrayList().get(listIndex).getInterest()) + "%");
+            accountInterest.setText("Interest: "+MainActivity.accountArrayList().get(listIndex).getRealInterest()+ "%");
             accountType.setText("Account type: "+MainActivity.accountArrayList().get(listIndex).getType());
         }
         else {
             MainActivity.accountArrayList().get(listIndex).setInterest(1.02);
             MainActivity.accountArrayList().get(listIndex).setType("Savings");
             accountType.setText("Account type: "+MainActivity.accountArrayList().get(listIndex).getType());
-            accountInterest.setText("Interest: "+Double.toString(MainActivity.accountArrayList().get(listIndex).getInterest()) + "%");
+            accountInterest.setText("Interest: "+MainActivity.accountArrayList().get(listIndex).getRealInterest()+ "%");
         }
         Toast.makeText(context,"Updates saved.", Toast.LENGTH_SHORT).show();
 
@@ -125,6 +125,6 @@ public class AccountInfo extends AppCompatActivity {
         accountNameEdit.setText(MainActivity.accountArrayList().get(listIndex).getInformation());
         accountNumber.setText("Account number: "+MainActivity.accountArrayList().get(listIndex).getID());
         accountType.setText("Account type: "+MainActivity.accountArrayList().get(listIndex).getType());
-        accountMoney.setText("Money: "+MainActivity.accountArrayList().get(listIndex).getMoney() + "€");
+        accountMoney.setText("Money: "+String.format("%1.2f", MainActivity.accountArrayList().get(listIndex).getMoney()) + "€");
     }
 }

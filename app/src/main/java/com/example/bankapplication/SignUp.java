@@ -11,17 +11,6 @@ import java.util.regex.Pattern;
 
 public class SignUp extends AppCompatActivity {
 
-    // This Pattern defines the terms that created password must comply. It's used all over the app.
-    public static final Pattern PASSWORD_PATTERN =
-            Pattern.compile("^" +
-                    //"(?=.*[0-9])" +         //at least 1 digit
-                    //"(?=.*[a-z])" +         //at least 1 lower case letter
-                    //"(?=.*[A-Z])" +         //at least 1 upper case letter
-                    "(?=.*[@#$%^&+=])" +    //at least 1 special character
-                    "(?=\\S+$)" +           //no white spaces
-                    ".{12,}" +               //at least 12 characters
-                    "$");
-
     Context context = null;
     Button register;
     TextInputLayout userName, passWord;
@@ -44,10 +33,15 @@ public class SignUp extends AppCompatActivity {
     }
 
     public void Register(View v) {
-        if (validateUsername() && validatePassword()) {
+        if (Validater.validateUsername(userName) && Validater.validateNewPassword(passWord)) {
             int flag = 0;
             String usName = userName.getEditText().getText().toString().trim();
             String psword = passWord.getEditText().getText().toString().trim();
+
+            if (usName.equals("Admin")) {
+                Toast.makeText(this, "You can not name your user Admin.", Toast.LENGTH_SHORT).show();
+                flag = 1;
+            }
 
             for (int i = 0; i < MainActivity.userArrayList.size(); i++) {
                 if (MainActivity.userArrayList.get(i).getName().equals(usName)) {
@@ -63,32 +57,5 @@ public class SignUp extends AppCompatActivity {
                 finish();
             }
         }
-    }
-
-    private boolean validateUsername() {
-        String usName = userName.getEditText().getText().toString().trim();
-
-        if (usName.isEmpty()) {
-            userName.setError("Field can't be empty.");
-            return false;
-        } else {
-            passWord.setError(null);
-            return true;
-        }
-    }
-
-    private boolean validatePassword() {
-            String psword = passWord.getEditText().getText().toString().trim();
-
-            if (psword.isEmpty()) {
-                passWord.setError("Field can't be empty.");
-                return false;
-            } else if (!PASSWORD_PATTERN.matcher(psword).matches()) {
-                passWord.setError("Password is too weak. Your password must contain at least one number, special character, lower- and uppercase letter and is at least 12 characters long");
-                return false;
-            } else {
-                passWord.setError(null);
-                return true;
-            }
     }
 }

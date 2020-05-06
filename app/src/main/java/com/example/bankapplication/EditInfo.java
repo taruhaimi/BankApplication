@@ -87,7 +87,7 @@ public class EditInfo extends AppCompatActivity {
                 }
             }
 
-            if (validatePassword()) {
+            if (Validater.validateExistingPassword(passWord1)) {
                 if (!passWord1.getEditText().getText().toString().equals(passWord2.getEditText().getText().toString())) {
                     passWord2.setError("Passwords do not match, try again.");
                 } else {
@@ -99,7 +99,6 @@ public class EditInfo extends AppCompatActivity {
         }
     }
 
-
     public void showInformation() {
         Name.setText(MainActivity.userArrayList.get(MainActivity.currentIndex).getName());
         Address.setText(MainActivity.userArrayList.get(MainActivity.currentIndex).getAddress());
@@ -107,18 +106,4 @@ public class EditInfo extends AppCompatActivity {
         Email.setText(MainActivity.userArrayList.get(MainActivity.currentIndex).getEmail());
     }
 
-    private boolean validatePassword() {
-        String psword = passWord1.getEditText().getText().toString().trim();
-
-        if (psword.isEmpty()) {
-            passWord1.setError("If you want to change your password,\nfield can not be empty.");
-            return false;
-        } else if (!SignUp.PASSWORD_PATTERN.matcher(psword).matches()) {
-            passWord1.setError("Password is too weak. Your password must contain at least one number, special character, lower- and uppercase letter and is at least 12 characters long.");
-            return false;
-        } else {
-            passWord1.setError(null);
-            return true;
-        }
-    }
 }
