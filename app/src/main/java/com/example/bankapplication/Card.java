@@ -16,6 +16,9 @@ public class Card {
         withdrawAmount = withdrawAmount - Math.abs(withdrawReduce);
         this.withdrawAmount = withdrawAmount;
     }
+    public void setWithdrawAmount(double withdrawAmount)    {
+        this.withdrawAmount = withdrawAmount;
+    }
 
     public String getType() {
         return type;

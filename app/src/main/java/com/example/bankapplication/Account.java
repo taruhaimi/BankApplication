@@ -19,7 +19,7 @@ public class Account {
 
     Date interestdate;
     ArrayList<Card> cardArrayList = new ArrayList<Card>();
-   // ArrayList<TransActionInfo> transActionInfoArrayList = new ArrayList<TransActionInfo>();
+    ArrayList<TransActionInfo> transActionInfoArrayList = new ArrayList<TransActionInfo>();
     public void setName(String name) {
         this.name = name;
     }
@@ -80,6 +80,12 @@ public class Account {
         Card card = new Card();
         card.createCard(n, t, c, pc);
         cardArrayList.add(card);
+    }
+
+    void createTransaction(String f, String w, double a, String t)    {
+        TransActionInfo info = new TransActionInfo();
+        info.saveInfo(f,w,a, t);
+        transActionInfoArrayList.add(info);
     }
 
     public void setInterestdate(Date interestdate) {

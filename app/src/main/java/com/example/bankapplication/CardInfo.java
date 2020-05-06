@@ -7,15 +7,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 public class CardInfo extends AppCompatActivity {
 
     TextView cardName, cardNumber, connectedAccount, cardType, contactlessPay, pinCode, currentCredit;
     ListView cards;
+    Button resetCredit;
     int listIndex, position;
     Context context = null;
     // TODO kommentoi
@@ -32,6 +34,7 @@ public class CardInfo extends AppCompatActivity {
         pinCode = (TextView) findViewById(R.id.pincode);
         cardName = (TextView) findViewById(R.id.cardName);
         cards = (ListView) findViewById(R.id.cardList);
+        resetCredit = (Button) findViewById(R.id.resetCredit);
         currentCredit = (TextView) findViewById(R.id.currentCredit);
         Bundle extras = getIntent().getExtras();
         context = CardInfo.this;
@@ -63,7 +66,11 @@ public class CardInfo extends AppCompatActivity {
         startActivity(i);
     }
 
-
+    public void creditReset(View v) {
+        MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).setWithdrawAmount(0);
+        currentCredit.setText("Current credit: " + MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getWithdrawAmount());
+        Toast.makeText(context, "Your credit has been reseted!", Toast.LENGTH_SHORT).show();
+    }
     public void deleteCard(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);

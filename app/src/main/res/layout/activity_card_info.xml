@@ -77,16 +77,16 @@
 
         <TextView
             android:id="@+id/currentCredit"
-            android:layout_width="310dp"
-            android:layout_height="46dp"
+            android:layout_width="225dp"
+            android:layout_height="49dp"
             android:textColor="#000000"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintHorizontal_bias="0.268"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.623" />
+            app:layout_constraintVertical_bias="0.629" />
 
         <Button
             android:id="@+id/deleteCard"
@@ -128,5 +128,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.151" />
+
+        <Button
+            android:id="@+id/resetCredit"
+            android:layout_width="118dp"
+            android:layout_height="53dp"
+            android:onClick="creditReset"
+            android:text="Reset Credit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.935"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.628" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -92,14 +92,13 @@ public class CardPayment extends AppCompatActivity {
                     } else {
                         withdrawCheck = MainActivity.accountArrayList().get(i).getMoney() - money;
                         System.out.println(Math.abs(allCards.get(index).getWithdrawAmount() - withdrawCheck));
-                        System.out.println(Double.parseDouble(allCards.get(index).getCreditLimit()));
                         System.out.println(withdrawCheck);
                         if (withdrawCheck < 0 && allCards.get(index).getType().equals("Credit")) {
-                            if (Double.parseDouble(allCards.get(index).getCreditLimit()) > Math.abs(allCards.get(index).getWithdrawAmount() - withdrawCheck)) {
-                                MainActivity.accountArrayList().get(i).withdrawMoney(MainActivity.accountArrayList().get(i).getMoney());
+                            if (Double.parseDouble(allCards.get(index).getCreditLimit()) >= Math.abs(allCards.get(index).getWithdrawAmount() + withdrawCheck)) {
                                 allCards.get(index).reduceWithdrawAmount(withdrawCheck);
+                                MainActivity.accountArrayList().get(i).withdrawMoney(MainActivity.accountArrayList().get(i).getMoney());
                                 Toast.makeText(this, "Paid " + money + "€ from account " + MainActivity.accountArrayList().get(i).getInformation() + " successfully.\nYour credit is currently "+allCards.get(index).getWithdrawAmount(), Toast.LENGTH_LONG).show();
-
+                                System.out.println(allCards.get(index).getWithdrawAmount());
                             }
                             else {
                                 Toast.makeText(this, "You do not have enough credit for this payment!", Toast.LENGTH_SHORT).show();

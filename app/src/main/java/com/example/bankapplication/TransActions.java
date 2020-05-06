@@ -22,11 +22,11 @@ public class TransActions extends AppCompatActivity {
     int index;
     double amount = 0.0;
     Button write;
-    /*public static void writeCsv(int i, int type, String subject, double moneyAmount) {
+    public static void writeCsv(int i, int type, String subject, double moneyAmount) {
         int style = type;
         String who = subject;
         double amount = moneyAmount;
-    }*/
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,8 @@ public class TransActions extends AppCompatActivity {
         if (extras != null) {
             listIndex = extras.getInt("key");
         }
-        //ArrayAdapter<TransActionInfo> arrayAdapter = new ArrayAdapter<Account>(this, android.R.layout.simple_list_item_1, MainActivity.accountArrayList().get(listIndex).TransActionInfo);
-       // transactionsList.setAdapter(arrayAdapter);
+        ArrayAdapter<TransActionInfo> arrayAdapter = new ArrayAdapter<TransActionInfo>(this, android.R.layout.simple_list_item_1, MainActivity.accountArrayList().get(listIndex).transActionInfoArrayList);
+        transactionsList.setAdapter(arrayAdapter);
         transactionsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
