@@ -31,7 +31,7 @@ public class TransActionInfo {
     @NonNull
     @Override
     public String toString() {
-        info = "From account: " + from + "\nTo: " + who + "\nAmount: " + amount+"\n Type: "+ transactiontype;
+        info = "From account: " + from + "\nTo: " + who + "\nAmount: " + amount+"\nType: "+ transactiontype;
         return info;
     }
 }
