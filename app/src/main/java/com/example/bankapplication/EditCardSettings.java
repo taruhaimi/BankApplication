@@ -13,7 +13,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class EditCardSettings extends AppCompatActivity {
-    // TODO kommentoi
     EditText withdrawLimit, paymentLimit, creditLimit;
     Spinner regionsList, regionsList2;
     Context context = null;
@@ -36,8 +35,8 @@ public class EditCardSettings extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
-            listIndex = extras.getInt("key");
-            position = extras.getInt("key2");
+            listIndex = extras.getInt("key");// is the accountlists index for the current account in use.
+            position = extras.getInt("key2");// is the cardlists index for the current card in use.
         }
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
@@ -55,6 +54,7 @@ public class EditCardSettings extends AppCompatActivity {
         SaveData.save(this);
     }
 
+    //this method saves the settings user has entered
     public void saveSettings(View v) {
 
         newWithdrawLimit = withdrawLimit.getText().toString();
@@ -76,7 +76,7 @@ public class EditCardSettings extends AppCompatActivity {
             Toast.makeText(context,"Your card settings are now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
         }
     }
-
+    //This method gets the settings which card has and puts it on the text fields.
     public void showSettings() {
 
         withdrawLimit.setText(MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getWithdrawLimit());

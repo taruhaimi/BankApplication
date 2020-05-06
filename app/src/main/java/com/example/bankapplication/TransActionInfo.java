@@ -14,7 +14,7 @@ public class TransActionInfo {
     private String info;
     private String transactiontype;
     private Date currentdate;
-    int type;
+
     void saveInfo(String f, String w, double a, String t) {
         from = f;
         who = w;
@@ -23,15 +23,6 @@ public class TransActionInfo {
         currentdate = new Date();
     }
 
-    /*public String toInfoString() {
-        if (type == 1) { //Payed money
-            info = "From account: " + from + "\nTo: " + who + "\nAmount: " + amount;
-        }
-        else if (type == 2) { //Received money
-             info = "From: " + who + "\nTo: Me" + "\nAmount: " + amount;
-        }
-        return info;
-    }*/
 
     @NonNull
     @Override

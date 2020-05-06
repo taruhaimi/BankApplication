@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 
 public class TransferPayment extends AppCompatActivity {
-    // TODO kommentoi
     EditText accountID, moneyAmount;
     int listIndex;
     double money;
@@ -35,7 +34,7 @@ public class TransferPayment extends AppCompatActivity {
         super.onPause();
         SaveData.save(this);
     }
-
+    // this method transfers money between two existing accounts or between current account and "non-existing" account which can be for example account from another bank.
     public void pay(View v) {
         String id;
         int paymentIndexUser = 0; // index of the user from userlist which the account is going to be chosen from
@@ -53,6 +52,9 @@ public class TransferPayment extends AppCompatActivity {
         int flag = 0;
 
         try {
+            //this loop goes through all users and all of the users' accounts through and tries to find the id which user has entered on edit text field.
+            //i is the index for the user list and is saved to paymentIndexUser // j is the index for that specific users accounts list and is saved to paymentIndexAcc
+            // if it finds an existing account it turns flag to 1
             for (int i=0;i<MainActivity.userArrayList.size();i++) {
                 for (int j=0;j<MainActivity.userArrayList.get(i).accountArrayList.size();j++) {
                     if(id.equals(MainActivity.userArrayList.get(i).accountArrayList.get(j).getID()))    {
@@ -63,6 +65,7 @@ public class TransferPayment extends AppCompatActivity {
                     }
                 }
             }
+            // if there is existing account for the input it transfers money between these two accounts
             if (flag == 1) {
                 if (MainActivity.accountArrayList().get(listIndex).getMoney() < money) {
                     Toast.makeText(this, "Not enough money!", Toast.LENGTH_SHORT).show();
@@ -74,6 +77,7 @@ public class TransferPayment extends AppCompatActivity {
                     Toast.makeText(this, "Transferred " + money + "€ from account " + MainActivity.accountArrayList().get(listIndex).getID() + " to account " + accountID.getText().toString() + " successfully.", Toast.LENGTH_LONG).show();
                 }
             }
+            // if there isnt existing account it only withdraws the money from the current account.
             else {
                 MainActivity.accountArrayList().get(listIndex).withdrawMoney(money);
                 MainActivity.accountArrayList().get(listIndex).createTransaction(MainActivity.accountArrayList().get(listIndex).getID(),id,money, "Account transfer");

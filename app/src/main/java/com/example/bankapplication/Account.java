@@ -85,7 +85,7 @@ public class Account {
     void createTransaction(String f, String w, double a, String t)    {
         TransActionInfo info = new TransActionInfo();
         info.saveInfo(f,w,a, t);
-        transActionInfoArrayList.add(info);
+        transActionInfoArrayList.add(0,info);
     }
 
     public void setInterestdate(Date interestdate) {

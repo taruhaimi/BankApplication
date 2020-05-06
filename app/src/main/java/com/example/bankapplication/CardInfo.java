@@ -20,7 +20,6 @@ public class CardInfo extends AppCompatActivity {
     Button resetCredit;
     int listIndex, position;
     Context context = null;
-    // TODO kommentoi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +39,8 @@ public class CardInfo extends AppCompatActivity {
         context = CardInfo.this;
 
         if (extras != null) {
-            listIndex = extras.getInt("key");
-            position = extras.getInt("key2");
-            System.out.println(listIndex);
-            Card card = new Card();
+            listIndex = extras.getInt("key"); // is the accountlists index for the current account in use.
+            position = extras.getInt("key2"); // is the cardlists index for the current card in use.
             cardName.setText(MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getName());
             connectedAccount.setText("Connected to account: "+MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getId());
             pinCode.setText("Pin code: " + MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getPincode());
@@ -65,12 +62,13 @@ public class CardInfo extends AppCompatActivity {
         i.putExtra("key2", position);
         startActivity(i);
     }
-
+    //this method resets the credit which card has gathered.
     public void creditReset(View v) {
         MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).setWithdrawAmount(0);
         currentCredit.setText("Current credit: " + MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getWithdrawAmount());
         Toast.makeText(context, "Your credit has been reseted!", Toast.LENGTH_SHORT).show();
     }
+    //this method deletes current card via confirmation window
     public void deleteCard(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
