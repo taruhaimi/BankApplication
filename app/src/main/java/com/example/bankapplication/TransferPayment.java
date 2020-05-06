@@ -73,6 +73,7 @@ public class TransferPayment extends AppCompatActivity {
                     MainActivity.accountArrayList().get(listIndex).withdrawMoney(money);
                     MainActivity.userArrayList.get(paymentIndexUser).accountArrayList.get(paymentIndexAcc).depositMoney(money);
                     MainActivity.accountArrayList().get(listIndex).createTransaction(MainActivity.accountArrayList().get(listIndex).getID(),id,money, "Account transfer");
+                    MainActivity.userArrayList.get(paymentIndexUser).accountArrayList.get(paymentIndexAcc).createTransaction(MainActivity.accountArrayList().get(listIndex).getID(),id,money, "Account transfer");
                     System.out.println("From "+MainActivity.accountArrayList().get(listIndex).getID()+" To "+MainActivity.userArrayList.get(paymentIndexUser).accountArrayList.get(paymentIndexAcc).getID());
                     Toast.makeText(this, "Transferred " + money + "€ from account " + MainActivity.accountArrayList().get(listIndex).getID() + " to account " + accountID.getText().toString() + " successfully.", Toast.LENGTH_LONG).show();
                 }

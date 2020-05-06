@@ -58,4 +58,19 @@ public class Validater {
             return true;
         }
     }
+
+    static boolean validatePinCode(TextInputLayout pinCode) {
+        String psword = pinCode.getEditText().getText().toString().trim();
+
+        if (psword.isEmpty()) {
+            pinCode.setError("Field can't be empty.");
+            return false;
+        } else if (psword.length() != 4) {
+            pinCode.setError("Pin code must be exactly four digits long.");
+            return false;
+        } else {
+            pinCode.setError(null);
+            return true;
+        }
+    }
 }
