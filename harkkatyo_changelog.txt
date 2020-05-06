@@ -1,3 +1,11 @@
+6.5.2020 Taru Haimi
+	Added cute image of dreamteam.
+	Created our own logo to app (launcher image).
+	Fixed that when signing up user shouln't be able to create new user whose name is 'Admin'.
+	Created class Validater and moved a couple of methods to there.
+	Deleted unnecessary imports and methods.
+	Cleaned up and commented code.
+
 5.5.2020 Taru Haimi
 	Added withdraw- and payment limits to simulations.
 	Changed createAdmin-method from onCreate to be optional (button-click)

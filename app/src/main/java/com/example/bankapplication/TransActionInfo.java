@@ -23,7 +23,7 @@ public class TransActionInfo {
         currentdate = new Date();
     }
 
-    public String toInfoString() {
+    /*public String toInfoString() {
         if (type == 1) { //Payed money
             info = "From account: " + from + "\nTo: " + who + "\nAmount: " + amount;
         }
@@ -31,7 +31,7 @@ public class TransActionInfo {
              info = "From: " + who + "\nTo: Me" + "\nAmount: " + amount;
         }
         return info;
-    }
+    }*/
 
     @NonNull
     @Override
