@@ -56,7 +56,7 @@ public class AddCard extends AppCompatActivity {
             Toast.makeText(this, "There are no accounts for card to be added to.", Toast.LENGTH_SHORT).show();
         }
         else {
-            if (validatePinCode()) {
+            if (Validater.validatePinCode(pinCode)) {
                 Name = cardName.getText().toString();
                 code = pinCode.getEditText().getText().toString();
                 boolean switchContact = contactlessSwitch.isChecked();
@@ -77,18 +77,4 @@ public class AddCard extends AppCompatActivity {
         }
     }
 
-    private boolean validatePinCode() {
-        String psword = pinCode.getEditText().getText().toString().trim();
-
-        if (psword.isEmpty()) {
-            pinCode.setError("Field can't be empty.");
-            return false;
-        } else if (psword.length() != 4) {
-            pinCode.setError("Pin code must be exactly four digits long.");
-            return false;
-        } else {
-            pinCode.setError(null);
-            return true;
-        }
-    }
 }
