@@ -3,27 +3,23 @@ package com.example.bankapplication;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 
-//import com.opencsv.CSVReader;
-//import com.opencsv.CSVWriter;
+import androidx.appcompat.app.AppCompatActivity;
+
 
 
 public class TransActions extends AppCompatActivity {
     int listIndex;
     Context context = null;
-    String[] transactions = { };
     TextView text;
-    String filename = "transactions.csv";
-    String writing = "";
-    String who = "you";
+    ListView transactionsList;
+    int index;
     double amount = 0.0;
     Button write;
     /*public static void writeCsv(int i, int type, String subject, double moneyAmount) {
@@ -37,91 +33,21 @@ public class TransActions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trans_actions);
         context = TransActions.this;
+        transactionsList = (ListView) findViewById(R.id.transactionsList);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             listIndex = extras.getInt("key");
         }
-        write = (Button) findViewById(R.id.Write);
-        text = (TextView) findViewById(R.id.transACtView);
-
-    }
-
-    /*public void readCsv(View v) {
-        try {
-            InputStream ins = context.openFileInput(filename);
-
-            CSVReader csvrd = new CSVReader(new InputStreamReader(ins));
-            String [] nextLine;
-            while ((nextLine = csvrd.readNext()) != null) {
-                text.setText(nextLine[0] + nextLine[1] + nextLine[2]);
-                System.out.println(nextLine[0] + nextLine[1] + nextLine[2] + "luetaan");
-                Log.d("VariableTag", nextLine[0]);
+        //ArrayAdapter<TransActionInfo> arrayAdapter = new ArrayAdapter<Account>(this, android.R.layout.simple_list_item_1, MainActivity.accountArrayList().get(listIndex).TransActionInfo);
+       // transactionsList.setAdapter(arrayAdapter);
+        transactionsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                index = position;
             }
-            csvrd.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(this, "File was not found", Toast.LENGTH_SHORT).show();
-        } finally {
-            System.out.println("LUETTU");
-        }
-    }
-
-    public void writeCsv(View v) {
-        System.out.println("tiedosto:" + filename);
-        try {
-            context.openFileOutput(filename, Context.MODE_PRIVATE);
-
-            CSVWriter writer = new CSVWriter(new FileWriter(filename));
-            //feed in your array (or convert your data to an array)
-            String[] writing = "first#second#third".split("#");
-            writer.writeNext(writing);
-            writer.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(this, "File was not found", Toast.LENGTH_SHORT).show();
-        } finally {
-            System.out.println("KIRJOITETTU");
-        }
-    }*/
+        });
 
 
-    public void readCsv(View v) {
-        try {
-            InputStream ins = context.openFileInput(filename);
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(ins));
-            String s = "";
-
-            while ((s=br.readLine()) != null) {
-                text.setText(s);
-            }
-            ins.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(this, "File was not found", Toast.LENGTH_SHORT).show();
-        } finally {
-            System.out.println("LUETTU");
-        }
-    }
-
-    public void writeCsv(View v, int style, String who, double amount) {
-        try {
-            OutputStreamWriter osw = new OutputStreamWriter(context.openFileOutput(filename, Context.MODE_PRIVATE));
-            if (style == 1) { //Payed money
-                writing = "Recipient: " + who + "          Amount: -" + amount;
-            }
-            else if (style == 2) { //Received money
-                writing = "Payer: " + who + "          Amount: " + amount;
-            }
-            osw.write(writing);
-            osw.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(this, "File was not found", Toast.LENGTH_SHORT).show();
-        } finally {
-            System.out.println("KIRJOITETTU");
-        }
     }
 
 }
