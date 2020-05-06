@@ -19,13 +19,14 @@ public class Account {
 
     Date interestdate;
     ArrayList<Card> cardArrayList = new ArrayList<Card>();
+   // ArrayList<TransActionInfo> transActionInfoArrayList = new ArrayList<TransActionInfo>();
     public void setName(String name) {
         this.name = name;
     }
 
     public void setInterest(double interest) {
         this.interest = interest;
-        interestdate =  java.util.Calendar.getInstance().getTime();
+        interestdate =  java.util.Calendar.getInstance().getTime(); // get date and time of last interest
     }
     public Date getInterestdate() {
         return interestdate;
@@ -84,78 +85,15 @@ public class Account {
     public void setInterestdate(Date interestdate) {
         this.interestdate = interestdate;
     }
+
+    String getRealInterest() {
+        return String.format("%1.02f",((interest)-1)*100);
+    }
     @NonNull
     @Override
     public String toString() {
         String info;
-        info = "Account name: "+name+"\nAccount-ID: " + accountID+"\nMoney: "+money+"\nType:"+type;
+        info = "Account name: "+name+"\nAccount-ID: " + accountID+"\nMoney: "+String.format("%1.2f",money)+"\nType:"+type;
         return info;
     }
 }
-
-/*
-class savingAccount extends Account	{
-    double money;
-    String name;
-    double interest = 1.02;
-    String accountID;
-    String type = "Saving";
-
-    @Override
-    double getMoney() {
-    return money;
-    }
-
-    @Override
-    double depositMoney(double add) {
-        money = money+add;
-        return money;
-    }
-
-
-    @Override
-    String getInformation() {
-        return name;
-    }
-
-    @Override
-    String getID() {
-        return accountID;
-    }
-
-    @Override
-    String getType() {
-        return type;
-    }
-
-    public double getInterest() {
-        return interest;
-    }
-
-    @Override
-    void createCard(String n, String t, String c)   {
-            Card card = new Card();
-            card.createCard(n, t, c);
-            cardArrayList.add(card);
-    }
-
-
-    double withdrawMoney(double remove) {
-        money = money-remove;
-        return money;
-    }
-
-    void createAccount(String n, String i, double m) {
-        name = n;
-        money = m;
-        accountID = i;
-    }
-
-    @NonNull
-    @Override
-    public String toString() {
-        String info;
-        info = "Account name: "+name+"\nAccount-ID: " + accountID+"\nMoney: "+money+"\nType: "+type;
-        return info;
-    }
-}*/

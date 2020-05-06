@@ -52,23 +52,28 @@ public class AddCard extends AppCompatActivity {
     }
 
     public void createCard(View v) {
-        if (validatePinCode()) {
-            Name = cardName.getText().toString();
-            code = pinCode.getEditText().getText().toString();
-            boolean switchContact = contactlessSwitch.isChecked();
-            if (!switchContact) {
-                contactless = "No";
-            } else if (switchContact) {
-                contactless = "Yes";
+        if(MainActivity.accountArrayList().isEmpty())   {
+            Toast.makeText(this, "There are no accounts for card to be added to.", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            if (validatePinCode()) {
+                Name = cardName.getText().toString();
+                code = pinCode.getEditText().getText().toString();
+                boolean switchContact = contactlessSwitch.isChecked();
+                if (!switchContact) {
+                    contactless = "No";
+                } else if (switchContact) {
+                    contactless = "Yes";
+                }
+                boolean switchType = typeSwitch.isChecked();
+                if (!switchType) {
+                    Type = "Debit";
+                } else if (switchType) {
+                    Type = "Credit";
+                }
+                MainActivity.accountArrayList().get(index).createCard(Name, Type, contactless, code);
+                Toast.makeText(this, "Created card: " + Name, Toast.LENGTH_SHORT).show();
             }
-            boolean switchType = typeSwitch.isChecked();
-            if (!switchType) {
-                Type = "Debit";
-            } else if (switchType) {
-                Type = "Credit";
-            }
-            MainActivity.accountArrayList().get(index).createCard(Name, Type, contactless, code);
-            Toast.makeText(this, "Created card: " + Name, Toast.LENGTH_SHORT).show();
         }
     }
 
