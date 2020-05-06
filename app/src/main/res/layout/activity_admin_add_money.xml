@@ -7,7 +7,7 @@
     tools:context=".adminAddMoney">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/addBtn"
         android:layout_width="302dp"
         android:layout_height="71dp"
         android:onClick="transferMoney"

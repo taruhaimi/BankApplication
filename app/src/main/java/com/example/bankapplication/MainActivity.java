@@ -1,10 +1,8 @@
 package com.example.bankapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.hardware.usb.UsbRequest;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,6 +13,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     public static ArrayList<User> userArrayList = new ArrayList<User>();
     public static int currentIndex;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
             currentIndex = extras.getInt("key");
         }
     }
+
     public static ArrayList<Account> accountArrayList()    {
         // This is a static method so we can call a specific users' accounts in all classes.
         // It returns arraylist of accounts which belongs to the user you have logged into.
@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy()   {
         super.onDestroy();
         saveData();
-        System.out.println("Testi1");
         finish();
     }
 
@@ -89,6 +88,5 @@ public class MainActivity extends AppCompatActivity {
     public void goCredits(View v) {
         startActivity(new Intent(MainActivity.this, Credits.class));
     }
-
 
 }

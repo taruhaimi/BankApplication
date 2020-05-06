@@ -1,15 +1,11 @@
 package com.example.bankapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.android.material.textfield.TextInputLayout;
 
 public class EditInfo extends AppCompatActivity {
@@ -17,7 +13,7 @@ public class EditInfo extends AppCompatActivity {
     EditText Name, Address, Number, Email;
     TextInputLayout passWord1, passWord2;
     Context context = null;
-    private String newName, newAddress, newNumber, newEmail, newPassword1, newPassword2;
+    String newName, newAddress, newNumber, newEmail, newPassword1, newPassword2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +29,17 @@ public class EditInfo extends AppCompatActivity {
         context = EditInfo.this;
         showInformation();
     }
+
     @Override
     protected  void onPause() {
         // Saves data to sharedpreferences using Gson-library
         super.onPause();
         SaveData.save(this);
     }
+
+    // This method takes care of that when user want's to change their personal information, that data will be changed and saved. It also checks,
+    // that Admin-user can't change its username or password, and basic-user can't change it's name to Admin or something that already exists.
+    // When changing password, it has to match criteria.
     public void saveInformation(View v) {
         newName = Name.getText().toString();
         newAddress = Address.getText().toString();

@@ -2,7 +2,6 @@ package com.example.bankapplication;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,21 +11,17 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Date;
 
 public class AccountInfo extends AppCompatActivity {
-    TextView accountNumber;
-    TextView accountMoney;
-    TextView accountType;
-    TextView accountInterest;
+    TextView accountNumber, accountMoney, accountType, accountInterest;
     EditText accountNameEdit;
     Switch Type;
     int listIndex;
     Date currentdate;
     double interesttime;
     Context context = null;
-
+    // TODO kommentoi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,11 +107,13 @@ public class AccountInfo extends AppCompatActivity {
         i.putExtra("key", listIndex);
         startActivity(i);
     }
+
     public void showCards(View v)   {
         Intent i = new Intent(AccountInfo.this,ChooseCard.class);
         i.putExtra("key", listIndex);
         startActivity(i);
     }
+
     public void accountTransactions(View w) {
         Intent i = new Intent(AccountInfo.this,TransActions.class);
         i.putExtra("key", listIndex);

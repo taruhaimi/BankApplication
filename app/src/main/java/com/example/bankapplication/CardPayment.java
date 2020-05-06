@@ -1,8 +1,6 @@
 package com.example.bankapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -12,9 +10,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import java.util.ArrayList;
-import java.util.ListIterator;
 
 public class CardPayment extends AppCompatActivity {
     ListView cards;
@@ -23,15 +19,14 @@ public class CardPayment extends AppCompatActivity {
     String pin = "", regionLoc, cardRegion;
     Spinner regions;
     int index;
-
     ArrayList<Card> allCards = new ArrayList<Card>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_payment);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
+
         moneyAmount = (EditText) findViewById(R.id.moneyAmount);
         pinCode = (EditText) findViewById(R.id.getPinCode);
         cards = (ListView) findViewById(R.id.cardView);
@@ -40,6 +35,7 @@ public class CardPayment extends AppCompatActivity {
         for (int i = 0; i < MainActivity.userArrayList.get(MainActivity.currentIndex).accountArrayList.size(); i++) {
             allCards.addAll(MainActivity.userArrayList.get(MainActivity.currentIndex).accountArrayList.get(i).cardArrayList);
         }
+
         ArrayAdapter<Card> arrayAdapter = new ArrayAdapter<Card>(this, android.R.layout.simple_list_item_1, allCards);
         cards.setAdapter(arrayAdapter);
         cards.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -48,17 +44,20 @@ public class CardPayment extends AppCompatActivity {
                  index = position;
              }
          });
+
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, EditCardSettings.categories);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         regions.setAdapter(dataAdapter);
-
     }
+
     @Override
     protected  void onPause() {
         // Saves data to sharedpreferences using Gson-library
         super.onPause();
         SaveData.save(this);
     }
+
+    // This method takes care of all the conditional expressions that must be checked before user can pay with their card and if everything is fine they can pay.
     public void cardPay(View v) {
 
         try {
@@ -68,6 +67,7 @@ public class CardPayment extends AppCompatActivity {
             regionLoc = Integer.toString(regions.getSelectedItemPosition());
             double withdrawCheck; //will be used to check how much accounts balance will go below zero (you can compare this and cards current credit with cards creditlimit).
 
+            // This loop searches user's account and card. Then it checks all the possible things that can go wrong when user tries to pay with card (e.g they have not enough money).
             for (int i = 0; i < MainActivity.accountArrayList().size(); i++) {
 
                 if (MainActivity.accountArrayList().get(i).cardArrayList.contains(allCards.get(index))) {

@@ -1,7 +1,6 @@
 package com.example.bankapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +29,7 @@ public class AccountsAndCards extends AppCompatActivity {
     public void goAddAccount(View v) {
         startActivity(new Intent(AccountsAndCards.this,AddAccount.class));
     }
+
     public void goAddCard(View v) {
         startActivity(new Intent(AccountsAndCards.this,AddCard.class));
     }

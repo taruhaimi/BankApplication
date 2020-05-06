@@ -1,7 +1,6 @@
 package com.example.bankapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.ScrollView;
 
 public class ChooseAccount extends AppCompatActivity {
     Context context = null;
@@ -22,6 +20,7 @@ public class ChooseAccount extends AppCompatActivity {
         setContentView(R.layout.activity_choose_account);
         accountview = (ListView) findViewById(R.id.accountList);
 
+        // user chooses account to which they want to enter
         final ArrayAdapter<Account> arrayAdapter = new ArrayAdapter<Account>(context,android.R.layout.simple_list_item_1,MainActivity.accountArrayList());
         accountview.setAdapter(arrayAdapter);
         accountview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

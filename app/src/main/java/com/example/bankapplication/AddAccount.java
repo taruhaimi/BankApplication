@@ -1,11 +1,8 @@
 package com.example.bankapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -13,8 +10,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class AddAccount extends AppCompatActivity {
-    String accountname;
-    String id;
+    String accountname, id;
     EditText accName;
     Switch accType;
 
@@ -46,8 +42,10 @@ public class AddAccount extends AppCompatActivity {
     public void createCurrentAccount (View v)    {
         Random rand = new Random();
         accountname = accName.getText().toString();
-        id = (rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100);
+        id = (rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100); // creates account number
         Account account = new Account();
+
+        // This loop and the following if-statement ensures, that when creating account user can't name it to something that already exists or Random somehow manage to make already existing id.
         int flag = 0;
         for (int i=0; i<MainActivity.accountArrayList().size(); i++)  {
             if (MainActivity.accountArrayList().get(i).getInformation().equals(accountname))   {
@@ -59,7 +57,6 @@ public class AddAccount extends AppCompatActivity {
                 flag = 1;
             }
         }
-
         if (flag == 0)  {
         account.createAccount(accountname, id, 0, "Current", 1);
         MainActivity.accountArrayList().add(account);
@@ -71,8 +68,10 @@ public class AddAccount extends AppCompatActivity {
     public void createSavingsAccount (View v)    {
         Random rand = new Random();
         accountname = accName.getText().toString();
-        id = (rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100);
+        id = (rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100)+"-"+(rand.nextInt(900)+100); // creates account number
         Account account = new Account();
+
+        // This loop and the following if-statement ensures, that when creating account user can't name it to something that already exists or Random somehow manage to make already existing id.
         int flag = 0;
         for (int i=0; i<MainActivity.accountArrayList().size(); i++)  {
             if (MainActivity.accountArrayList().get(i).getInformation().equals(accountname))   {

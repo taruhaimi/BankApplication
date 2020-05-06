@@ -1,7 +1,6 @@
 package com.example.bankapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,11 +22,11 @@ public class SelfPayment extends AppCompatActivity {
         setContentView(R.layout.activity_self_payment);
         accountview = (ListView) findViewById(R.id.accountList);
         withdrawAmount = (EditText) findViewById(R.id.moneyAmount);
-        //withdrawAmount.setText("0.00");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             listIndex = extras.getInt("key");
         }
+
         final ArrayAdapter<Account> arrayAdapter = new ArrayAdapter<Account>(this,android.R.layout.simple_list_item_1,MainActivity.accountArrayList());
         accountview.setAdapter(arrayAdapter);
         accountview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -37,12 +36,15 @@ public class SelfPayment extends AppCompatActivity {
             }
         });
     }
+
     @Override
     protected  void onPause() {
         // Saves data to sharedpreferences using Gson-library
         super.onPause();
         SaveData.save(this);
     }
+
+    // This method transfers money between accounts of same user.
     public void AccountPay(View v)  {
         TransActions trans = new TransActions();
         try {

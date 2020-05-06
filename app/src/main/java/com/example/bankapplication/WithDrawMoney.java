@@ -1,7 +1,6 @@
 package com.example.bankapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -11,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 public class WithDrawMoney extends AppCompatActivity {
@@ -35,10 +33,10 @@ public class WithDrawMoney extends AppCompatActivity {
         pinCode = (EditText) findViewById(R.id.getPinCode);
         regions = (Spinner) findViewById(R.id.countryList);
 
-
         for (int i = 0; i < MainActivity.userArrayList.get(MainActivity.currentIndex).accountArrayList.size(); i++) {
             allCards.addAll(MainActivity.userArrayList.get(MainActivity.currentIndex).accountArrayList.get(i).cardArrayList);
         }
+
         ArrayAdapter<Card> arrayAdapter = new ArrayAdapter<Card>(this, android.R.layout.simple_list_item_1, allCards);
         cards.setAdapter(arrayAdapter);
         cards.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -47,17 +45,20 @@ public class WithDrawMoney extends AppCompatActivity {
                 index = position;
             }
         });
+
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, EditCardSettings.categories);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         regions.setAdapter(dataAdapter);
-
     }
+
     @Override
     protected  void onPause() {
         // Saves data to sharedpreferences using Gson-library
         super.onPause();
         SaveData.save(this);
     }
+
+    // This method takes care of all the conditional expressions that must be checked before user can withdraw money with their card and if everything is fine they can pay.
     public void withdrawMoney(View v) {
 
         try {

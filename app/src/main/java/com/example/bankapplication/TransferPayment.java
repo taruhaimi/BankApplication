@@ -1,7 +1,6 @@
 package com.example.bankapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -9,17 +8,13 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.sql.SQLOutput;
-
 
 public class TransferPayment extends AppCompatActivity {
-
-    EditText accountID;
-    EditText moneyAmount;
+    // TODO kommentoi
+    EditText accountID, moneyAmount;
     int listIndex;
     double money;
     Context context = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +28,7 @@ public class TransferPayment extends AppCompatActivity {
         }
         final ArrayAdapter<Account> arrayAdapter = new ArrayAdapter<Account>(this,android.R.layout.simple_list_item_1,MainActivity.accountArrayList());
     }
+
     @Override
     protected  void onPause() {
         // Saves data to sharedpreferences using Gson-library
@@ -45,12 +41,14 @@ public class TransferPayment extends AppCompatActivity {
         int paymentIndexUser = 0; // index of the user from userlist which the account is going to be chosen from
         int paymentIndexAcc = 0; //index of the account from accountlist which the payment is going to be paid
         id = accountID.getText().toString();
+
         try {
             money = Double.parseDouble(moneyAmount.getText().toString());
         } catch (NullPointerException | NumberFormatException e)  {
             Toast.makeText(context, "Invalid input, try again!", Toast.LENGTH_SHORT).show();
         }
         int flag = 0;
+
         try {
             for (int i=0;i<MainActivity.userArrayList.size();i++) {
                 for (int j=0;j<MainActivity.userArrayList.get(i).accountArrayList.size();j++) {
