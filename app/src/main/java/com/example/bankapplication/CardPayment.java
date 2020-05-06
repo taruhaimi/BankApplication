@@ -66,6 +66,7 @@ public class CardPayment extends AppCompatActivity {
             money = Double.parseDouble(moneyAmount.getText().toString().trim());
             pin = pinCode.getText().toString().trim();
             regionLoc = Integer.toString(regions.getSelectedItemPosition());
+            double withdrawCheck; //will be used to check how much accounts balance will go below zero (you can compare this and cards current credit with cards creditlimit).
 
             for (int i = 0; i < MainActivity.accountArrayList().size(); i++) {
 
@@ -76,7 +77,7 @@ public class CardPayment extends AppCompatActivity {
                         Toast.makeText(this, "Your card does not have contactless payment. Please give pin code.", Toast.LENGTH_SHORT).show();
                     } else if (!(allCards.get(index).getRegionLimitPayment().equals(regionLoc))) {
                         Toast.makeText(this, "You can not pay with this card at this region. Please change region.", Toast.LENGTH_SHORT).show();
-                    } else if (MainActivity.accountArrayList().get(i).getMoney() < money) {
+                    } else if (MainActivity.accountArrayList().get(i).getMoney() + Double.parseDouble(allCards.get(index).getCreditLimit()) < money) {
                         Toast.makeText(this, "Not enough money!", Toast.LENGTH_SHORT).show();
                     } else if (Integer.parseInt(allCards.get(index).getPaymentLimit()) < money) {
                         Toast.makeText(this, "Money amount is above your payment limit, sorry.", Toast.LENGTH_SHORT).show();
@@ -89,11 +90,26 @@ public class CardPayment extends AppCompatActivity {
                     } else if (!pin.equals(allCards.get(index).getPincode())) {
                         Toast.makeText(this, "Pin code is wrong. Try again.", Toast.LENGTH_LONG).show();
                     } else {
-                        MainActivity.accountArrayList().get(i).withdrawMoney(money);
-                        Toast.makeText(this, "Paid " + money + "€ from account " + MainActivity.accountArrayList().get(i).getInformation() + " successfully.", Toast.LENGTH_LONG).show();
+                        withdrawCheck = MainActivity.accountArrayList().get(i).getMoney() - money;
+                        System.out.println(Math.abs(allCards.get(index).getWithdrawAmount() - withdrawCheck));
+                        System.out.println(Double.parseDouble(allCards.get(index).getCreditLimit()));
+                        if (withdrawCheck < 0 && allCards.get(index).getType().equals("Credit")) {
+                            if (Double.parseDouble(allCards.get(index).getCreditLimit()) > Math.abs(allCards.get(index).getWithdrawAmount() - withdrawCheck)) {
+                                MainActivity.accountArrayList().get(i).withdrawMoney(MainActivity.accountArrayList().get(i).getMoney());
+                                allCards.get(index).reduceWithdrawAmount(withdrawCheck);
+                                Toast.makeText(this, "Paid " + money + "€ from account " + MainActivity.accountArrayList().get(i).getInformation() + " successfully.\nYour credit is currently "+allCards.get(index).getWithdrawAmount(), Toast.LENGTH_LONG).show();
+
+                            }
+                            else {
+                                Toast.makeText(this, "You do not have enough credit for this payment!", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                                MainActivity.accountArrayList().get(i).withdrawMoney(money);
+                                Toast.makeText(this, "Paid " + money + "€ from account " + MainActivity.accountArrayList().get(i).getInformation() + " successfully.", Toast.LENGTH_LONG).show();
+                            }
+                        }
                     }
                 }
-            }
 
         } catch (NumberFormatException nfe) {
             Toast.makeText(this, "Invalid input, try again!", Toast.LENGTH_SHORT).show();

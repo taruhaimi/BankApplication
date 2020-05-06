@@ -16,7 +16,16 @@ public class Card {
     private String creditLimit;
     private String regionLimitWithDraw;
     private String regionLimitPayment;
+    private double withdrawAmount;
 
+    public double getWithdrawAmount() {
+        return withdrawAmount;
+    }
+
+    public void reduceWithdrawAmount(double withdrawReduce) {
+        withdrawAmount = withdrawAmount - Math.abs(withdrawReduce);
+        this.withdrawAmount = withdrawAmount;
+    }
     public String getType() {
         return type;
     }
@@ -109,6 +118,7 @@ public class Card {
         creditLimit = "0";
         regionLimitPayment = "0";
         regionLimitWithDraw = "0";
+        withdrawAmount = 0;
     }
 
     @NonNull

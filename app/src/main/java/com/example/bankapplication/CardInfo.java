@@ -21,7 +21,7 @@ import java.util.Date;
 public class CardInfo extends AppCompatActivity {
 
     TextView cardName;
-    TextView cardNumber, connectedAccount, cardType, contactlessPay, pinCode;
+    TextView cardNumber, connectedAccount, cardType, contactlessPay, pinCode, currentCredit;
     ListView cards;
     int listIndex;
     int position;
@@ -39,6 +39,7 @@ public class CardInfo extends AppCompatActivity {
         pinCode = (TextView) findViewById(R.id.pincode);
         cardName = (TextView) findViewById(R.id.cardName);
         cards = (ListView) findViewById(R.id.cardList);
+        currentCredit = (TextView) findViewById(R.id.currentCredit);
         Bundle extras = getIntent().getExtras();
         context = CardInfo.this;
 
@@ -52,7 +53,7 @@ public class CardInfo extends AppCompatActivity {
             pinCode.setText("Pin code: " + MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getPincode());
             cardType.setText("Card type: " + MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getType());
             contactlessPay.setText("Contactless payment: " + MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getContactlessPay());
-
+            currentCredit.setText("Current credit: " + MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getWithdrawAmount());
         }
 }
     @Override
