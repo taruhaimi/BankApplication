@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/transACtView"
         android:layout_width="384dp"
         android:layout_height="555dp"
         android:text="No account transactions available"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.731" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/titleView"
         android:layout_width="264dp"
         android:layout_height="23dp"
         android:text="Account Transactions"
@@ -27,7 +27,7 @@
         android:textColor="#020202"
         android:textColorHighlight="#020202"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/transACtView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,12 +35,12 @@
         app:layout_constraintVertical_bias="0.875" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/readBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="readCsv"
         android:text="READ"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/titleView"
         app:layout_constraintEnd_toStartOf="@+id/Write"
         app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:onClick="writeCsv"
         android:text="WRITE"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/titleView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.197" />

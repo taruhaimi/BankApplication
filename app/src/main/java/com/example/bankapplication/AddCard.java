@@ -1,7 +1,6 @@
 package com.example.bankapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -9,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -19,8 +17,7 @@ public class AddCard extends AppCompatActivity {
     EditText cardName;
     TextInputLayout pinCode;
     ListView listAccount;
-    Switch contactlessSwitch;
-    Switch typeSwitch;
+    Switch contactlessSwitch, typeSwitch;
     String Name, contactless, Type, code;
     int index = 0; //listAccounts clicked index;
 
@@ -29,11 +26,13 @@ public class AddCard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_card);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
+
         cardName = (EditText) findViewById(R.id.giveCardName);
         pinCode = (TextInputLayout) findViewById(R.id.getPincode);
         contactlessSwitch = (Switch) findViewById(R.id.choosePayment);
         typeSwitch = (Switch) findViewById(R.id.chooseType);
         listAccount = (ListView) findViewById(R.id.accountList);
+
         ArrayAdapter<Account> arrayAdapter = new ArrayAdapter<Account>(this, android.R.layout.simple_list_item_1, MainActivity.accountArrayList());
         listAccount.setAdapter(arrayAdapter);
         listAccount.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -55,18 +54,21 @@ public class AddCard extends AppCompatActivity {
         if (validatePinCode()) {
             Name = cardName.getText().toString();
             code = pinCode.getEditText().getText().toString();
+
             boolean switchContact = contactlessSwitch.isChecked();
             if (!switchContact) {
                 contactless = "No";
             } else if (switchContact) {
                 contactless = "Yes";
             }
+
             boolean switchType = typeSwitch.isChecked();
             if (!switchType) {
                 Type = "Debit";
             } else if (switchType) {
                 Type = "Credit";
             }
+
             MainActivity.accountArrayList().get(index).createCard(Name, Type, contactless, code);
             Toast.makeText(this, "Created card: " + Name, Toast.LENGTH_SHORT).show();
         }

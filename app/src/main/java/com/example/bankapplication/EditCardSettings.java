@@ -1,28 +1,25 @@
 package com.example.bankapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class EditCardSettings extends AppCompatActivity {
-
+    // TODO kommentoi
     EditText withdrawLimit, paymentLimit, creditLimit;
     Spinner regionsList, regionsList2;
     Context context = null;
     int listIndex, position, region1, region2;
 
-    private String newWithdrawLimit, newPaymentLimit, newCreditLimit, newRegion1, newRegion2;
+    String newWithdrawLimit, newPaymentLimit, newCreditLimit, newRegion1, newRegion2;
 
     public static List<String> categories = new ArrayList<String>(Arrays.asList("Finland","Nordic countries", "Europe", "World")){};
 

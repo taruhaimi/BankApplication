@@ -1,11 +1,9 @@
 package com.example.bankapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 
 public class NewPayment extends AppCompatActivity {
     int listIndex;
@@ -19,6 +17,7 @@ public class NewPayment extends AppCompatActivity {
             listIndex = extras.getInt("key");
         }
     }
+
     @Override
     protected  void onPause() {
         // Saves data to sharedpreferences using Gson-library

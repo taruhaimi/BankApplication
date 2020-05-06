@@ -1,21 +1,11 @@
 package com.example.bankapplication;
 
 import androidx.annotation.NonNull;
-
 import java.util.Random;
 
 public class Card {
 
-    private String type;
-    private String id;
-    private String ContactlessPay;
-    private String name;
-    private String pincode;
-    private String withdrawLimit;
-    private String paymentLimit;
-    private String creditLimit;
-    private String regionLimitWithDraw;
-    private String regionLimitPayment;
+    private String type, id, ContactlessPay, name, pincode, withdrawLimit, paymentLimit, creditLimit, regionLimitWithDraw, regionLimitPayment;
     private double withdrawAmount;
 
     public double getWithdrawAmount() {
@@ -26,6 +16,7 @@ public class Card {
         withdrawAmount = withdrawAmount - Math.abs(withdrawReduce);
         this.withdrawAmount = withdrawAmount;
     }
+
     public String getType() {
         return type;
     }
@@ -46,10 +37,6 @@ public class Card {
         return ContactlessPay;
     }
 
-    public void setContactlessPay(String contactlessPay) {
-        ContactlessPay = contactlessPay;
-    }
-
     public String getName() {
         return name;
     }
@@ -60,10 +47,6 @@ public class Card {
 
     public String getPincode() {
         return pincode;
-    }
-
-    public void setPincode(String pincode) {
-        this.pincode = pincode;
     }
 
     public String getWithdrawLimit() {

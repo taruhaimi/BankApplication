@@ -2,19 +2,12 @@ package com.example.bankapplication;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -49,7 +42,7 @@ public class TransActions extends AppCompatActivity {
             listIndex = extras.getInt("key");
         }
         write = (Button) findViewById(R.id.Write);
-        text = (TextView) findViewById(R.id.textView);
+        text = (TextView) findViewById(R.id.transACtView);
 
     }
 
