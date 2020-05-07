@@ -51,7 +51,11 @@ public class SelfPayment extends AppCompatActivity {
             moneyAmount = Double.parseDouble(withdrawAmount.getText().toString());
             if (MainActivity.accountArrayList().get(listIndex).getMoney() < moneyAmount) {
                 Toast.makeText(this, "Not enough money!", Toast.LENGTH_SHORT).show();
-            } else {
+            }
+            else if (moneyAmount < 0){
+                Toast.makeText(this, "Money can't be negative!", Toast.LENGTH_SHORT).show();
+            }
+            else {
 
                 MainActivity.accountArrayList().get(listIndex).withdrawMoney(moneyAmount);
                 MainActivity.accountArrayList().get(listIndex).createTransaction(MainActivity.accountArrayList().get(listIndex).getID(),MainActivity.accountArrayList().get(listposition).getID(),moneyAmount, "Own Account Transfer");

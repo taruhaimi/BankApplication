@@ -66,23 +66,28 @@ public class WithDrawMoney extends AppCompatActivity {
             money = Double.parseDouble(moneyAmount.getText().toString().trim());
             pin = pinCode.getText().toString().trim();
             regionLoc = Integer.toString(regions.getSelectedItemPosition());
+            if (money < 0) {
+                Toast.makeText(this, "Money can't be negative!", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                for (int i = 0; i < MainActivity.accountArrayList().size(); i++) {
 
-            for (int i = 0; i < MainActivity.accountArrayList().size(); i++) {
+                    if (MainActivity.accountArrayList().get(i).cardArrayList.contains(allCards.get(index))) {
+                        cardRegion = allCards.get(index).getRegionLimitPayment();
 
-                if (MainActivity.accountArrayList().get(i).cardArrayList.contains(allCards.get(index))) {
-                    cardRegion = allCards.get(index).getRegionLimitPayment();
-
-                    if (!pin.equals(allCards.get(index).getPincode())) {
-                        Toast.makeText(this, "Pin code is wrong. Try again.", Toast.LENGTH_LONG).show();
-                    } else if (!(allCards.get(index).getRegionLimitPayment().equals(regionLoc))) {
-                        Toast.makeText(this, "You can not pay with this card at this region. Please change region.", Toast.LENGTH_SHORT).show();
-                    } else if (MainActivity.accountArrayList().get(i).getMoney() < money) {
-                        Toast.makeText(this, "Not enough money!", Toast.LENGTH_SHORT).show();
-                    } else if (Integer.parseInt(allCards.get(index).getWithdrawLimit()) < money) {
-                        Toast.makeText(this, "Money amount is above your withdraw limit, sorry.", Toast.LENGTH_SHORT).show();
-                    } else {
-                        MainActivity.accountArrayList().get(i).withdrawMoney(money);
-                        Toast.makeText(this, "Withdrawn " + money + "€ from account " + MainActivity.accountArrayList().get(i).getInformation() + " successfully.", Toast.LENGTH_LONG).show();
+                        if (!pin.equals(allCards.get(index).getPincode())) {
+                            Toast.makeText(this, "Pin code is wrong. Try again.", Toast.LENGTH_LONG).show();
+                        } else if (!(allCards.get(index).getRegionLimitPayment().equals(regionLoc))) {
+                            Toast.makeText(this, "You can not pay with this card at this region. Please change region.", Toast.LENGTH_SHORT).show();
+                        } else if (MainActivity.accountArrayList().get(i).getMoney() < money) {
+                            Toast.makeText(this, "Not enough money!", Toast.LENGTH_SHORT).show();
+                        } else if (Integer.parseInt(allCards.get(index).getWithdrawLimit()) < money) {
+                            Toast.makeText(this, "Money amount is above your withdraw limit, sorry.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            MainActivity.accountArrayList().get(i).withdrawMoney(money);
+                            MainActivity.accountArrayList().get(i).createTransaction(MainActivity.accountArrayList().get(i).getID(), "Cash", money, "Withdraw");
+                            Toast.makeText(this, "Withdrawn " + money + "€ from account " + MainActivity.accountArrayList().get(i).getInformation() + " successfully.", Toast.LENGTH_LONG).show();
+                        }
                     }
                 }
             }
