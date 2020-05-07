@@ -1,3 +1,7 @@
+7.5.2020 Taru Haimi
+	Final update.
+	Some little changes, error fixing and updates.
+
 7.5 Leevi Kämäräinen
 	Final update (hopefully)
 	Changed interest gathering to button for clarity reasons.
