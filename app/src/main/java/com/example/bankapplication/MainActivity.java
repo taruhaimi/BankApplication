@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    public static ArrayList<User> userArrayList = new ArrayList<User>();
+    public static ArrayList<User> userArrayList;
     public static int currentIndex;
 
     @Override
@@ -23,7 +23,10 @@ public class MainActivity extends AppCompatActivity {
             currentIndex = extras.getInt("key");
         }
     }
-
+   public static void createuserArrayList() {
+            System.out.println("testi");
+            userArrayList = new ArrayList<User>();
+    }
     public static ArrayList<Account> accountArrayList()    {
         // This is a static method so we can call a specific users' accounts in all classes.
         // It returns arraylist of accounts which belongs to the user you have logged into.

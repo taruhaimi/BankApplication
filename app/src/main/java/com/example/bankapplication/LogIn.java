@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class LogIn extends AppCompatActivity {
-
     EditText GetUsername, GetPassword, CheckNumbers;
     TextView randNumbers;
     private String username = "Admin", password = "Admin", numbers;
@@ -41,34 +40,38 @@ public class LogIn extends AppCompatActivity {
     }
 
     public void goMainMenu(View v) {
-        username = GetUsername.getText().toString();
-        password = GetPassword.getText().toString();
+        try {
+            username = GetUsername.getText().toString();
+            password = GetPassword.getText().toString();
 
-        int flag = 1;
-        int index = 1;
+            int flag = 1;
+            int index = 1;
 
-        // This loop and the following if-else conditional checks if username and password can be found from userlist. If found, this checks that user gives same 6 numbers as shown like "keycode".
-        // If not, error message is shown.
-        for (int i = 0; i < MainActivity.userArrayList.size(); i++) {
-            if (MainActivity.userArrayList.get(i).getName().equals(username) && MainActivity.userArrayList.get(i).getPassword().equals(password)) {
-                flag = 0;
-                index = i;
+            // This loop and the following if-else conditional checks if username and password can be found from userlist. If found, this checks that user gives same 6 numbers as shown like "keycode".
+            // If not, error message is shown.
+            for (int i = 0; i < MainActivity.userArrayList.size(); i++) {
+                if (MainActivity.userArrayList.get(i).getName().equals(username) && MainActivity.userArrayList.get(i).getPassword().equals(password)) {
+                    flag = 0;
+                    index = i;
+                }
             }
-        }
-        if (flag == 0) {
+            if (flag == 0) {
 
-            if ((CheckNumbers.getText().toString().equals(numbers)) == false) {
-                Toast.makeText(context, "Invalid captcha code. Try again.", Toast.LENGTH_SHORT).show();
-                numbers = "" + (rand.nextInt(899999) + 100000);
-                randNumbers.setText(numbers);
+                if ((CheckNumbers.getText().toString().equals(numbers)) == false) {
+                    Toast.makeText(context, "Invalid captcha code. Try again.", Toast.LENGTH_SHORT).show();
+                    numbers = "" + (rand.nextInt(899999) + 100000);
+                    randNumbers.setText(numbers);
+                } else {
+                    Intent i = new Intent(LogIn.this, MainActivity.class);
+                    i.putExtra("key", index);
+                    startActivity(i);
+                    finish();
+                }
             } else {
-                Intent i = new Intent(LogIn.this, MainActivity.class);
-                i.putExtra("key", index);
-                startActivity(i);
-                finish();
+                Toast.makeText(context, "Username or password is not correct.\nTry again.", Toast.LENGTH_SHORT).show();
             }
-        } else {
-            Toast.makeText(context, "Username or password is not correct.\nTry again.", Toast.LENGTH_SHORT).show();
+        } catch (NullPointerException e)  {
+            Toast.makeText(this, "Field can't be empty, try again!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -102,7 +105,11 @@ public class LogIn extends AppCompatActivity {
         Gson gson = new Gson();
         String json = sharedPreferences.getString("tasklist", null);
         Type type = new TypeToken<ArrayList<User>>() {}.getType();
-        MainActivity.userArrayList = gson.fromJson(json, type);
+        if(MainActivity.userArrayList == null) {
+            MainActivity.createuserArrayList();
+        } else {
+            MainActivity.userArrayList = gson.fromJson(json, type);
+        }
 
     }
     // This method deletes all users. It makes testing and using easier.
