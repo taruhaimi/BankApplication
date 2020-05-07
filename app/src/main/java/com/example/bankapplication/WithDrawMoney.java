@@ -78,7 +78,7 @@ public class WithDrawMoney extends AppCompatActivity {
                         if (!pin.equals(allCards.get(index).getPincode())) {
                             Toast.makeText(this, "Pin code is wrong. Try again.", Toast.LENGTH_LONG).show();
                         } else if (!(allCards.get(index).getRegionLimitPayment().equals(regionLoc))) {
-                            Toast.makeText(this, "You can not pay with this card at this region. Please change region.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "You can not withdraw money with this card at this region. Please change region.", Toast.LENGTH_SHORT).show();
                         } else if (MainActivity.accountArrayList().get(i).getMoney() < money) {
                             Toast.makeText(this, "Not enough money!", Toast.LENGTH_SHORT).show();
                         } else if (Integer.parseInt(allCards.get(index).getWithdrawLimit()) < money) {

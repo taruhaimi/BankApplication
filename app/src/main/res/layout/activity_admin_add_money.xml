@@ -23,7 +23,7 @@
         android:id="@+id/addMoneyView2"
         android:layout_width="284dp"
         android:layout_height="82dp"
-        android:text="ADD MONEY TO YOUR ACCOUNT"
+        android:text="ADD MONEY TO ANY ACCOUNT"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="30sp"
