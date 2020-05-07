@@ -1,3 +1,16 @@
+7.5 Leevi Kämäräinen
+	Final update (hopefully)
+	Changed interest gathering to button for clarity reasons.
+	Changed region limits to specific countries.
+	Updated payment activities to not accept negative money
+	Bugfixes/comments
+	
+6.5 Leevi Kämäräinen
+	Updated TransActions listview to show newest transaction on top
+	Updated EditInfo to save info if you dont change your name
+	Updated accountInfo activity to actually show real interest and rounded money
+	Added credit-functionality to credit cards
+	
 6.5.2020 Taru Haimi
 	Added cute image of dreamteam.
 	Created our own logo to app (launcher image).
@@ -23,7 +36,8 @@
 	Fixed program in github to work on everyone, some data was not saved last time using push.
 	Remade EditInfo to only save data directly to account objects (deleted the method of saving variables directly to 			sharedpreferences)
 	Created functionality to TransferPayment to actually for it to actually be able to transfer money between user-made accounts. 		You can now transfer money between two different users (some errors may still occur).
-	
+	Updated TransactionsInfo
+	Commented code
 4.5.2020 Taru Haimi
 	Created card payment simulation to work almost entirely (without region limit).
 	Added password-rules to work every activity needed.
