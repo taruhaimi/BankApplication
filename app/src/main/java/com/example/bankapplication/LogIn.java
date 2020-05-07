@@ -111,4 +111,16 @@ public class LogIn extends AppCompatActivity {
         Toast.makeText(context, "All users deleted.", Toast.LENGTH_SHORT).show();
 
     }
+
+    @Override
+    protected void onDestroy()   {
+        super.onDestroy();
+        SaveData.save(this);
+    }
+
+    @Override
+    protected void onPause()   {
+        super.onPause();
+        SaveData.save(this);
+    }
 }
