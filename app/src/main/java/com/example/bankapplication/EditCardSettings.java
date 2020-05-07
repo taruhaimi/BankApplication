@@ -19,8 +19,7 @@ public class EditCardSettings extends AppCompatActivity {
     int listIndex, position, region1, region2;
 
     String newWithdrawLimit, newPaymentLimit, newCreditLimit, newRegion1, newRegion2;
-
-    public static List<String> categories = new ArrayList<String>(Arrays.asList("Finland","Nordic countries", "Europe", "World")){};
+    public static List<String> categories = new ArrayList<String>(Arrays.asList("Finland","Sweden", "Russia", "USA", "Germany", "Italy", "Spain")){};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +69,8 @@ public class EditCardSettings extends AppCompatActivity {
         MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).setRegionLimitPayment(newRegion2);
 
         if (MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).getType().equals("Debit")) {
-            Toast.makeText(context,"You can not add credit to debit-card.", Toast.LENGTH_SHORT).show();
+            creditLimit.setText("0");
+            Toast.makeText(context,"Your card settings are now saved. You can go back safely.", Toast.LENGTH_SHORT).show();
         } else {
             MainActivity.accountArrayList().get(listIndex).cardArrayList.get(position).setCreditLimit(newCreditLimit);
             Toast.makeText(context,"Your card settings are now saved. You can go back safely.", Toast.LENGTH_SHORT).show();

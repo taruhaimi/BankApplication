@@ -43,13 +43,6 @@ public class AccountInfo extends AppCompatActivity {
             accountInterest.setText("Interest: "+MainActivity.accountArrayList().get(listIndex).getRealInterest()+ "%");
             if (MainActivity.accountArrayList().get(listIndex).getType().equals("Savings")) {
                 Type.setChecked(true);
-                // Next lines gets the last time savings account was opened (or the first time) and calculates the interest it has gathered between that time and current time.
-                // Interest updates every time you open this activity. Time in seconds is divided by minutes so the interest wont be too large overtime but its still noticeable while testing.
-                currentdate = java.util.Calendar.getInstance().getTime();
-                interesttime = (double) ((currentdate.getTime()-MainActivity.accountArrayList().get(listIndex).getInterestdate().getTime())/1000);
-                MainActivity.accountArrayList().get(listIndex).setInterestdate(java.util.Calendar.getInstance().getTime());
-                double exponent =  Math.pow(MainActivity.accountArrayList().get(listIndex).getInterest(),interesttime/60); // exponent is the interest to the power of interest time.
-               MainActivity.accountArrayList().get(listIndex).depositMoney(MainActivity.accountArrayList().get(listIndex).getMoney()*exponent-MainActivity.accountArrayList().get(listIndex).getMoney());
             }
             accountMoney.setText("Account money: "+String.format("%1.2f",MainActivity.accountArrayList().get(listIndex).getMoney()) + "€");
         }
@@ -73,6 +66,7 @@ public class AccountInfo extends AppCompatActivity {
         else {
             MainActivity.accountArrayList().get(listIndex).setInterest(1.02);
             MainActivity.accountArrayList().get(listIndex).setType("Savings");
+            MainActivity.accountArrayList().get(listIndex).setInterestdate(java.util.Calendar.getInstance().getTime()); //sets the interest time to the update time.
             accountType.setText("Account type: "+MainActivity.accountArrayList().get(listIndex).getType());
             accountInterest.setText("Interest: "+MainActivity.accountArrayList().get(listIndex).getRealInterest()+ "%");
         }
@@ -80,6 +74,22 @@ public class AccountInfo extends AppCompatActivity {
 
 
     }
+    public void gatherInterest (View v) {
+        // Next lines gets the last time savings account was opened (or the first time) and calculates the interest it has gathered between that time and current time.
+        // Interest updates every time you open this activity. Time in seconds is divided by minutes so the interest wont be too large overtime but its still noticeable while testing.
+        if (MainActivity.accountArrayList().get(listIndex).getType().equals("Savings")) {
+            currentdate = java.util.Calendar.getInstance().getTime();
+            interesttime = (double) ((currentdate.getTime() - MainActivity.accountArrayList().get(listIndex).getInterestdate().getTime()) / 1000);
+            MainActivity.accountArrayList().get(listIndex).setInterestdate(java.util.Calendar.getInstance().getTime());
+            double exponent = Math.pow(MainActivity.accountArrayList().get(listIndex).getInterest(), interesttime / 60); // exponent is the interest to the power of interest time.
+            MainActivity.accountArrayList().get(listIndex).depositMoney(MainActivity.accountArrayList().get(listIndex).getMoney() * exponent - MainActivity.accountArrayList().get(listIndex).getMoney());
+            accountMoney.setText("Account money: "+String.format("%1.2f",MainActivity.accountArrayList().get(listIndex).getMoney()) + "€");
+            Toast.makeText(context, "Interest gathered: "+String.format("%1.2f",MainActivity.accountArrayList().get(listIndex).getMoney() * exponent - MainActivity.accountArrayList().get(listIndex).getMoney()), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "You cannot gather credit with Current Account type.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     public void deleteAccount(View v)   {
         // this method deletes account via confirmation window
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
